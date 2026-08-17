@@ -64,6 +64,9 @@
   .schema{display:block; width:100%; max-width:640px; border:1px solid var(--line); border-radius:10px; margin:0 auto 12px; background:#fff;}
   .info-answer{display:none; margin-top:12px; background:var(--ok-bg); border:1px solid #BBDCC9; border-radius:10px; padding:12px 14px; font-size:.88rem; white-space:pre-line;}
   .q.done .info-answer{display:block;}
+  .schema-reveal{display:none; margin-top:12px;}
+  .q.done .schema-reveal{display:block;}
+  .schema-cap{font-size:.78rem; font-weight:600; color:var(--ink-soft); text-align:center; margin-bottom:6px;}
   footer{max-width:880px; margin:0 auto; padding:0 20px 40px; font-size:.78rem; color:var(--ink-soft);}
   @media (max-width:520px){ .q{padding:16px;} .head-inner{padding:12px 14px;} main{padding:16px 14px 60px;} }
 </style>
@@ -204,7 +207,7 @@ const QUESTIONS = [
 {src:"D", sec:"1er parcial 2024", type:"multi", text:"Indicar todos los errores que son los más comunes al momento de una entrevista de selección de RRHH:",
  options:["No planificar la entrevista","Adoptar mayor protagonismo que el propio candidato","Brindar ambientes de confianza adecuados al candidato","No determinar criterios de selección adecuados","Ignorar la política general de reclutamiento"], correct:[0,1],
  flag:"⚠ Solo 'Adoptar mayor protagonismo' quedó confirmada con ✓. 'No determinar criterios de selección' fue marcada incorrecta con la nota «previo a la entrevista». 'No planificar la entrevista' se deduce como correcta (es el error clásico junto al protagonismo), pero no está confirmada en el archivo."},
-{src:"D", sec:"1er parcial 2024", type:"info", text:"Relacione correctamente — La socialización organizacional:",
+{img:"cuadro_carga_2025", src:"D", sec:"1er parcial 2024", type:"info", text:"Relacione correctamente — La socialización organizacional:",
  answer:"1) Es: g. Un proceso. ✓\n2) En el contexto de la asignatura ASI, se pone énfasis en: d. La socialización primaria. (⚠ letra manuscrita poco legible en el archivo)\n3) Su finalidad es: b. Lograr la integración de un nuevo miembro en la organización de manera que su incorporación no sea traumática. ✓\n4) Su importancia radica: f. Aporta a la estabilidad y eficacia de las organizaciones… ✓\n5) Termina cuando: c. El nuevo miembro se siente a gusto con la organización y su puesto, cuando ha aceptado las normas y valores. ✓",
  flag:"El ítem 2 tiene la letra manuscrita difícil de leer; verificar con apuntes."},
 {src:"D", sec:"1er parcial 2024", type:"multi", text:"Indicar los criterios a aplicar para la selección de fuentes de provisión de SW:",
@@ -213,21 +216,16 @@ const QUESTIONS = [
 {src:"D", sec:"1er parcial 2024", type:"tf", text:"A los requisitos para reclutar personal se los califica en obligatorios y recomendables.", correct:[1]},
 {src:"D", sec:"1er parcial 2024", type:"tf", text:"En un RDP para adquisición de paquete estándar deben incluirse los acuerdos de niveles de servicio.", correct:[1],
  flag:"Corrección del docente: los acuerdos de niveles de servicio corresponden a outsourcing, no a la adquisición de paquete estándar → Falso."},
-{img:"cuadro_carga_2025", src:"D", sec:"1er parcial 2025", type:"info", text:"Complete el cuadro de magnitudes y variables de una carga:",
- answer:"Factor de Utilización de CPU → Magnitud: Utilización de recursos · Característica del sistema tipo: cuantitativo-interno, Todos.\nTiempo de reflexión del usuario → Magnitud: Consumo de tiempos · cuantitativo-externo, Interactivo.",
- flag:"En el intento se escribió 'Trabajo realizado' como magnitud del Factor de Utilización de CPU y fue corregido a 'Utilización de recursos' (se descontó puntaje)."},
-{src:"D", sec:"1er parcial 2025", type:"single", text:"¿Qué implica el seguimiento de RRHH?",
+{src:"D", sec:"1er parcial 2025", type:"multi", text:"¿Qué implica el seguimiento de RRHH?",
  options:["Aumentar la cantidad de personal","Evaluar el desempeño de los recursos humanos","Reducir costos de personal","Mejorar la comunicación interna"], correct:[1]},
 {src:"D", sec:"1er parcial 2025", type:"multi", text:"El seguimiento de los RRHH en las organizaciones debe incluir:",
  options:["El desempeño de las personas en sus tareas","Ajuste a las reglas, y los aspectos formales","Los procesos de definición de políticas y la forma y criterios con que se aplican sobre los RRHH","Cómo se define cada cargo"], correct:[0,1]},
-{img:"edwards_2025", src:"D", sec:"1er parcial 2025", type:"info", text:"Edwards et al. — aspectos específicos de los SI/TI dentro de cada contexto para su integración con la estrategia organizacional:",
- answer:"Según las marcas del parcial:\nContexto externo: (i) Fuerzas que afectan a la actividad de la empresa, (iii) Investigación en desarrollo de productos/bienes/servicios, (iv) Avances en las tecnologías de la información y sus tendencias, (viii) Ventajas y capacidad de los recursos actuales de SI/TI.\nContexto interno: (ii) Forma en que los SI/TI se utilizan en la industria o sector, (vi) Los recursos de SI/TI que tiene la empresa, (vii) Estructura organizativa y estilos de dirección. La (v) Misión y objetivos aparece marcada como incorrecta en interno.",
- flag:"⚠ Las marcas manuscritas de este ejercicio son ambiguas (círculos y flechas superpuestos). Verificar con el material de Edwards antes de estudiarlo como definitivo."},
+{img:"edwards_2025", src:"D", sec:"1er parcial 2025", type:"multi", text:"Según Edwards et al., seleccione los aspectos específicos de los SI/TI que corresponden al CONTEXTO EXTERNO para su integración con la estrategia organizacional:",
+ options:["i. Fuerzas que afectan a la actividad de la empresa/organización","ii. Forma en que los SI/TI se utilizan en la industria o sector económico al que se dedica la empresa/organización","iii. Investigación en desarrollo de productos, bienes y/o servicios que fabrica/presta la empresa/organización","iv. Avances en las tecnologías de la información y sus tendencias","v. Misión y objetivos de la empresa/organización","vi. Los recursos de SI/TI que tiene la empresa/organización","vii. Estructura organizativa y estilos de dirección de la empresa/organización","viii. Ventajas y capacidad de los recursos actuales de SI/TI que tiene la empresa/organización"], correct:[1,3]},
+{img:"edwards_2025", src:"D", sec:"1er parcial 2025", type:"multi", text:"Según Edwards et al., seleccione los aspectos específicos de los SI/TI que corresponden al CONTEXTO INTERNO para su integración con la estrategia organizacional:",
+ options:["i. Fuerzas que afectan a la actividad de la empresa/organización","ii. Forma en que los SI/TI se utilizan en la industria o sector económico al que se dedica la empresa/organización","iii. Investigación en desarrollo de productos, bienes y/o servicios que fabrica/presta la empresa/organización","iv. Avances en las tecnologías de la información y sus tendencias","v. Misión y objetivos de la empresa/organización","vi. Los recursos de SI/TI que tiene la empresa/organización","vii. Estructura organizativa y estilos de dirección de la empresa/organización","viii. Ventajas y capacidad de los recursos actuales de SI/TI que tiene la empresa/organización"], correct:[5,7]},
 {src:"D", sec:"1er parcial 2025", type:"single", text:"Indique la característica que corresponde a las aplicaciones de tipo estratégico:",
  options:["Evitar una desventaja para la empresa o impedir un riesgo del negocio potencialmente crítico","Lograr una ventaja y mantenerla con desarrollos posteriores","Lograr el uso eficiente de todos los recursos","Hallar una solución empresarial más eficaz"], correct:[1]},
-{src:"D", sec:"2do parcial 2025 — Tema 1", type:"info", text:"Conceptos y estadios de educación en el desarrollo de RRHH — complete:",
- answer:"• La preparación que se sigue para desempeñar las funciones del cargo es: entrenamiento.\n• Es la adquisición de conocimientos técnicos, teóricos y prácticos que van a contribuir al crecimiento profesional dentro de su carrera: formación profesional.\n• El proceso complejo a través del cual se adquieren o modifican habilidades, conocimientos, conductas o valores como resultado del estudio, la experiencia, la instrucción, el razonamiento y la observación es: aprendizaje.",
- flag:"En el intento se escribió 'especialización' en el tercer punto y fue corregido a 'aprendizaje'."},
 {src:"D", sec:"2do parcial 2025 — Tema 1", type:"single", text:"¿Cuál es el punto central del proceso de adquisición de software?",
  options:["El costo de los equipos de hardware","La evaluación técnica del proveedor","La instalación del sistema operativo","La elección del canal de provisión más adecuado"], correct:[3]},
 {src:"D", sec:"2do parcial 2025 — Tema 1", type:"single", text:"¿Qué diferencia principal existe entre el desarrollo interno y la compra de paquetes estándar?",
@@ -240,8 +238,8 @@ const QUESTIONS = [
 {src:"D", sec:"2do parcial 2025 — Tema 2", type:"tf", text:"Para decidir un esquema de tercerización de SI/TI, un criterio a evaluar es la índole de la Plataforma.", correct:[1],
  flag:"Corrección visible: el alumno marcó V y el docente anotó «marco como falso» → Falso."},
 {src:"D", sec:"2do parcial 2025 — Tema 2", type:"tf", text:"El management estratégico de los SI/TI se basa en tres cuestiones estratégicas: qué harán, dónde estarán y cómo se dispondrán los SI/TI.", correct:[0]},
-{src:"D", sec:"2do parcial 2025 — Tema 2", type:"tf", text:"En la provisión de SI/TI, existen dos etapas: evaluación técnica y evaluación económica.", correct:[1],
- flag:"⚠ Las marcas V/F de este ítem no son nítidas en la foto. Se indica 'Falso' de forma tentativa (el proceso de provisión tiene más etapas: investigación, evaluación y selección de fuentes); verificar con la cátedra."},
+{src:"D", sec:"2do parcial 2025 — Tema 2", type:"tf", text:"En la provisión de SI/TI, existen dos etapas: evaluación técnica y evaluación económica.", correct:[0],
+ flag:"Confirmado: Verdadero. Fundamento en la sección 10 del RDP."},
 {src:"D", sec:"2do parcial 2025 — Tema 2", type:"single", text:"Para el caso de provisión de paquetes estándar, ¿qué aspecto evalúa la funcionalidad?",
  options:["El grado de adecuaciones del paquete","Si el paquete cubre los procesos operativos que el usuario requiere","La seguridad y los controles de acceso","El costo de mantenimiento"], correct:[1]},
 {src:"D", sec:"2do parcial 2025 — Tema 2", type:"single", text:"¿Qué criterio se refiere a la capacidad del sistema para prevenir accesos no autorizados y resguardar información?",
@@ -252,11 +250,9 @@ const QUESTIONS = [
 {src:"D", sec:"2do parcial 2025 — Tema 2", type:"single", text:"¿Qué implica la ponderación en el Método de Evaluación Manual (MEM)?",
  options:["El cálculo de promedios de costo","La estimación del tiempo de instalación","La asignación de importancia relativa a cada requisito evaluado","La suma de las puntuaciones finales"], correct:[2]},
 {src:"D", sec:"2do parcial 2025 — Tema 2", type:"single", text:"De acuerdo con las recomendaciones de Robson, recurrir a un paquete estándar como fuente de obtención de software es conveniente, entre otras cuestiones, cuando:",
- options:["La organización es una PyMES o una división pequeña de una gran empresa que requiere de un conjunto de aplicaciones bien integradas y que no exige cambios adaptativos","Cuando la aplicación en cuestión no es fundamental, y requiere de una interfase bien definida y simple","Cuando se trata de una aplicación compleja que necesite de especialización técnica en un área donde la empresa considere que no puede obtener una ventaja competitiva importante","Ninguna de las afirmaciones es válida","Todas las afirmaciones anteriores son válidas"], correct:[4],
- flag:"⚠ En la foto, A aparece tachada con ✗ y E señalada. Es contradictorio (si A fuera falsa, E no podría ser 'todas'), por lo que la respuesta E queda sin confirmación plena; verificar con Robson."},
+ options:["La organización es una PyMES o una división pequeña de una gran empresa que requiere de un conjunto de aplicaciones bien integradas y que no exige cambios adaptativos","Cuando la aplicación en cuestión no es fundamental, y requiere de una interfase bien definida y simple","Cuando se trata de una aplicación compleja que necesite de especialización técnica en un área donde la empresa considere que no puede obtener una ventaja competitiva importante","Ninguna de las afirmaciones es válida","Todas las afirmaciones anteriores son válidas"], correct:[4]},
 {src:"D", sec:"2do parcial 2025 — Tema 2", type:"single", text:"AGUNSA — Capítulo 10, inciso 10.2 del RDP para la provisión de escáneres de códigos de barras: se indica que las características obligatorias serán calificadas con 8 puntos, y en el mismo capítulo, que la escala de calificación aplicable es de 0 a 10. Evalúe la situación y marque lo correcto:",
- options:["Es incorrecto porque en el formato general de un RDP la especificación de las calificaciones no se expresan en el capítulo 10","Es incorrecto el criterio, porque las características obligatorias deben calificarse siempre con la puntuación mayor","Es incorrecto el criterio; las características obligatorias deben calificarse siempre con 10","Es incorrecto porque la escala de calificación no se indica en el RDP","Es correcto el criterio; sólo las características imprescindibles se evalúan con 10","Es correcto el criterio; sólo las características imprescindibles se evalúan con la mayor calificación","Es correcto el criterio; la escala de calificación debe ser siempre de 0 a 3","Incorrecta. La escala de calificación debe ser de 0 a 3"], correct:[1],
- flag:"La opción 2 aparece con tilde del docente; la opción 'las imprescindibles se evalúan con la mayor calificación' aparece con ✗. Las marcas de la foto no son 100% nítidas."},
+ options:["Es incorrecto porque en el formato general de un RDP la especificación de las calificaciones no se expresan en el capítulo 10","Es incorrecto el criterio, porque las características obligatorias deben calificarse siempre con la puntuación mayor","Es incorrecto el criterio; las características obligatorias deben calificarse siempre con 10","Es incorrecto porque la escala de calificación no se indica en el RDP","Es correcto el criterio; sólo las características imprescindibles se evalúan con 10","Es correcto el criterio; sólo las características imprescindibles se evalúan con la mayor calificación","Es correcto el criterio; la escala de calificación debe ser siempre de 0 a 3","Incorrecta. La escala de calificación debe ser de 0 a 3"], correct:[1]},
 {src:"D", sec:"Integrador 2024", type:"single", text:"Según el grado de apoyo que los SI brinden al funcionamiento actual o a los planes de expansión de la empresa, las inversiones se clasifican en:",
  options:["Inversiones de valor operacional o de valor estratégico","Inversión de umbral o inversiones de infraestructura","Ninguna de las anteriores"], correct:[0]},
 
@@ -333,7 +329,8 @@ function render(){
       <div class="actions">
         ${noAnswer ? `<span class="verdict bad">Sin respuesta confirmada — no se corrige automáticamente.</span>`
                    : `<button class="btn" onclick="check(${i},this)">Corregir</button><span class="verdict" id="v${i}"></span>`}
-      </div>${flag}
+      </div>
+      ${q.img?`<div class="schema-reveal"><div class="schema-cap">Imagen del parcial (justificación)</div><img class="schema" src="${IMAGES[q.img]}" alt="esquema"></div>`:""}${flag}
     </div>`;
   }).join("");
 }
