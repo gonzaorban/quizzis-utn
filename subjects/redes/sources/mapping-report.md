@@ -121,7 +121,7 @@ manual página por página. **Pendiente de revisión humana.**
 | `redes-m15` | Modelo OSI vs TCP/IP: (seleccione las opciones correctas) | No hay comparación OSI vs TCP/IP en el apunte. |
 | `redes-m6` | Los números mágicos en PPP se utilizan: | El apunte no menciona los números mágicos de PPP. |
 | `redes-c58` | ¿Cuales son los supuestos en cuanto al tiempo en que las estaciones de un canal compart… | El apunte no describe los supuestos de tiempo continuo o ranurado. |
-| `redes-m3` | El período de vulnerabilidad de una trama en: | No hay texto sobre el período de vulnerabilidad de ALOHA (además, la clave de la cátedra está en duda: ver la nota de la pregunta). |
+| `redes-m3` | El período de vulnerabilidad de una trama en: | No hay texto sobre el período de vulnerabilidad de ALOHA (la clave del PDF original estaba invertida y se corrigió: ver la nota de la pregunta). |
 | `redes-m25` | Bridges - Reconfiguración | No hay texto sobre la reconfiguración (tiempos de caché, FORWARD_DELAY, TC/TCA). |
 | `redes-c1` | La técnica de horizonte dividido funciona en todas las topologías | El apunte no menciona el horizonte dividido. |
 | `redes-c45` | Las causas de la congestión pueden ser: | El apunte no enumera las causas de la congestión. |
