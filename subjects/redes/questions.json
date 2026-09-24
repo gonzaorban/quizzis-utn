@@ -819,11 +819,11 @@
         "e^-G"
       ],
       "correct": [
-        0,
-        1
+        1,
+        0
       ],
       "fb": "En Aloha Puro: la probabilidad de que se generen 0 marcos en un período t está dada por Poisson como e^-G. En un período de 2t es e^-G·e^-G = e^-2G. Por lo tanto S = G·e^-2G. La utilización máxima ocurre con G = 0,5, con S = 1/2e ≈ 0,184: la utilización máxima del canal es solamente 18%. En Aloha Ranurado: para evitar una colisión solo necesitamos que no se inicie otro marco en el mismo intervalo, por lo que la probabilidad de que no se genere ningún marco en el período vulnerable es e^-G. Entonces S = G·e^-G. Si G = 1, S = 0,368: 36% de los intervalos están vacíos, 36% tienen un marco y 27% son colisiones.",
-      "note": "Ojo: la clave de la cátedra asigna e^-2G a Aloha Ranurado y e^-G a Aloha Puro, pero su propia explicación dice lo contrario (Puro: e^-2G, Ranurado: e^-G), que es lo que indica la bibliografía. La app corrige según la clave original; consultalo con la cátedra."
+      "note": "En el PDF original esta pregunta estaba mal: la clave asignaba e^-2G a Aloha Ranurado y e^-G a Aloha Puro, al revés de lo que dice su propia explicación y la bibliografía. Acá está corregida: Aloha Puro → e^-2G, Aloha Ranurado → e^-G."
     },
     {
       "id": "redes-m9",
