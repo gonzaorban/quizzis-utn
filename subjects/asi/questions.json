@@ -15,7 +15,7 @@
     "<p><b>Cómo usar:</b> elegí una opción (o varias, si la pregunta lo indica) y tocá <b>Enviar respuesta</b>. Se marca en verde la respuesta correcta y en rojo si tu elección fue incorrecta. Las tarjetas <b>informativas</b> (cuadros, relaciones, gráficos) muestran la respuesta con <b>Ver respuesta</b>.</p>",
     "<div class=\"legend\"><span class=\"lg-ok\">Respuesta confirmada en el archivo original</span><span class=\"lg-warn\">⚠ Respuesta no confirmada / deducida — verificar con la cátedra</span><span class=\"lg-info\">Tarjeta informativa (sin puntaje)</span></div>",
     "<p>Desarrollado por <a href=\"https://github.com/gonzaorban\" target=\"_blank\" rel=\"noopener noreferrer\">gonzaorban</a>. Información extraída del Drive <b>/Parciales/Preguntas Teoría Parciales.doc</b>.</p>",
-    "<p>Esto sirvió como estudio para el primer parcial 2026 de <b>Administración de Sistemas de Información</b> y cualquiera que quiera puede incorporar cambios en <a href=\"https://github.com/gonzaorban/quizzis-teoria-1erParcial-adm\" target=\"_blank\" rel=\"noopener noreferrer\">github.com/gonzaorban/quizzis-teoria-1erParcial-adm</a>.</p>"
+    "<p>Esto sirvió como estudio para el primer parcial 2026 de <b>Administración de Sistemas de Información</b>.</p>"
   ],
   "footer": "Generado a partir de: Cuestionario Aplicación 24/06 · Evaluaciones Formativas 1 (Unidad 1) · Evaluaciones Formativas 2 (Unidad 3) · Preguntas Teoría Parciales (1er parcial 2024, 1er parcial 2025, 2do parcial 2025 Temas 1 y 2, Integrador 2024) · Cuestionario \"Agunsa\" (caso Correo Argentino). Las preguntas marcadas con ⚠ no tenían la respuesta correcta confirmada en el archivo (respuesta incorrecta sin corrección, parcialmente correcta o anotación ambigua).",
   "topics": {

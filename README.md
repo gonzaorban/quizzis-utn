@@ -4,14 +4,12 @@ Bancos de preguntas de repaso para materias de ISI (UTN FRRe), con corrección i
 Moodle y progreso guardado en el navegador. Es un sitio estático: HTML, CSS y JavaScript vanilla con ES
 modules, sin frameworks, sin build y sin dependencias en runtime.
 
-Repositorio: <https://github.com/gonzaorban/quizzis-utn/>
-
 Materias incluidas:
 
 | Materia | Carpeta | Preguntas |
 |---|---|---|
 | Administración de Sistemas de Información | `subjects/asi/` | 87 (78 con puntaje + 9 informativas) |
-| Redes de Información | `subjects/redes/` | 98, con links a la teoría |
+| Redes de Datos | `subjects/redes/` | 98, con links a la teoría |
 
 ## Estructura
 
@@ -65,7 +63,7 @@ preguntas ya publicadas, las respuestas guardadas de esas preguntas se pierden.
 
 ```jsonc
 {
-  "subject": "Redes de Información",          // nombre visible
+  "subject": "Redes de Datos",          // nombre visible
   "description": "Banco de preguntas…",        // opcional, subtítulo
   "accent": "#2F6FD6",                         // color de acento (#RRGGBB)
   "accentDark": "#5B8FE6",                     // opcional, acento en modo oscuro
