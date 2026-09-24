@@ -491,9 +491,13 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     if (el) el.focus({ preventScroll: true });
   }
 
+  // after changing question: if the card doesn't fit where it is (its start is above the screen,
+  // or it runs past the bottom), bring its start to the top so the question is read first
   function scrollToCard() {
     const c = $("main").querySelector(".card");
-    if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({ block: "start" });
+    if (!c) return;
+    const r = c.getBoundingClientRect();
+    if (r.top < 0 || r.bottom > innerHeight) c.scrollIntoView({ block: "start" });
   }
 
   // moves to position p; in "one" mode the card slides in the direction of travel.
@@ -508,8 +512,10 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       render();
       scrollToCard();
       if (!focusId) return;
+      // preventScroll: a taller card pushes the buttons down and focusing them would scroll past the question
       const b = $(focusId), other = $(focusId === "next" ? "prev" : "next");
-      if (b && !b.disabled) b.focus(); else if (other && !other.disabled) other.focus();
+      if (b && !b.disabled) b.focus({ preventScroll: true });
+      else if (other && !other.disabled) other.focus({ preventScroll: true });
     });
   }
 
