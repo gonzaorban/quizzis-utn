@@ -1,6 +1,7 @@
 // Shared quiz engine. Each subject page calls initQuiz({ slug }) and the engine
 // fetches ./questions.json (relative to the page), renders the UI into #app and
-// keeps progress in localStorage under "quiz-<slug>-v1".
+// keeps progress in localStorage under "quiz-<slug>-v1". Questions are shown one
+// at a time or all on one page (so the browser's Ctrl+F can find any of them).
 
 const kindLabel = {
   single: "Seleccioná una opción",
@@ -81,18 +82,19 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   // ---------- state ----------
   let state = loadState();
   let view = [];          // question indexes after filters
-  let cur = 0;            // position inside view
+  let cur = 0;            // position inside view (in "all" mode: last card touched)
   let optOrder = {};      // question id -> shuffled option order
   let drafts = {};        // question id -> in-progress answer (not checked yet)
 
   function loadState() {
-    const base = { answers: {}, topics: topicIds.slice(), section: "all", status: "all", shuffleQ: false, shuffleO: true };
+    const base = { answers: {}, topics: topicIds.slice(), section: "all", status: "all", shuffleQ: false, shuffleO: true, mode: "one" };
     try {
       const raw = localStorage.getItem(STORE_KEY);
       if (!raw) return base;
       const s = Object.assign(base, JSON.parse(raw));
       s.topics = s.topics.map(String).filter((t) => topicIds.includes(t));
       if (s.section !== "all" && !sections.includes(s.section)) s.section = "all";
+      if (s.mode !== "all") s.mode = "one";
       return s;
     } catch (e) { return base; }
   }
@@ -154,6 +156,10 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     </details>
     <div class="stats" id="stats"></div>
     <div class="bar"><i id="barFill"></i></div>
+    <div class="viewmode" id="viewMode" role="group" aria-label="Cómo mostrar las preguntas">
+      <button type="button" class="seg" data-mode="one">Una por vez</button>
+      <button type="button" class="seg" data-mode="all" title="Muestra todas las preguntas filtradas juntas, para buscarlas con Ctrl+F">Todas en una página</button>
+    </div>
     <main id="main"></main>
     <div class="grid" id="grid" aria-label="Ir a pregunta"></div>
     <footer class="foot">
@@ -235,7 +241,11 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       const cls = ["dot", p === cur ? "cur" : "", st !== "pending" ? st : ""].join(" ");
       return `<button type="button" class="${cls}" data-p="${p}" aria-label="Pregunta ${p + 1}"${p === cur ? ' aria-current="true"' : ""}>${p + 1}</button>`;
     }).join("");
-    $("grid").querySelectorAll(".dot").forEach((d) => d.addEventListener("click", () => { cur = +d.dataset.p; render(); scrollToCard(); }));
+    $("grid").querySelectorAll(".dot").forEach((d) => d.addEventListener("click", () => {
+      cur = +d.dataset.p;
+      if (state.mode === "all") { renderGrid(); cardAt(cur).scrollIntoView({ block: "start" }); }
+      else { render(); scrollToCard(); }
+    }));
   }
 
   function renderFigure(q) {
@@ -244,15 +254,37 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     return `<figure class="figure">${cap}<img src="${esc(asset(q.img))}" alt="Esquema de la pregunta" loading="lazy"></figure>`;
   }
 
+  const cardAt = (p) => $("main").querySelector(`.card[data-p="${p}"]`);
+
   function render() {
     renderStats();
     renderGrid();
+    $("viewMode").querySelectorAll(".seg").forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === state.mode));
     const main = $("main");
     if (!view.length) {
       main.innerHTML = `<div class="card empty-state">No hay preguntas con estos filtros. ${single ? `Elegí otra opción en “${esc(L.topics)}”` : "Activá algún tema"} o cambiá “Mostrar”.</div>`;
       return;
     }
-    const q = DATA.questions[view[cur]];
+    if (state.mode === "all") {
+      main.innerHTML = view.map((qi, p) => cardHTML(DATA.questions[qi], p)).join("");
+      return;
+    }
+    main.innerHTML = cardHTML(DATA.questions[view[cur]], cur) + `
+      <div class="nav">
+        <button class="btn" id="prev" type="button" ${cur === 0 ? "disabled" : ""}>Anterior</button>
+        <button class="btn" id="next" type="button" ${cur === view.length - 1 ? "disabled" : ""}>Siguiente</button>
+      </div>`;
+  }
+
+  // re-renders only the card at position p, so "all" mode keeps its scroll position
+  function update(p) {
+    if (state.mode !== "all") return render();
+    renderStats();
+    renderGrid();
+    cardAt(p).outerHTML = cardHTML(DATA.questions[view[p]], p);
+  }
+
+  function cardHTML(q, p) {
     const saved = state.answers[q.id];
     const locked = !!saved;
     const topic = topicOf(q);
@@ -260,8 +292,8 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     let body = "", actions = "";
     if (q.type === "info") {
       actions = locked
-        ? `<button class="btn" id="retry" type="button">Ocultar respuesta</button>`
-        : `<button class="btn primary" id="check" type="button">Ver respuesta</button>`;
+        ? `<button class="btn retry" type="button">Ocultar respuesta</button>`
+        : `<button class="btn primary check" type="button">Ver respuesta</button>`;
     } else {
       const answer = saved ? saved.ans : (drafts[q.id] || (q.type === "match" ? q.stems.map(() => -1) : []));
       if (q.type === "match") {
@@ -290,21 +322,21 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
             else if (checked && !isCorrect) { cls += " is-bad"; tag = "Incorrecta"; }
             else if (!checked && isCorrect) { cls += " is-missed"; tag = "Faltó marcar"; }
           }
-          return `<label class="${cls}"><input type="${inputType}" name="q" value="${o}" ${checked ? "checked" : ""} ${locked ? "disabled" : ""}>
+          return `<label class="${cls}"><input type="${inputType}" name="q-${esc(q.id)}" value="${o}" ${checked ? "checked" : ""} ${locked ? "disabled" : ""}>
             <span>${esc(q.opts[o])}</span>${tag ? `<span class="tag">${tag}</span>` : ""}</label>`;
         }).join("");
       }
       const hasAnswer = q.type === "match" ? answer.some((a) => a >= 0) : answer.length > 0;
       if (!isScored(q)) actions = `<span class="unscored">Sin respuesta confirmada: no se corrige automáticamente.</span>`;
       else actions = locked
-        ? `<button class="btn" id="retry" type="button">Responder de nuevo</button>`
-        : `<button class="btn primary" id="check" type="button" ${hasAnswer ? "" : "disabled"}>Enviar respuesta</button>`;
+        ? `<button class="btn retry" type="button">Responder de nuevo</button>`
+        : `<button class="btn primary check" type="button" ${hasAnswer ? "" : "disabled"}>Enviar respuesta</button>`;
     }
 
-    main.innerHTML = `
-      <article class="card" id="card">
+    return `
+      <article class="card" data-p="${p}">
         <div class="meta">
-          <span class="qnum">Pregunta ${cur + 1}</span>${swatch(topic)}<span>${esc(topic ? topic.name : q.topic)}</span>
+          <span class="qnum">Pregunta ${p + 1}</span>${swatch(topic)}<span>${esc(topic ? topic.name : q.topic)}</span>
           ${q.section ? `<span class="badge">${esc(q.section)}</span>` : ""}
           ${q.type === "multi" ? `<span class="badge">Selección múltiple</span>` : ""}
           ${q.type === "info" ? `<span class="badge info">Informativa</span>` : ""}
@@ -312,15 +344,10 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
         </div>
         <p class="qtext">${esc(q.text)}</p>
         <p class="kind">${kindLabel[q.type]}</p>
-        ${body ? `<div class="opts" id="opts">${body}</div>` : ""}
+        ${body ? `<div class="opts">${body}</div>` : ""}
         <div class="actions">${actions}</div>
         ${locked ? (q.type === "info" ? renderInfoReview(q) : renderReview(q, saved)) : ""}
-      </article>
-      <div class="nav">
-        <button class="btn" id="prev" type="button" ${cur === 0 ? "disabled" : ""}>Anterior</button>
-        <button class="btn" id="next" type="button" ${cur === view.length - 1 ? "disabled" : ""}>Siguiente</button>
-      </div>`;
-    bindCard(q);
+      </article>`;
   }
 
   // link to the theory PDF page backing the question (source.page is the physical PDF page)
@@ -363,32 +390,40 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     </section>`;
   }
 
-  function bindCard(q) {
-    const opts = $("opts");
-    const locked = !!state.answers[q.id];
-    if (!locked && $("check")) {
-      if (opts) opts.addEventListener("change", () => {
-        if (q.type === "match") {
-          drafts[q.id] = [...opts.querySelectorAll("select")].map((s) => +s.value);
-        } else {
-          drafts[q.id] = [...opts.querySelectorAll("input:checked")].map((i) => +i.value);
-        }
-        const d = drafts[q.id];
-        $("check").disabled = q.type === "match" ? !d.some((a) => a >= 0) : d.length === 0;
-      });
-      $("check").addEventListener("click", () => submit(q));
-    } else if (locked) {
-      $("retry").addEventListener("click", () => {
-        delete state.answers[q.id];
-        delete drafts[q.id];
-        delete optOrder[q.id];
-        saveState();
-        render();
-      });
+  // one set of delegated listeners serves both modes: the card's data-p says which question it is
+  const cardOf = (el) => {
+    const card = el.closest(".card[data-p]");
+    return card && { card, p: +card.dataset.p, q: DATA.questions[view[+card.dataset.p]] };
+  };
+  $("main").addEventListener("change", (e) => {
+    const c = cardOf(e.target);
+    if (!c || state.answers[c.q.id]) return;
+    const { card, q } = c;
+    const opts = card.querySelector(".opts");
+    drafts[q.id] = q.type === "match"
+      ? [...opts.querySelectorAll("select")].map((s) => +s.value)
+      : [...opts.querySelectorAll("input:checked")].map((i) => +i.value);
+    const check = card.querySelector(".check");
+    const d = drafts[q.id];
+    if (check) check.disabled = q.type === "match" ? !d.some((a) => a >= 0) : d.length === 0;
+  });
+  $("main").addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    if (btn.id === "prev" && cur > 0) { cur--; render(); scrollToCard(); return; }
+    if (btn.id === "next" && cur < view.length - 1) { cur++; render(); scrollToCard(); return; }
+    const c = cardOf(btn);
+    if (!c) return;
+    cur = c.p;
+    if (btn.classList.contains("check")) submit(c.q);
+    else if (btn.classList.contains("retry")) {
+      delete state.answers[c.q.id];
+      delete drafts[c.q.id];
+      delete optOrder[c.q.id];
+      saveState();
+      update(c.p);
     }
-    $("prev").addEventListener("click", () => { if (cur > 0) { cur--; render(); scrollToCard(); } });
-    $("next").addEventListener("click", () => { if (cur < view.length - 1) { cur++; render(); scrollToCard(); } });
-  }
+  });
 
   function submit(q) {
     if (q.type === "info") {
@@ -399,11 +434,11 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       delete drafts[q.id];
     }
     saveState();
-    render();
+    update(cur);
   }
 
   function scrollToCard() {
-    const c = $("card");
+    const c = $("main").querySelector(".card");
     if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({ block: "start" });
   }
 
@@ -418,6 +453,14 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   $("statusFilter").addEventListener("change", (e) => { state.status = e.target.value; applyFilters(); });
   $("shuffleQ").addEventListener("change", (e) => { state.shuffleQ = e.target.checked; applyFilters(); });
   $("shuffleO").addEventListener("change", (e) => { state.shuffleO = e.target.checked; optOrder = {}; saveState(); render(); });
+  $("viewMode").querySelectorAll(".seg").forEach((b) => b.addEventListener("click", () => {
+    if (state.mode === b.dataset.mode) return;
+    state.mode = b.dataset.mode;
+    saveState();
+    render();
+    if (state.mode === "all") { const c = cardAt(cur); if (c) c.scrollIntoView({ block: "start" }); }
+    else scrollToCard();
+  }));
   if (!single) {
     $("allTopics").addEventListener("click", () => { state.topics = topicIds.slice(); buildChips(); applyFilters(); });
     $("noTopics").addEventListener("click", () => { state.topics = []; buildChips(); applyFilters(); });
@@ -428,7 +471,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     applyFilters();
   });
   document.addEventListener("keydown", (e) => {
-    if (e.target.matches("select, input, textarea")) return;
+    if (state.mode === "all" || e.target.matches("select, input, textarea")) return;
     if (e.key === "ArrowRight" && cur < view.length - 1) { cur++; render(); }
     if (e.key === "ArrowLeft" && cur > 0) { cur--; render(); }
   });
