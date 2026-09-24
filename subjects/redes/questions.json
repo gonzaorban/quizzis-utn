@@ -553,39 +553,6 @@
       }
     },
     {
-      "id": "redes-c42",
-      "topic": 3,
-      "type": "multi",
-      "text": "¿Cuáles de las siguientes opciones son válidas para el protocolo PPP?",
-      "fb": "",
-      "opts": [
-        "Sincrónico/asincrónico",
-        "IETF RFC 1661, 1662, 1663",
-        "Compresión de encabezado",
-        "Negociación dinámica de una dirección de capa 3",
-        "Subprotocolos separados para gestión del enlace y de las opciones de capa de red (LCP y NCP)",
-        "Multienlace",
-        "Autenticación",
-        "Completamente multiprotocolo"
-      ],
-      "correct": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7
-      ],
-      "source": {
-        "file": "sources/u2-2025.pdf",
-        "page": 39,
-        "confidence": "high",
-        "img": "sources/pages/u2-2025-p39.webp"
-      }
-    },
-    {
       "id": "redes-c44",
       "topic": 3,
       "type": "single",
