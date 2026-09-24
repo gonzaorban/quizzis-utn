@@ -63,7 +63,11 @@ function check(slug) {
     if (q.img !== undefined && !fs.existsSync(path.join(dir, q.img))) e(`no existe la imagen ${q.img}`);
     if (q.source !== undefined) {
       const s = q.source;
-      if (!s || typeof s.file !== "string") e("source.file ausente");
+      if (s?.file === undefined) {
+        // sin PDF: solo la imagen de la página, con su rótulo
+        if (typeof s?.img !== "string") e("source sin 'file' necesita 'img'");
+        if (typeof s?.label !== "string" || !s.label) e("source sin 'file' necesita 'label'");
+      } else if (typeof s.file !== "string") e("source.file debe ser un string");
       else if (!fs.existsSync(path.join(dir, s.file))) e(`no existe ${s.file}`);
       if (!Number.isInteger(s?.page) || s.page < 1) e("source.page debe ser un entero ≥ 1");
       if (!CONFIDENCE.includes(s?.confidence)) e(`source.confidence debe ser ${CONFIDENCE.join("|")}`);

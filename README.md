@@ -19,6 +19,10 @@ Materias incluidas:
 |---|---|---|
 | Administración de Sistemas de Información | `subjects/asi/` | 87 (78 con puntaje + 9 informativas) |
 | Redes de Datos | `subjects/redes/` | 98 (90 con link a la página de la teoría, 51 con la imagen de esa página) |
+| 1er parcial GIS (Sistemas de Información Geográfica) | `subjects/gis/` | 84 (las ★ importantes y las 33 del 1er parcial 2025, con la página del apunte) |
+
+Las de GIS salen del banco de [matiasgzlez/GIS](https://github.com/matiasgzlez/GIS): solo las marcadas como
+importantes en clase y las del parcial 2025 (con sus variantes), en el orden de lectura de los apuntes.
 
 ## Estructura
 
@@ -40,6 +44,11 @@ subjects/
     questions.json
     sources/            # PDFs de teoría + mapping-report.md
       pages/            # páginas de los PDFs como imagen (las genera render-source-pages.py)
+  gis/
+    index.html
+    questions.json
+    img/                # figuras de los apuntes
+    slides/             # página del apunte de donde sale cada pregunta (sin los PDFs)
 scripts/
   validate.mjs          # valida todos los questions.json
   rank-sources.mjs      # sugiere páginas de la teoría para cada pregunta
@@ -86,7 +95,8 @@ preguntas ya publicadas, las respuestas guardadas de esas preguntas se pierden.
   "topicFilter": "multi",                      // opcional: "multi" (chips independientes) o
                                                // "single" (uno a la vez + "Todas")
   "labels": {                                  // opcional, textos del filtro
-    "topics": "Temas", "allTopics": "Todos los temas", "noTopics": "Ninguno", "section": "Sección"
+    "topics": "Temas", "allTopics": "Todos los temas", "noTopics": "Ninguno", "section": "Sección",
+    "feedback": "Explicación de la cátedra"    // título de la explicación ("fb")
   },
   "imageCaption": "Imagen de referencia",      // opcional, título de las imágenes en la revisión
   "about": ["<p>…</p>"],                       // opcional, HTML: bloque "Sobre este banco de preguntas"
@@ -118,7 +128,7 @@ aclaración sobre el tema, visible en los filtros y en cada pregunta.
 | `note` | opcional | Aviso que se muestra al responder (por ejemplo, una respuesta dudosa). |
 | `section` | opcional | Sub-agrupación (por ejemplo, "1er parcial 2024"). Se muestra como badge y habilita el filtro por sección. |
 | `img` | opcional | Ruta relativa a la carpeta de la materia (`img/x.jpg`). |
-| `source` | opcional | `{ "file": "sources/x.pdf", "page": 12, "confidence": "high" \| "medium" \| "low", "img": "sources/pages/x-p12.webp" }`. Muestra "Ver en la teoría", que abre `x.pdf#page=12`. `page` es la página física del PDF (empieza en 1). Si está `img`, la corrección muestra además la imagen de esa página, para ver el respaldo sin abrir el PDF. |
+| `source` | opcional | `{ "file": "sources/x.pdf", "page": 12, "confidence": "high" \| "medium" \| "low", "img": "sources/pages/x-p12.webp" }`. Muestra "Ver en la teoría", que abre `x.pdf#page=12`. `page` es la página física del PDF (empieza en 1). Si está `img`, la corrección muestra además la imagen de esa página, para ver el respaldo sin abrir el PDF. Sin `file` (cuando el PDF no está en el repo) muestra solo la imagen, con `label` como rótulo: `{ "label": "Unidad 3, diap. 52", "page": 52, "confidence": "high", "img": "slides/u3-52.webp" }`. |
 
 ### Puntaje
 
@@ -141,7 +151,7 @@ Recorre `subjects/*/questions.json` y verifica, entre otras cosas:
 - índices de `correct` dentro de rango
 - `match` con tantos `correct` como `stems`
 - campos obligatorios por tipo
-- que existan los archivos de `img` y `source`
+- que existan los archivos de `img` y `source` (y que un `source` sin `file` tenga `img` y `label`)
 - que `subjects.json` esté sincronizado con las carpetas
 
 Si encuentra errores, sale con código 1.
