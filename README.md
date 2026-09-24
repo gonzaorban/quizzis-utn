@@ -12,12 +12,14 @@ Materias incluidas:
 | Materia | Carpeta | Preguntas |
 |---|---|---|
 | Administración de Sistemas de Información | `subjects/asi/` | 87 (78 con puntaje + 9 informativas) |
-| Redes de Datos | `subjects/redes/` | 98, con links a la teoría |
+| Redes de Datos | `subjects/redes/` | 98 (90 con link a la página de la teoría) |
 
 ## Estructura
 
 ```
 index.html              # landing: lista las materias de subjects/subjects.json
+favicon.ico, apple-touch-icon.png
+img/                    # logo de la UTN y favicon en PNG, compartidos por todas las páginas
 engine/
   quiz.js               # motor común (render, puntaje, filtros, progreso)
   quiz.css              # diseño común (claro/oscuro, mobile-first)
@@ -34,8 +36,7 @@ subjects/
 scripts/
   validate.mjs          # valida todos los questions.json
   rank-sources.mjs      # sugiere páginas de la teoría para cada pregunta
-vercel.json             # cleanUrls + trailingSlash
-serve.json              # misma configuración para `npx serve`
+serve.json, vercel.json # cleanUrls + trailingSlash (ver abajo)
 ```
 
 ## Correrlo local
@@ -46,8 +47,11 @@ serve.json              # misma configuración para `npx serve`
 npx serve .
 ```
 
-y abrí la URL que imprime (por defecto <http://localhost:3000>). `serve.json` replica la configuración de
-Vercel, así que las URLs se comportan igual que en producción.
+y abrí la URL que imprime (por defecto <http://localhost:3000>).
+
+`serve.json` activa `cleanUrls` y `trailingSlash`, igual que en producción: `/subjects/redes` redirige a
+`/subjects/redes/`. Sin la barra final, los paths relativos de cada materia (`questions.json`, `img/…`,
+`sources/…`) no se resuelven. Cualquier servidor que publique el sitio tiene que hacer lo mismo.
 
 ## Agregar una materia
 
@@ -147,13 +151,3 @@ node scripts/rank-sources.mjs redes redes-c8 --top 5
 Son solo candidatos: la página y la confianza de cada `source` las decide una persona. El detalle de
 las asignaciones actuales de Redes, con el fragmento que justifica cada una, está en
 [`subjects/redes/sources/mapping-report.md`](subjects/redes/sources/mapping-report.md).
-
-## Deploy en Vercel
-
-1. En Vercel: **Add New → Project** e importá este repositorio.
-2. Framework preset: **Other**. Dejá vacíos el *Build Command* y el *Install Command*, y poné `.` como
-   *Output Directory* (o dejalo vacío).
-3. Deploy. `vercel.json` activa `cleanUrls` y `trailingSlash`: `/subjects/redes` redirige a
-   `/subjects/redes/`, así los paths relativos (`questions.json`, `img/…`, `sources/…`) se resuelven bien.
-
-Cada push a la rama principal publica una versión nueva. Las ramas generan previews.
