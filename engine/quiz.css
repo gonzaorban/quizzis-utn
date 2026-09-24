@@ -125,6 +125,14 @@ select{background:var(--surface);border:1px solid var(--line);border-radius:8px;
 .source{margin-top:12px;font-size:.93rem}
 .source a{font-weight:700;text-underline-offset:3px}
 
+.viewmode{display:flex;gap:0;margin:0 2px 14px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
+.seg{border:none;background:transparent;padding:8px 14px;min-height:40px;cursor:pointer;font-size:.9rem;color:var(--muted)}
+.seg + .seg{border-left:1px solid var(--line)}
+.seg[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);font-weight:700}
+.seg:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 55%,transparent);outline-offset:-3px}
+#main > .card + .card{margin-top:14px}
+.card[data-p]{scroll-margin-top:12px}
+
 .nav{display:flex;justify-content:space-between;gap:10px;margin:14px 0}
 .grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .dot{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-size:.8rem;cursor:pointer;padding:0;display:grid;place-items:center}

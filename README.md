@@ -4,6 +4,9 @@ Bancos de preguntas de repaso para materias de ISI (UTN FRRe), con corrección i
 Moodle y progreso guardado en el navegador. Es un sitio estático: HTML, CSS y JavaScript vanilla con ES
 modules, sin frameworks, sin build y sin dependencias en runtime.
 
+Las preguntas se pueden ver de a una o todas juntas en una página. La vista "Todas en una página" sirve
+para buscar una pregunta con Ctrl+F.
+
 Materias incluidas:
 
 | Materia | Carpeta | Preguntas |
