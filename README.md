@@ -4,6 +4,8 @@ Bancos de preguntas de repaso para materias de ISI (UTN FRRe), con corrección i
 Moodle y progreso guardado en el navegador. Es un sitio estático: HTML, CSS y JavaScript vanilla con ES
 modules, sin frameworks, sin build y sin dependencias en runtime.
 
+Repositorio: <https://github.com/gonzaorban/quizzis-utn/>
+
 Materias incluidas:
 
 | Materia | Carpeta | Preguntas |

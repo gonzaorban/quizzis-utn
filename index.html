@@ -13,6 +13,7 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="topbar end" id="topbar"></div>
   <h1>Quizzes UTN</h1>
   <p class="sub">Bancos de preguntas de repaso con corrección inmediata. Elegí una materia; tu progreso queda guardado en este navegador.</p>
   <ul class="subjects" id="subjects" aria-live="polite"><li class="card empty-state">Cargando materias…</li></ul>
@@ -21,7 +22,9 @@
   </footer>
 </div>
 <script type="module">
-import { esc } from "./engine/quiz.js";
+import { esc, repoLink } from "./engine/quiz.js";
+
+document.getElementById("topbar").innerHTML = repoLink();
 
 const list = document.getElementById("subjects");
 const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
