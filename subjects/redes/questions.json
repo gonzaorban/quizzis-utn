@@ -822,8 +822,8 @@
         1,
         0
       ],
-      "fb": "En Aloha Puro: la probabilidad de que se generen 0 marcos en un período t está dada por Poisson como e^-G. En un período de 2t es e^-G·e^-G = e^-2G. Por lo tanto S = G·e^-2G. La utilización máxima ocurre con G = 0,5, con S = 1/2e ≈ 0,184: la utilización máxima del canal es solamente 18%. En Aloha Ranurado: para evitar una colisión solo necesitamos que no se inicie otro marco en el mismo intervalo, por lo que la probabilidad de que no se genere ningún marco en el período vulnerable es e^-G. Entonces S = G·e^-G. Si G = 1, S = 0,368: 36% de los intervalos están vacíos, 36% tienen un marco y 27% son colisiones.",
-      "note": "En el PDF original esta pregunta estaba mal: la clave asignaba e^-2G a Aloha Ranurado y e^-G a Aloha Puro, al revés de lo que dice su propia explicación y la bibliografía. Acá está corregida: Aloha Puro → e^-2G, Aloha Ranurado → e^-G."
+      "fb": "El período de vulnerabilidad es el intervalo en el que, si otra estación empieza a transmitir, la trama choca (t = tiempo de una trama). En Aloha Puro se transmite en cualquier momento, así que la trama es vulnerable durante 2t: la pisa cualquier trama que haya empezado hasta t antes o que empiece antes de que termine. Por Poisson, la probabilidad de que no se genere ninguna trama en 2t es e^-2G, por lo que S = G·e^-2G; el máximo es con G = 0,5: S = 1/2e ≈ 0,184 (18%). En Aloha Ranurado solo se puede transmitir al inicio de una ranura, así que el período vulnerable se reduce a t (una sola ranura): la probabilidad de que nadie más transmita en esa ranura es e^-G y S = G·e^-G; el máximo es con G = 1: S = 1/e ≈ 0,368 (37%). Con G = 1, alrededor del 37% de las ranuras quedan vacías, 37% tienen una transmisión exitosa y 26% son colisiones.",
+      "note": "La clave del PDF original es correcta (Aloha Puro → e^-2G, Aloha Ranurado → e^-G). Lo que estaba mal era la explicación: se reescribió aclarando el período vulnerable de cada caso (2t en Puro, t en Ranurado) y corrigiendo los porcentajes con G = 1 (37% vacías, 37% éxitos y 26% colisiones)."
     },
     {
       "id": "redes-m9",
