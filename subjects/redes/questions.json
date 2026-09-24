@@ -48,7 +48,7 @@
       "id": "redes-c61",
       "topic": 1,
       "type": "multi",
-      "text": "¿Cual es la ventaja del diseño de redes en capas o pilas?",
+      "text": "¿Cuál es la ventaja del diseño de redes en capas o pilas?",
       "fb": "",
       "opts": [
         "Separar en partes, permite facilitar el abordaje de un problema complejo",
@@ -197,7 +197,7 @@
         "La velocidad del enlace",
         "El problema de un receptor rápido y un emisor lento",
         "El ancho de banda",
-        "La cantidad d eenlaces",
+        "La cantidad de enlaces",
         "El problema de un emisor rápido y un receptor lento"
       ],
       "correct": [
@@ -234,7 +234,7 @@
       "id": "redes-c20",
       "topic": 2,
       "type": "multi",
-      "text": "¿Cual de los siguientes procedimientos se relacionan con el control de errores?",
+      "text": "¿Cuáles de los siguientes procedimientos se relacionan con el control de errores?",
       "fb": "",
       "opts": [
         "ARQ con parada y espera",
@@ -262,7 +262,7 @@
       "id": "redes-c47",
       "topic": 2,
       "type": "multi",
-      "text": "¿Cual de los siguientes procedimientos se relacionan con el control de flujo?",
+      "text": "¿Cuáles de los siguientes procedimientos se relacionan con el control de flujo?",
       "fb": "",
       "opts": [
         "Ventana Deslizante",
@@ -381,8 +381,8 @@
       "id": "redes-c13",
       "topic": 3,
       "type": "tf",
-      "text": "PPP se creo para reemplazar a SLIP y LAPB",
-      "fb": "PPP se desarrolló para reemplazar el Protocolo de Internet de línea serie (SLIP) y el protocolo de acceso al enlace, equilibrado (LAPB) en la década de 1980. El sistema anterior se creía que era demasiado simple y no proporcionan la funcionalidad requerida. La primera propuesta de la norma fue publicada en 1989 por la Internet Engineering Task Force (IETF). Esta definición se utilizó hasta 1994, cuando el \"RFC1661 --- The Point-to-Point Protocol (PPP)\" se publicó definición.",
+      "text": "PPP se creó para reemplazar a SLIP y LAPB",
+      "fb": "PPP se desarrolló para reemplazar el Protocolo de Internet de línea serie (SLIP) y el protocolo de acceso al enlace equilibrado (LAPB) en la década de 1980. Se consideraba que los sistemas anteriores eran demasiado simples y no proporcionaban la funcionalidad requerida. La primera propuesta de la norma fue publicada en 1989 por la Internet Engineering Task Force (IETF). Esta definición se utilizó hasta 1994, cuando se publicó la definición \"RFC 1661 — The Point-to-Point Protocol (PPP)\".",
       "opts": [
         "Verdadero",
         "Falso"
@@ -400,7 +400,7 @@
       "id": "redes-c14",
       "topic": 3,
       "type": "tf",
-      "text": "El Protocolo LAP B es similar a HDLC salvo que no utiliza direccionamiento",
+      "text": "El protocolo LAPB es similar a HDLC salvo que no utiliza direccionamiento",
       "fb": "",
       "opts": [
         "Verdadero",
@@ -419,7 +419,7 @@
       "id": "redes-c22",
       "topic": 3,
       "type": "multi",
-      "text": "Cual de las siguientes opciones son válidas para HDLC",
+      "text": "¿Cuáles de las siguientes opciones son válidas para HDLC?",
       "fb": "",
       "opts": [
         "LAPx (CCITT)",
@@ -487,8 +487,8 @@
       "id": "redes-c30",
       "topic": 3,
       "type": "single",
-      "text": "Cómo se negocian las opciones de protocolos de red en PPP?",
-      "fb": "PPP permite que varios protocolos a ser utilizados en la misma conexión de red, proporcionando una manera para que puedan ser encapsulados y configurados. Para cada protocolo separado individual utilizada través de la conexión, hay un nuevo protocolo de control de red (NCP) proporcionado para negociar las configuraciones para el protocolo.",
+      "text": "¿Cómo se negocian las opciones de protocolos de red en PPP?",
+      "fb": "PPP permite utilizar varios protocolos en la misma conexión de red, proporcionando una manera para que puedan ser encapsulados y configurados. Para cada protocolo utilizado a través de la conexión hay un protocolo de control de red (NCP) propio, que negocia su configuración.",
       "opts": [
         "Con NCP",
         "Con LCP"
@@ -506,7 +506,7 @@
       "id": "redes-c34",
       "topic": 3,
       "type": "multi",
-      "text": "Cual de las siguientes afirmaciones son verdaderas para el protocolo PPP",
+      "text": "¿Cuáles de las siguientes afirmaciones son verdaderas para el protocolo PPP?",
       "fb": "",
       "opts": [
         "Especificado en IETF RFC 1661, 1662, 1663",
@@ -538,7 +538,7 @@
       "id": "redes-c42",
       "topic": 3,
       "type": "multi",
-      "text": "Cuales de las siguientes opciones son válidas para el protocolo PPP",
+      "text": "¿Cuáles de las siguientes opciones son válidas para el protocolo PPP?",
       "fb": "",
       "opts": [
         "Sincrónico/asincrónico",
@@ -570,8 +570,8 @@
       "id": "redes-c44",
       "topic": 3,
       "type": "single",
-      "text": "Cómo se inician las sesiones PPP?",
-      "fb": "Protocolo de Control de Enlace (LCP) es cómo se inician las sesiones PPP. En primer lugar, uno solicitudes router o módem para abrir un enlace PPP con otro router e incluye sus preferencias para el tamaño de trama de datos, velocidad, etc. El otro debe estar de acuerdo o en desacuerdo y responder con sus preferencias. Después de preferencias se establecen y autenticación sucede, los datos pasan entre los dos puntos usando PPP. Una vez finalizada la sesión, un mensaje de \"terminar\" es enviado por un lado, acordó por la otra, y se desconecta el enlace.",
+      "text": "¿Cómo se inician las sesiones PPP?",
+      "fb": "Las sesiones PPP se inician con el Protocolo de Control de Enlace (LCP). En primer lugar, un router o módem solicita abrir un enlace PPP con otro router e incluye sus preferencias para el tamaño de trama de datos, velocidad, etc. El otro acepta o rechaza y responde con sus preferencias. Una vez acordadas las preferencias y hecha la autenticación, los datos pasan entre los dos puntos usando PPP. Una vez finalizada la sesión, un lado envía un mensaje de \"terminar\", el otro lo acepta y se desconecta el enlace.",
       "opts": [
         "Con LCP",
         "Con NCP"
@@ -589,7 +589,7 @@
       "id": "redes-c49",
       "topic": 3,
       "type": "multi",
-      "text": "El protocolo PPP, tiene las siguientes funciones de capa de enlace",
+      "text": "El protocolo PPP tiene las siguientes funciones de capa de enlace",
       "fb": "",
       "opts": [
         "Control de Flujo",
@@ -638,7 +638,7 @@
       "choices": [
         "Correcto",
         "Incorrecto",
-        "Un protocolo que permite negociar una dirección de Red pero no brinda autenticacion"
+        "Un protocolo que permite negociar una dirección de Red pero no brinda autenticación"
       ],
       "correct": [
         0,
@@ -676,11 +676,11 @@
       "type": "match",
       "text": "Numere las cinco fases de una conexión PPP",
       "stems": [
-        "Sensado, Enlace Muerto es la fase después de un lado cuelga o se desconecta",
+        "Sensado, Enlace Muerto es la fase después de que un lado cuelga o se desconecta",
         "LCP negocia para las opciones",
         "autenticación (opcional)",
         "Protocolo de capa de red es cuando se inicia cada protocolo que se utilizará",
-        "Cuando la conexión falla o los nodos optó por desconectar."
+        "Cuando la conexión falla o los nodos optan por desconectar."
       ],
       "choices": [
         "1",
@@ -707,11 +707,11 @@
       "id": "redes-c32",
       "topic": 4,
       "type": "multi",
-      "text": "Una cuestión central en los canales de difusión es el problema de asignación del canal a los usuarios. ¿cual de las siguientes opciones están relacionadas con este tema?",
+      "text": "Una cuestión central en los canales de difusión es el problema de asignación del canal a los usuarios. ¿Cuáles de las siguientes opciones están relacionadas con este tema?",
       "fb": "",
       "opts": [
         "La asignación puede ser dinámica",
-        "Los protocolos utilizados para determinar quien accede al canal pertenecen a una subcapa de la capa de enlace de datos",
+        "Los protocolos utilizados para determinar quién accede al canal pertenecen a una subcapa de la capa de enlace de datos",
         "La asignación puede ser estática"
       ],
       "correct": [
@@ -769,7 +769,7 @@
       "id": "redes-c58",
       "topic": 4,
       "type": "multi",
-      "text": "¿Cuales son los supuestos en cuanto al tiempo en que las estaciones de un canal compartido pueden transmitir? (seleccione las opciones válidas)",
+      "text": "¿Cuáles son los supuestos en cuanto al tiempo en que las estaciones de un canal compartido pueden transmitir? (seleccione las opciones válidas)",
       "fb": "",
       "opts": [
         "Las estaciones pueden saber si el canal está en uso antes de intentar utilizarlo",
@@ -889,7 +889,7 @@
       "id": "redes-c2",
       "topic": 5,
       "type": "single",
-      "text": "Cual es la longitud máxima del campo payload de la trama Ethernet",
+      "text": "¿Cuál es la longitud máxima del campo payload de la trama Ethernet?",
       "fb": "",
       "opts": [
         "1500 bytes",
@@ -909,7 +909,7 @@
       "id": "redes-c4",
       "topic": 5,
       "type": "single",
-      "text": "Cual es la longitud mínima de la trama Ethernet",
+      "text": "¿Cuál es la longitud mínima de la trama Ethernet?",
       "fb": "",
       "opts": [
         "64 bytes",
@@ -933,7 +933,7 @@
       "fb": "",
       "opts": [
         "La mayoría de las implementaciones son enlaces PaP FD",
-        "Soporta configuracions half y full duplex",
+        "Soporta configuraciones half y full duplex",
         "Permite el envío de ráfagas de tramas pequeñas",
         "Se aumenta el tamaño de la trama a 512 bytes"
       ],
@@ -953,8 +953,8 @@
       "id": "redes-c17",
       "topic": 5,
       "type": "multi",
-      "text": "La deteccion de colisiones es un proceso analógico Por que motivo puede ser dañino para deteccion de colisiones?",
-      "fb": "El proceso de detección es suceptible de fallar por todas las características de un medio físisco, ruido, conexiones defectuosas, longitudes incorrectas en los medios. Si tenemos conexiones Full Duplex, no existe riesgo de colisión porque hay un canal de transmisión y otro canal de recepción, por ende dos estaciones comunicadas en full duplex transmiten y reciben por canales dedicados y no puede existir una colisión entre una trama transmitida y una que se recibe simultaneamente. Las colisiones se pueden producir en canales half duplex",
+      "text": "La detección de colisiones es un proceso analógico. ¿Por qué motivo puede ser dañino para la detección de colisiones?",
+      "fb": "El proceso de detección es susceptible de fallar por todas las características de un medio físico, ruido, conexiones defectuosas, longitudes incorrectas en los medios. Si tenemos conexiones Full Duplex, no existe riesgo de colisión porque hay un canal de transmisión y otro canal de recepción, por ende dos estaciones comunicadas en full duplex transmiten y reciben por canales dedicados y no puede existir una colisión entre una trama transmitida y una que se recibe simultáneamente. Las colisiones se pueden producir en canales half duplex.",
       "opts": [
         "Por el ruido",
         "Por conexiones defectuosas",
@@ -976,7 +976,7 @@
       "id": "redes-c21",
       "topic": 5,
       "type": "single",
-      "text": "Cual es el único servivio que presta LLC",
+      "text": "¿Cuál es el único servicio que presta LLC?",
       "fb": "",
       "opts": [
         "Con conexión no confiable",
@@ -996,7 +996,7 @@
       "id": "redes-c35",
       "topic": 5,
       "type": "single",
-      "text": "Que empresa desarrolló la primer version d Ethernet",
+      "text": "¿Qué empresa desarrolló la primera versión de Ethernet?",
       "fb": "",
       "opts": [
         "Intel",
@@ -1041,7 +1041,7 @@
       "id": "redes-c60",
       "topic": 5,
       "type": "multi",
-      "text": "LLC :",
+      "text": "LLC:",
       "fb": "",
       "opts": [
         "MAC serializa la trama y la envía mediante capa física",
@@ -1063,7 +1063,7 @@
       "topic": 5,
       "type": "single",
       "text": "La capacidad de conmutación de un switch se mide en:",
-      "fb": "La capacidad de conmutación se mied en paquetes por segundo PPS",
+      "fb": "La capacidad de conmutación se mide en paquetes por segundo (PPS).",
       "opts": [
         "GBPS",
         "MBPS",
@@ -1083,8 +1083,8 @@
       "id": "redes-c66",
       "topic": 5,
       "type": "tf",
-      "text": "Ante una conexión redundante es preferible una perdida de conectividad temporal a que se formen bucles",
-      "fb": "Correcto!! siempres es preferible una perdida de conectividad temporal a una tormenta de broadcast Si se producen bucles va existir una proliferación descontrolada de tramas!!!",
+      "text": "Ante una conexión redundante es preferible una pérdida de conectividad temporal a que se formen bucles",
+      "fb": "¡Correcto! Siempre es preferible una pérdida de conectividad temporal a una tormenta de broadcast. Si se producen bucles, va a existir una proliferación descontrolada de tramas.",
       "opts": [
         "Verdadero",
         "Falso"
@@ -1106,7 +1106,7 @@
       "fb": "",
       "opts": [
         "bit-a-bit",
-        "Cut-Throught",
+        "Cut-Through",
         "Store and Forward",
         "Fragment Free"
       ],
@@ -1131,7 +1131,7 @@
         "Si se conecta una estación por puerto → LAN completamente conmutada",
         "Full Duplex → ∄ colisión!",
         "Conmutación asimétrica",
-        "Eliminación escucha promiscua",
+        "Eliminación de la escucha promiscua",
         "Escalabilidad"
       ],
       "correct": [
@@ -1151,7 +1151,7 @@
       "id": "redes-c69",
       "topic": 5,
       "type": "single",
-      "text": "Cuando se produce un cambio en la topologóa se debe esperar:",
+      "text": "Cuando se produce un cambio en la topología se debe esperar:",
       "fb": "",
       "opts": [
         "FORWARD_DELAY (15s)",
@@ -1171,7 +1171,7 @@
       "id": "redes-c70",
       "topic": 5,
       "type": "multi",
-      "text": "Indique cual de las siguientes afirmaciones son verdaderas para los bridges",
+      "text": "Indique cuáles de las siguientes afirmaciones son verdaderas para los bridges",
       "fb": "",
       "opts": [
         "Dividen dominios de colisión",
@@ -1179,7 +1179,7 @@
         "Dividen dominios de difusión",
         "Permiten redundancia de enlaces",
         "Pueden ocurrir conversiones de trama no deseadas (HB)",
-        "Conectan segmentos LAN en f.transparente"
+        "Conectan segmentos LAN en forma transparente"
       ],
       "correct": [
         0,
@@ -1198,11 +1198,11 @@
       "id": "redes-c71",
       "topic": 5,
       "type": "single",
-      "text": "Que compromete mas la performance de un switch trabajando en modo fragment free?",
-      "fb": "Lo que más compromete a un switch en modo fragment free es mucha cantidad de tramas mínimas pues solo examina los primeros 64 bytes, de esta forma si el trafico es regular y con tramas grandes, las conmuta despues de leer 64 bytes sin importar el resto",
+      "text": "¿Qué compromete más la performance de un switch trabajando en modo fragment free?",
+      "fb": "Lo que más compromete a un switch en modo fragment free es mucha cantidad de tramas mínimas pues solo examina los primeros 64 bytes, de esta forma si el tráfico es regular y con tramas grandes, las conmuta después de leer 64 bytes sin importar el resto.",
       "opts": [
         "Un tráfico regular de tramas máximas",
-        "la existencia de muchas tramas erroneas",
+        "La existencia de muchas tramas erróneas",
         "Muchas tramas mínimas"
       ],
       "correct": [
@@ -1383,7 +1383,7 @@
       "id": "redes-c25",
       "topic": 6,
       "type": "single",
-      "text": "¿Cuantos campos de direcciones tiene una trama 802.11?",
+      "text": "¿Cuántos campos de direcciones tiene una trama 802.11?",
       "fb": "",
       "opts": [
         "2",
@@ -1409,13 +1409,13 @@
       "opts": [
         "Diseñado para RADIUS/EAP/802.11i",
         "WPA no elimina el proceso de cifrado WEP, sólo lo fortalece",
-        "soporta PSK",
+        "Soporta PSK",
         "Combina K con la MAC del cliente y un IV más largo y menos predecible",
         "Utiliza AES",
         "Incorpora un hash de mensaje denominado MIC",
         "Cada 10000 paquetes se regeneran las claves",
         "Diseñado para WEP",
-        "basado en RC4"
+        "Basado en RC4"
       ],
       "correct": [
         0,
@@ -1437,14 +1437,14 @@
       "id": "redes-c29",
       "topic": 6,
       "type": "multi",
-      "text": "Marque las opciones correctas para un escenario con protocolos de acceso inalambrico",
+      "text": "Marque las opciones correctas para un escenario con protocolos de acceso inalámbrico",
       "fb": "",
       "opts": [
         "No podemos usar CSMA",
-        "No podemos usar CDMA: Interferencia en el receptor llevan a la destrucción de la trama",
+        "No podemos usar CDMA: las interferencias en el receptor llevan a la destrucción de la trama",
         "No todas las estaciones están en el rango de alcance de las otras",
         "Tienen el inconveniente de las estaciones expuestas",
-        "Tienen el incoveniente de las estaciones ocultas"
+        "Tienen el inconveniente de las estaciones ocultas"
       ],
       "correct": [
         0,
@@ -1463,7 +1463,7 @@
       "id": "redes-c51",
       "topic": 6,
       "type": "tf",
-      "text": "Los protocolos MACA (Media Acces Colision Avoid) utilizan mensajes RTS (Ready to Send) y CTS (Clear to Send)",
+      "text": "Los protocolos MACA (Multiple Access with Collision Avoidance) utilizan mensajes RTS (Request to Send) y CTS (Clear to Send)",
       "fb": "",
       "opts": [
         "Verdadero",
@@ -1559,7 +1559,7 @@
       "id": "redes-c6",
       "topic": 7,
       "type": "multi",
-      "text": "¿Cual es el mecanismo que utiliza ATM para acomodar el trafico de acuerdo a su tipo / fuente? (marque las opciones válidas)",
+      "text": "¿Cuál es el mecanismo que utiliza ATM para acomodar el tráfico de acuerdo a su tipo / fuente? (marque las opciones válidas)",
       "fb": "",
       "opts": [
         "Se denomina AAL (ATM Adaptation Layer)",
@@ -1581,13 +1581,13 @@
       "id": "redes-c7",
       "topic": 7,
       "type": "multi",
-      "text": "¿Cual de las siguientes opciones son válidas para Frame Relay?",
+      "text": "¿Cuáles de las siguientes opciones son válidas para Frame Relay?",
       "fb": "",
       "opts": [
         "Utiliza la infraestructura existente de la red del proveedor",
         "Impone poco \"overhead\"",
         "Rangos de velocidad desde fraccionales T1 (ej. 64 Kbps, 128 Kbps) hasta OC-3 (155 Mbps)",
-        "Aprovecha la escasa probabilidad de error de las lineas de alta velocidad",
+        "Aprovecha la escasa probabilidad de error de las líneas de alta velocidad",
         "Implementa el paradigma de circuitos virtuales privados",
         "Desarrollado para mejorar el desempeño de X.25"
       ],
@@ -1609,7 +1609,7 @@
       "id": "redes-c9",
       "topic": 7,
       "type": "single",
-      "text": "¿A que nivel e produce la conmutación en Frame Relay?",
+      "text": "¿A qué nivel se produce la conmutación en Frame Relay?",
       "fb": "",
       "opts": [
         "Enlace",
@@ -1648,7 +1648,7 @@
       "id": "redes-c15",
       "topic": 7,
       "type": "single",
-      "text": "¿Que hace Frame Relay cuando recibe una trama dañada?",
+      "text": "¿Qué hace Frame Relay cuando recibe una trama dañada?",
       "fb": "Frame Relay no hace ningún tipo de control de errores sobre la trama ni dispone de ningún campo para ello en su encabezado, por ende descarta la trama sin más",
       "opts": [
         "Marca la trama para posterior descarte",
@@ -1669,7 +1669,7 @@
       "id": "redes-c16",
       "topic": 7,
       "type": "multi",
-      "text": "ATM define tipos de trafico como:",
+      "text": "ATM define tipos de tráfico como:",
       "fb": "",
       "opts": [
         "Velocidad de Trasmisión (Cte. / Variable)",
@@ -1714,7 +1714,7 @@
       "id": "redes-c19",
       "topic": 7,
       "type": "tf",
-      "text": "Debido a que son muy parecidas AAL3 y AAL4 se convirtieron en una única AAL 3/4",
+      "text": "Debido a que son muy parecidas, AAL3 y AAL4 se convirtieron en una única AAL 3/4",
       "fb": "",
       "opts": [
         "Verdadero",
@@ -1733,7 +1733,7 @@
       "id": "redes-c33",
       "topic": 7,
       "type": "multi",
-      "text": "¿Cuales son los parámetros bajo los cuales un cliente contrata un enlace Frame Relay?",
+      "text": "¿Cuáles son los parámetros bajo los cuales un cliente contrata un enlace Frame Relay?",
       "fb": "",
       "opts": [
         "DE",
@@ -1758,7 +1758,7 @@
       "id": "redes-c38",
       "topic": 7,
       "type": "multi",
-      "text": "¿Cuales son las categorías de servicio de ATM?",
+      "text": "¿Cuáles son las categorías de servicio de ATM?",
       "fb": "",
       "opts": [
         "UBR",
@@ -1782,7 +1782,7 @@
       "id": "redes-c39",
       "topic": 7,
       "type": "single",
-      "text": "¿En función de cual campo de su cabecera conmuta Frame Relay?",
+      "text": "¿En función de qué campo de su cabecera conmuta Frame Relay?",
       "fb": "",
       "opts": [
         "DLCI",
@@ -1803,7 +1803,7 @@
       "id": "redes-c40",
       "topic": 7,
       "type": "single",
-      "text": "¿Porque motivo Frame Relay no utiliza Nº de secuencia?",
+      "text": "¿Por qué motivo Frame Relay no utiliza Nº de secuencia?",
       "fb": "El motivo es que utiliza circuitos virtuales, por ende todas las tramas llegan en el orden que fueron transmitidas",
       "opts": [
         "Porque no hace control de errores",
@@ -1823,7 +1823,7 @@
       "id": "redes-c41",
       "topic": 7,
       "type": "single",
-      "text": "¿Cual es la AAL correspondiente a un circuito de voz (emulación de circuito telefónico)?",
+      "text": "¿Cuál es la AAL correspondiente a un circuito de voz (emulación de circuito telefónico)?",
       "fb": "",
       "opts": [
         "AAL3",
@@ -1845,7 +1845,7 @@
       "id": "redes-c43",
       "topic": 7,
       "type": "single",
-      "text": "¿Cual es la AAL correspondiente a una transmisión de video con compresión?",
+      "text": "¿Cuál es la AAL correspondiente a una transmisión de video con compresión?",
       "fb": "",
       "opts": [
         "AAL1",
@@ -1867,8 +1867,8 @@
       "id": "redes-c48",
       "topic": 7,
       "type": "multi",
-      "text": "¿Que sucede cuando un cliente Frame Relay transmite a un tasa Be?",
-      "fb": "Las tramas transmitidas a una tasa Be (Ráfaga en exceso) son transmitidas con el bit DE (Elegible para descarte) puesto a 1, la consecuencia es que en caso de congestión en la red, ésta trama sera descartada antes que cualquiera que no tenga el bit DE activo",
+      "text": "¿Qué sucede cuando un cliente Frame Relay transmite a una tasa Be?",
+      "fb": "Las tramas transmitidas a una tasa Be (Ráfaga en exceso) son transmitidas con el bit DE (Elegible para descarte) puesto a 1, la consecuencia es que en caso de congestión en la red, esta trama será descartada antes que cualquiera que no tenga el bit DE activo",
       "opts": [
         "En caso de congestión esta trama se descarta primero",
         "Activa el campo FECN",
@@ -1889,13 +1889,13 @@
       "id": "redes-c52",
       "topic": 7,
       "type": "multi",
-      "text": "¿Cuales son los formatos definidos para LMI (Local Managment Interface)?",
+      "text": "¿Cuáles son los formatos definidos para LMI (Local Management Interface)?",
       "fb": "",
       "opts": [
         "Cisco",
         "ISO",
         "Implementaciones Opcionales",
-        "Ansi"
+        "ANSI"
       ],
       "correct": [
         0,
@@ -1912,7 +1912,7 @@
       "id": "redes-c54",
       "topic": 7,
       "type": "single",
-      "text": "¿Cual es la AAL correspondiente a IP?",
+      "text": "¿Cuál es la AAL correspondiente a IP?",
       "fb": "",
       "opts": [
         "AAL5",
@@ -1934,7 +1934,7 @@
       "id": "redes-c59",
       "topic": 7,
       "type": "multi",
-      "text": "¿Cual de las siguientes opciones son válidas para el protocolo ATM?",
+      "text": "¿Cuáles de las siguientes opciones son válidas para el protocolo ATM?",
       "fb": "",
       "opts": [
         "Su naturaleza asincrónica le permite mejores rendimientos que otras técnicas de multiplexado (xDM)",
@@ -1961,7 +1961,7 @@
       "id": "redes-c62",
       "topic": 7,
       "type": "single",
-      "text": "¿Que mecanismo utiliza un router corriendo Frame Relay para mapear una dirección de red a DLCI?",
+      "text": "¿Qué mecanismo utiliza un router corriendo Frame Relay para mapear una dirección de red a DLCI?",
       "fb": "Con ARP inverso, el router conoce la dirección de capa 2, que es el DLCI local, y envía una solicitud para la dirección IP de capa 3 de destino. Cuando una interfaz que admite ARP inverso se activa, inicia el protocolo ARP inverso y da formato a una solicitud de ARP inverso para el VC activo.",
       "opts": [
         "ARP inverso",
@@ -2013,7 +2013,7 @@
       "id": "redes-c0",
       "topic": 8,
       "type": "multi",
-      "text": "Seleccione características de ruteo jerarquico",
+      "text": "Seleccione características de ruteo jerárquico",
       "fb": "",
       "opts": [
         "Las tablas de ruta crecen con la red. Después de algún punto no es práctico mantener toda la información sobre la red en cada ruteador.",
@@ -2050,7 +2050,7 @@
       "id": "redes-c3",
       "topic": 8,
       "type": "multi",
-      "text": "Que propiedades debiera tener un algoritmo de enrutamiento",
+      "text": "¿Qué propiedades debiera tener un algoritmo de enrutamiento?",
       "fb": "",
       "opts": [
         "Equidad",
@@ -2080,12 +2080,12 @@
       "id": "redes-c24",
       "topic": 8,
       "type": "multi",
-      "text": "Cuales de las siguientes opciones son verdaderas para enrutamiento por estado de enlace:",
+      "text": "¿Cuáles de las siguientes opciones son verdaderas para el enrutamiento por estado de enlace?",
       "fb": "",
       "opts": [
         "Rápida convergencia con baja complejidad",
-        "La parte mas complicada del algoritmo, es la distribución de los paquetes de estado de enlace",
-        "Utiliza el algoritmo de Dijktra para calcular la ruta mas corta a los demás enrutadores",
+        "La parte más complicada del algoritmo es la distribución de los paquetes de estado de enlace",
+        "Utiliza el algoritmo de Dijkstra para calcular la ruta más corta a los demás enrutadores",
         "Rápida convergencia con alta complejidad",
         "No es necesario que cada enrutador tenga una idea razonable del retardo a cada uno de sus vecinos"
       ],
@@ -2112,7 +2112,7 @@
         "Construir un paquete que indique todo lo que acaba de aprender",
         "Enviar su tabla de ruteo completa, solamente a sus vecinos",
         "Descubrir a sus vecinos y conocer sus direcciones de red",
-        "Calcular la ruta más corta a todos los demas routers"
+        "Calcular la ruta más corta a todos los demás routers"
       ],
       "correct": [
         0,
@@ -2131,7 +2131,7 @@
       "id": "redes-c31",
       "topic": 8,
       "type": "tf",
-      "text": "A los algoritmos de enrutamiento no adpatativos se los utiliza en enrutamiento estático",
+      "text": "A los algoritmos de enrutamiento no adaptativos se los utiliza en enrutamiento estático",
       "fb": "",
       "opts": [
         "Verdadero",
@@ -2154,7 +2154,7 @@
       "fb": "",
       "opts": [
         "Algoritmo de Ford-Fulkerson",
-        "Algoritmo de Dijktra",
+        "Algoritmo de Dijkstra",
         "Algoritmo de Bellman-Ford"
       ],
       "correct": [
@@ -2236,7 +2236,7 @@
       "opts": [
         "Vector Distancia",
         "Inundación",
-        "Ruta mas corta (Dijktra)",
+        "Ruta más corta (Dijkstra)",
         "Estado de enlace"
       ],
       "correct": [
@@ -2253,7 +2253,7 @@
       "id": "redes-c63",
       "topic": 8,
       "type": "single",
-      "text": "En que condiciones de la red es útil la aplicación de QoS",
+      "text": "¿En qué condiciones de la red es útil la aplicación de QoS?",
       "fb": "",
       "opts": [
         "Congestión Moderada",
@@ -2273,10 +2273,10 @@
       "id": "redes-c64",
       "topic": 8,
       "type": "multi",
-      "text": "El problema de conteo a Infinito que tiene el algoritmo de vector distancia se puede mitigar con:",
+      "text": "El problema de conteo a infinito que tiene el algoritmo de vector distancia se puede mitigar con:",
       "fb": "",
       "opts": [
-        "Inundacion Controlada",
+        "Inundación Controlada",
         "Horizonte dividido",
         "Mapeo de interfaces",
         "Optimizando los temporizadores",
