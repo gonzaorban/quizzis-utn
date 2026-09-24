@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quizzes UTN</title>
+<meta name="description" content="Bancos de preguntas de repaso para materias de ISI (UTN FRRe), con corrección inmediata.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='4' fill='%232F6FD6'/%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="engine/quiz.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Quizzes UTN</h1>
+  <p class="sub">Bancos de preguntas de repaso con corrección inmediata. Elegí una materia; tu progreso queda guardado en este navegador.</p>
+  <ul class="subjects" id="subjects" aria-live="polite"><li class="card empty-state">Cargando materias…</li></ul>
+  <footer class="foot">
+    <p>Desarrollado por <a href="https://github.com/gonzaorban" target="_blank" rel="noopener noreferrer">gonzaorban</a>.</p>
+  </footer>
+</div>
+<script type="module">
+import { esc } from "./engine/quiz.js";
+
+const list = document.getElementById("subjects");
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+
+async function load(slug) {
+  const res = await fetch(`subjects/${slug}/questions.json`);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+}
+
+try {
+  const res = await fetch("subjects/subjects.json");
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const slugs = await res.json();
+  const cards = await Promise.all(slugs.map(async (slug) => {
+    try {
+      const d = await load(slug);
+      const topicsLabel = (d.labels && d.labels.topics ? d.labels.topics : "Temas").toLowerCase();
+      const nTopics = Object.keys(d.topics).length;
+      return `<li><a class="subject" href="subjects/${esc(slug)}/" style="--sa:${esc(d.accent)}">
+        <h2>${esc(d.subject)}</h2>
+        ${d.description ? `<p>${esc(d.description)}</p>` : ""}
+        <p class="counts">${plural(d.questions.length, "pregunta", "preguntas")} · ${nTopics} ${esc(topicsLabel)}</p>
+      </a></li>`;
+    } catch (e) {
+      return `<li class="card empty-state">No se pudo cargar «${esc(slug)}» (${esc(e.message)}).</li>`;
+    }
+  }));
+  list.innerHTML = cards.join("");
+} catch (e) {
+  list.innerHTML = `<li class="card empty-state">No se pudo cargar la lista de materias (${esc(e.message)}).
+    Si abriste el archivo directamente, levantá un servidor local: <code>npx serve .</code></li>`;
+}
+</script>
+</body>
+</html>
