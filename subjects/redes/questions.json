@@ -184,7 +184,8 @@
       "source": {
         "file": "sources/u1-introduccion.pdf",
         "page": 2,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-introduccion-p2.webp"
       }
     },
     {
@@ -206,7 +207,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 11,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p11.webp"
       }
     },
     {
@@ -255,7 +257,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 17,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p17.webp"
       }
     },
     {
@@ -277,7 +280,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 15,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p15.webp"
       }
     },
     {
@@ -301,7 +305,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 27,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p27.webp"
       }
     },
     {
@@ -326,7 +331,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 26,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p26.webp"
       }
     },
     {
@@ -350,7 +356,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 25,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p25.webp"
       }
     },
     {
@@ -374,7 +381,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 28,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p28.webp"
       }
     },
     {
@@ -412,7 +420,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 35,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p35.webp"
       }
     },
     {
@@ -442,7 +451,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 30,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p30.webp"
       }
     },
     {
@@ -480,7 +490,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 38,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p38.webp"
       }
     },
     {
@@ -499,7 +510,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 39,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p39.webp"
       }
     },
     {
@@ -531,7 +543,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 39,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p39.webp"
       }
     },
     {
@@ -563,7 +576,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 39,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p39.webp"
       }
     },
     {
@@ -604,7 +618,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 45,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p45.webp"
       }
     },
     {
@@ -623,7 +638,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 45,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p45.webp"
       }
     },
     {
@@ -722,7 +738,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 48,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p48.webp"
       }
     },
     {
@@ -858,7 +875,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 50,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p50.webp"
       }
     },
     {
@@ -902,7 +920,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 61,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p61.webp"
       }
     },
     {
@@ -922,7 +941,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 61,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p61.webp"
       }
     },
     {
@@ -946,7 +966,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 75,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p75.webp"
       }
     },
     {
@@ -989,7 +1010,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 67,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p67.webp"
       }
     },
     {
@@ -1009,7 +1031,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 60,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p60.webp"
       }
     },
     {
@@ -1034,7 +1057,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 73,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p73.webp"
       }
     },
     {
@@ -1055,7 +1079,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 67,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p67.webp"
       }
     },
     {
@@ -1076,7 +1101,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 130,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p130.webp"
       }
     },
     {
@@ -1118,7 +1144,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 129,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p129.webp"
       }
     },
     {
@@ -1144,7 +1171,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 143,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p143.webp"
       }
     },
     {
@@ -1376,7 +1404,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 55,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p55.webp"
       }
     },
     {
@@ -1397,7 +1426,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 90,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p90.webp"
       }
     },
     {
@@ -1456,7 +1486,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 52,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p52.webp"
       }
     },
     {
@@ -1475,7 +1506,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 55,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p55.webp"
       }
     },
     {
@@ -1502,7 +1534,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 84,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p84.webp"
       }
     },
     {
@@ -1527,7 +1560,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 85,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p85.webp"
       }
     },
     {
@@ -1552,7 +1586,8 @@
       "source": {
         "file": "sources/u2-2025.pdf",
         "page": 88,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u2-2025-p88.webp"
       }
     },
     {
@@ -1602,7 +1637,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 1,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p1.webp"
       }
     },
     {
@@ -1641,7 +1677,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 5,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p5.webp"
       }
     },
     {
@@ -1684,7 +1721,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 15,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p15.webp"
       }
     },
     {
@@ -1707,7 +1745,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 12,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p12.webp"
       }
     },
     {
@@ -1726,7 +1765,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 15,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p15.webp"
       }
     },
     {
@@ -1751,7 +1791,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 5,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p5.webp"
       }
     },
     {
@@ -1775,7 +1816,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 16,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p16.webp"
       }
     },
     {
@@ -1905,7 +1947,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 3,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p3.webp"
       }
     },
     {
@@ -1927,7 +1970,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 15,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p15.webp"
       }
     },
     {
@@ -1954,7 +1998,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 8,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p8.webp"
       }
     },
     {
@@ -2006,7 +2051,8 @@
       "source": {
         "file": "sources/u1-frame-relay-atm.pdf",
         "page": 16,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u1-frame-relay-atm-p16.webp"
       }
     },
     {
@@ -2073,7 +2119,8 @@
       "source": {
         "file": "sources/u3-capa-de-red.pdf",
         "page": 12,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u3-capa-de-red-p12.webp"
       }
     },
     {
@@ -2124,7 +2171,8 @@
       "source": {
         "file": "sources/u3-capa-de-red.pdf",
         "page": 18,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u3-capa-de-red-p18.webp"
       }
     },
     {
@@ -2205,7 +2253,8 @@
       "source": {
         "file": "sources/u3-capa-de-red.pdf",
         "page": 9,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u3-capa-de-red-p9.webp"
       }
     },
     {
@@ -2224,7 +2273,8 @@
       "source": {
         "file": "sources/u3-capa-de-red.pdf",
         "page": 10,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u3-capa-de-red-p10.webp"
       }
     },
     {
@@ -2316,7 +2366,8 @@
       "source": {
         "file": "sources/u3-capa-de-red.pdf",
         "page": 10,
-        "confidence": "high"
+        "confidence": "high",
+        "img": "sources/pages/u3-capa-de-red-p10.webp"
       }
     }
   ]

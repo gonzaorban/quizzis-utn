@@ -67,6 +67,7 @@ function check(slug) {
       else if (!fs.existsSync(path.join(dir, s.file))) e(`no existe ${s.file}`);
       if (!Number.isInteger(s?.page) || s.page < 1) e("source.page debe ser un entero ≥ 1");
       if (!CONFIDENCE.includes(s?.confidence)) e(`source.confidence debe ser ${CONFIDENCE.join("|")}`);
+      if (s?.img !== undefined && !fs.existsSync(path.join(dir, s.img))) e(`no existe la imagen ${s.img}`);
     }
   });
   const byType = {};

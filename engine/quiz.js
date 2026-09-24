@@ -391,13 +391,16 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       </article>`;
   }
 
-  // link to the theory PDF page backing the question (source.page is the physical PDF page)
+  // theory PDF page backing the question (source.page is the physical PDF page): a picture of the page when
+  // source.img exists, plus the link to the PDF
   function renderSource(q) {
     if (!q.source) return "";
-    const { file, page, confidence } = q.source;
+    const { file, page, confidence, img } = q.source;
     const name = file.split("/").pop();
     const low = confidence === "low" ? " · referencia aproximada (confianza baja)" : "";
-    return `<p class="source"><a href="${esc(asset(file))}#page=${page}" target="_blank" rel="noopener" title="Se abre en una pestaña nueva">Ver en la teoría (${esc(name)}, pág. ${page})${low}</a></p>`;
+    const shot = img ? `<figure class="figure source-page"><figcaption>En la teoría: ${esc(name)}, pág. ${page}</figcaption>
+      <a href="${esc(asset(img))}" target="_blank" rel="noopener" title="Ver la imagen en tamaño completo"><img src="${esc(asset(img))}" alt="Página ${page} de ${esc(name)}" loading="lazy"></a></figure>` : "";
+    return `${shot}<p class="source"><a href="${esc(asset(file))}#page=${page}" target="_blank" rel="noopener" title="Se abre en una pestaña nueva">Ver en la teoría (${esc(name)}, pág. ${page})${low}</a></p>`;
   }
 
   function renderNote(q) {
