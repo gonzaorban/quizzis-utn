@@ -1,0 +1,1345 @@
+{
+  "subject": "Administración de Sistemas de Información",
+  "description": "Cuestionarios de teoría y preguntas de parciales, con corrección inmediata y puntaje acumulado.",
+  "accent": "#2F4BC0",
+  "accentDark": "#8A9CF0",
+  "emptyFeedback": null,
+  "topicFilter": "single",
+  "labels": {
+    "topics": "Fuentes",
+    "allTopics": "Todas",
+    "section": "Parcial"
+  },
+  "imageCaption": "Imagen del parcial (justificación)",
+  "about": [
+    "<p><b>Cómo usar:</b> elegí una opción (o varias, si la pregunta lo indica) y tocá <b>Enviar respuesta</b>. Se marca en verde la respuesta correcta y en rojo si tu elección fue incorrecta. Las tarjetas <b>informativas</b> (cuadros, relaciones, gráficos) muestran la respuesta con <b>Ver respuesta</b>.</p>",
+    "<div class=\"legend\"><span class=\"lg-ok\">Respuesta confirmada en el archivo original</span><span class=\"lg-warn\">⚠ Respuesta no confirmada / deducida — verificar con la cátedra</span><span class=\"lg-info\">Tarjeta informativa (sin puntaje)</span></div>",
+    "<p>Desarrollado por <a href=\"https://github.com/gonzaorban\" target=\"_blank\" rel=\"noopener noreferrer\">gonzaorban</a>. Información extraída del Drive <b>/Parciales/Preguntas Teoría Parciales.doc</b>.</p>",
+    "<p>Esto sirvió como estudio para el primer parcial 2026 de <b>Administración de Sistemas de Información</b> y cualquiera que quiera puede incorporar cambios en <a href=\"https://github.com/gonzaorban/quizzis-teoria-1erParcial-adm\" target=\"_blank\" rel=\"noopener noreferrer\">github.com/gonzaorban/quizzis-teoria-1erParcial-adm</a>.</p>"
+  ],
+  "footer": "Generado a partir de: Cuestionario Aplicación 24/06 · Evaluaciones Formativas 1 (Unidad 1) · Evaluaciones Formativas 2 (Unidad 3) · Preguntas Teoría Parciales (1er parcial 2024, 1er parcial 2025, 2do parcial 2025 Temas 1 y 2, Integrador 2024) · Cuestionario \"Agunsa\" (caso Correo Argentino). Las preguntas marcadas con ⚠ no tenían la respuesta correcta confirmada en el archivo (respuesta incorrecta sin corrección, parcialmente correcta o anotación ambigua).",
+  "topics": {
+    "A": {
+      "name": "Cuestionario Aplicación 24/06",
+      "color": "#2F6FD6"
+    },
+    "B": {
+      "name": "Eval. Formativa 1 — Unidad 1",
+      "color": "#2E9E57"
+    },
+    "C": {
+      "name": "Eval. Formativa 2 — Unidad 3",
+      "color": "#E8772E"
+    },
+    "D": {
+      "name": "Parciales (Teoría)",
+      "color": "#7B3FA0"
+    },
+    "E": {
+      "name": "Cuestionario Agunsa (Correo Argentino)",
+      "color": "#8A5A3B"
+    }
+  },
+  "questions": [
+    {
+      "id": "asi-001",
+      "topic": "A",
+      "type": "single",
+      "text": "La caracterización de la carga se define como el proceso por el cual:",
+      "opts": [
+        "Se mide el tiempo de ejecución de un programa para comparar dos computadores",
+        "Se define un modelo de carga que reproduce lo mejor posible las características de la carga real mediante parámetros cuantitativos y funciones",
+        "Se reemplazan los componentes físicos del cuello de botella del sistema",
+        "Se selecciona el hardware más económico disponible en el mercado"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-002",
+      "topic": "A",
+      "type": "single",
+      "text": "¿Cuál de las siguientes tareas del proceso de aplicación de SI/TI se fundamenta en la premisa de que 'aquello que no se puede medir no se puede controlar'?",
+      "opts": [
+        "Caracterización de la carga",
+        "Planificación de la capacidad",
+        "Análisis operacional",
+        "Monitorización"
+      ],
+      "correct": [
+        3
+      ],
+      "note": "En el archivo la respuesta marcada (Caracterización de la carga) figura como incorrecta; la respuesta 'Monitorización' proviene de la anotación manual agregada debajo."
+    },
+    {
+      "id": "asi-003",
+      "topic": "A",
+      "type": "single",
+      "text": "La planificación de la capacidad se define como el proceso de:",
+      "opts": [
+        "Extraer información del sistema mediante monitores software y hardware",
+        "Agrupar los trabajos similares en clases mediante la distancia euclídea",
+        "Medir el tiempo de ejecución de un programa de prueba en distintos computadores",
+        "Identificar la configuración del sistema que suministre el rendimiento satisfactorio para las cargas de trabajo futuras proyectadas"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-004",
+      "topic": "A",
+      "type": "single",
+      "text": "Una Unidad de Predicción Natural (UPN) es:",
+      "opts": [
+        "Una variable de negocio cuyo valor está directamente relacionado con los recursos consumidos por una o varias aplicaciones",
+        "Una unidad de medida del tiempo de respuesta percibido por el usuario final",
+        "Un índice estándar de comparación de rendimiento entre computadores (benchmarking)",
+        "El umbral de disponibilidad pactado en un acuerdo de nivel de servicio (SLA)"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-005",
+      "topic": "A",
+      "type": "single",
+      "text": "¿Cuál es la diferencia fundamental entre las técnicas de 'upgrading' y 'tuning'?",
+      "opts": [
+        "El tuning solo se aplica a sistemas batch y el upgrading a interactivos",
+        "El upgrading es gratuito y el tuning tiene un costo elevado",
+        "El upgrading reduce el número de usuarios y el tuning los aumenta",
+        "El upgrading actúa sobre el hardware y el tuning sobre el software (sistema operativo y aplicaciones) y configuración"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-006",
+      "topic": "A",
+      "type": "single",
+      "text": "¿Cuál de los siguientes es un parámetro cualitativo utilizado en la caracterización de la carga?",
+      "opts": [
+        "El tiempo total de procesador",
+        "La capacidad de memoria principal utilizada",
+        "El lenguaje de programación y el tipo de actividad (edición, compilación, ejecución)",
+        "La tasa de llegada de transacciones"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-007",
+      "topic": "A",
+      "type": "single",
+      "text": "La variable Tiempo de reflexión del usuario. ¿Es característica del sistema informático de qué tipo?",
+      "opts": [
+        "Sistemas por lotes o batch",
+        "Sistema interactivo o por demanda",
+        "Todas las respuestas son correctas",
+        "Sistema transaccional"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-008",
+      "topic": "A",
+      "type": "single",
+      "text": "Si un administrador de sistemas analiza la utilización U de un procesador, ¿qué tipo de variable está observando?",
+      "opts": [
+        "Variable cualitativa",
+        "Variable interna",
+        "Variable externa",
+        "Variable de negocio"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-009",
+      "topic": "A",
+      "type": "single",
+      "text": "¿Cuáles son las tres técnicas cuantitativas de predicción del crecimiento de la carga que desarrolla la obra?",
+      "opts": [
+        "Regresión lineal, medias móviles y suavizado exponencial",
+        "Opinión de expertos, analogías históricas y planes de negocio",
+        "Monitorización, benchmarking y análisis operacional",
+        "Clustering, distancia euclídea y normalización"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-010",
+      "topic": "A",
+      "type": "single",
+      "text": "Entre las variables que percibe el usuario (variables externas) del sistema se encuentran principalmente:",
+      "opts": [
+        "La utilización de cada dispositivo y la razón de visitas",
+        "El tiempo de servicio interno y la longitud de las colas",
+        "La demanda de servicio y el número de trabajos por dispositivo",
+        "El tiempo de respuesta y la productividad"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-011",
+      "topic": "A",
+      "type": "single",
+      "text": "Se denomina carga de trabajo de un sistema informático a:",
+      "opts": [
+        "El tiempo total que el procesador permanece ocupado",
+        "El conjunto de recursos físicos (procesador, memoria y disco) del sistema",
+        "Todas las demandas que realizan los usuarios al sistema durante un intervalo de tiempo",
+        "El máximo número de trabajos que el sistema puede almacenar en cola"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-012",
+      "topic": "A",
+      "type": "single",
+      "text": "Las técnicas de upgrading para mejorar el rendimiento consisten en:",
+      "opts": [
+        "Equilibrar las demandas de servicio que los programas hacen sobre los dispositivos",
+        "Caracterizar la carga mediante la técnica de agrupamiento (clustering)",
+        "Ajustar los parámetros de configuración del software y las aplicaciones",
+        "Actuar sobre los componentes físicos, mejorándolos o aumentando su número"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-013",
+      "topic": "A",
+      "type": "single",
+      "text": "Una empresa de seguros utiliza el 'número de pólizas' para estimar cuánto disco necesitará el próximo año. ¿Qué concepto está aplicando?",
+      "opts": [
+        "Benchmarking comparativo",
+        "Monitorización cualitativa",
+        "Unidad de Predicción Natural (UPN)",
+        "Análisis operacional de Little"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-014",
+      "topic": "A",
+      "type": "single",
+      "text": "Respecto del tiempo de reflexión (Z), y pensando en los sistemas interactivos y por lotes (Batch), ¿qué afirmación es la correcta?",
+      "opts": [
+        "En ambos Z es siempre mayor que cero",
+        "En el interactivo Z = 0, mientras que en el Batch Z > 0",
+        "En el interactivo Z > 0, mientras que en el Batch esta variable no corresponde",
+        "El tiempo de reflexión solo se aplica a los sistemas transaccionales"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-015",
+      "topic": "A",
+      "type": "single",
+      "text": "¿Cuáles términos se emplean como equivalentes para traducir el término anglosajón performance?",
+      "opts": [
+        "Capacidad, coste y latencia",
+        "Carga, demanda y productividad",
+        "Disponibilidad, seguridad y fiabilidad",
+        "Rendimiento, prestaciones y desempeño"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-016",
+      "topic": "A",
+      "type": "single",
+      "text": "En el contexto de la planificación, los autores entienden la capacidad de un sistema como:",
+      "opts": [
+        "El coste total de propiedad del equipo",
+        "La productividad máxima del sistema",
+        "La cantidad total de memoria y almacenamiento instalados",
+        "El número máximo de usuarios registrados"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-017",
+      "topic": "A",
+      "type": "single",
+      "text": "¿Qué ventaja principal ofrecen los modelos de carga frente al uso de la carga real en un estudio de prestaciones?",
+      "opts": [
+        "Reducción de la latencia física de los dispositivos de red",
+        "Eliminación total de la necesidad de monitores de sistema",
+        "Garantía de que el sistema nunca alcanzará un cuello de botella",
+        "Mayor portabilidad y reproducibilidad en distintos entornos"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-018",
+      "topic": "A",
+      "type": "single",
+      "text": "¿En qué situación es más recomendable utilizar la técnica de 'suavizado exponencial' para predecir la carga?",
+      "opts": [
+        "Cuando solo se dispone de una única observación histórica",
+        "Cuando los datos son estrictamente estacionales y cíclicos",
+        "Cuando los datos tienen gran variabilidad aleatoria y se quiere dar peso a lo reciente",
+        "Cuando existe una tendencia lineal de crecimiento muy clara a largo plazo"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-019",
+      "topic": "A",
+      "type": "single",
+      "text": "Si los datos históricos de la carga muestran una tendencia clara (no estacionales), la técnica de predicción más apropiada es:",
+      "opts": [
+        "La regresión lineal",
+        "El suavizado exponencial",
+        "La técnica de agrupamiento (clustering)",
+        "Las medias móviles"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-020",
+      "topic": "A",
+      "type": "single",
+      "text": "Si me encuentro evaluando la variable interna Factor de utilización de CPU, ¿a qué magnitud representa?",
+      "opts": [
+        "Utilización de recursos",
+        "Todas las respuestas son correctas",
+        "Consumo de tiempos",
+        "Trabajo realizado por el sistema"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-021",
+      "topic": "B",
+      "type": "single",
+      "text": "¿Cuál es la distinción fundamental que los autores Andreu, Ricart y Valor establecen entre un Sistema de Información (SI) y las Tecnologías de la Información (TI)?",
+      "opts": [
+        "El SI es un componente individual exclusivamente tecnológico, mientras que las TI abarcan la estrategia de tecnologías global de la organización",
+        "Las TI representan la estructura formal de datos de la empresa, mientras que el SI es el flujo informal de comunicación",
+        "El SI se ocupa de la concepción y el propósito de negocio, mientras que las TI se centran en la construcción y ejecución técnica"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-022",
+      "topic": "B",
+      "type": "single",
+      "text": "Según la definición formal proporcionada por Andreu, Ricart y Valor, ¿cuál es el propósito último de un Sistema de Información en la empresa?",
+      "opts": [
+        "Reducir los costes operativos de administración mediante la eliminación de procesos manuales",
+        "Soportar las funciones y procesos de negocio de acuerdo con la estrategia de la empresa",
+        "Sustituir los sistemas informales de comunicación por una base de datos centralizada y rígida",
+        "Maximizar la eficiencia técnica de la organización"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-023",
+      "topic": "B",
+      "type": "single",
+      "text": "En el contexto de la Cadena de Valor de Porter, ¿qué significa que el Sistema de Información forme parte de la infraestructura de la empresa?",
+      "opts": [
+        "Significa que el Área de SI/TI toma decisiones en forma independiente del resto de las áreas para garantizar la neutralidad de los datos",
+        "Significa que es una actividad de soporte ligada al desarrollo tecnológico y compras",
+        "Significa que se ubica en el segmento de actividades de apoyo, y da servicio a las actividades operativas de logística interna y operaciones",
+        "Ninguna de las opciones es correcta"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-024",
+      "topic": "B",
+      "type": "single",
+      "text": "¿Cuándo se considera que un subsistema de información 'circunscrito' a una actividad específica pasa a formar parte del SI 'básico'?",
+      "opts": [
+        "Cuando varios de estos subsistemas se solapan y empiezan a coordinar o influenciar notablemente a varias actividades",
+        "Cuando el coste de mantenimiento del subsistema supera el presupuesto del Área de SI/TI",
+        "Solo cuando la alta dirección decide centralizar sus SI/TI",
+        "Tan pronto como el subsistema es implementado utilizando tecnologías de la información avanzadas"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-025",
+      "topic": "B",
+      "type": "info",
+      "text": "Arrastre: características de cada segmento del portafolio de aplicaciones (Estratégicas / Alto potencial / Clave para las operaciones / Apoyo).",
+      "answer": "Según la corrección del archivo, las 3 etiquetas van en:\n• «Surgen de una idea u oportunidad tecnológica» → Alto Potencial / Estratégicas (cuadrante superior).\n• «Requieren integración de datos» → Clave para las operaciones.\n• «Dan apoyo a funciones localizadas» → Apoyo.",
+      "img": "img/portfolio_drag.jpg",
+      "note": "El intento fue calificado incorrecto por la posición exacta de arrastre, pero la anotación indica que las 3 asociaciones marcadas eran conceptualmente correctas."
+    },
+    {
+      "id": "asi-026",
+      "topic": "B",
+      "type": "tf",
+      "text": "Las inversiones de umbral son aquellas inversiones de bajo capital, destinadas a la automatización de tareas administrativas simples.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "note": "En el archivo se marcó 'Verdadero' y figura como incorrecta; por descarte la respuesta es 'Falso' (las inversiones de umbral son las necesarias para operar/competir, no se definen por bajo capital)."
+    },
+    {
+      "id": "asi-027",
+      "topic": "B",
+      "type": "multi",
+      "text": "Caso Correo Argentino: ¿cuáles son las principales justificaciones por las que el sistema con herramientas de Inteligencia de Negocios (BI) se clasifica como aplicación 'Estratégica'? (Solo dos son correctas)",
+      "opts": [
+        "Responde a una necesidad de garantizar el desempeño operativo y tecnológico de la red logística",
+        "Porque transforma datos operativos en información para decisiones que fortalecen la ventaja competitiva y la escalabilidad ante picos de demanda",
+        "Porque centraliza únicamente los datos de recursos humanos y asistencia del personal en las sucursales",
+        "Responde a una necesidad de disponer de información integrada, histórica y en tiempo real sobre el desempeño operativo y tecnológico de la red logística, para dar capacidad al negocio de generar alta demanda y potenciar el eCommerce",
+        "Porque permite automatizar la facturación de servicios y la conciliación contable en el ERP"
+      ],
+      "correct": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "asi-028",
+      "topic": "B",
+      "type": "tf",
+      "text": "Wendy Robson centraliza conceptualmente el \"costo\" en el contexto de la gestión de sistemas de información, en los aspectos netamente financieros como los esfuerzos presupuestarios, valor residual de los activos de hardware después de su periodo de amortización técnica, erogaciones de capital y gastos operativos proyectados a cinco años.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-029",
+      "topic": "B",
+      "type": "info",
+      "text": "Relacione correctamente (caso de estudio Correo Argentino):",
+      "answer": "• Procesos aduaneros es → Una función de negocios de la Dirección de Operaciones.\n• Órgano de máxima conducción de CORASA → Directorio.\n• Director de Asuntos Legales → Forma parte del Grupo Base.\n• Tiene a cargo el área de SI/TI — Gerente Táctico → Dirección Ejecutivo.",
+      "img": "img/correo_relacionar.jpg"
+    },
+    {
+      "id": "asi-030",
+      "topic": "C",
+      "type": "tf",
+      "text": "De acuerdo con la clasificación de Puigjaner, las variables, cualquiera sea su dimensión y clase, se aplican únicamente a cada componente de la carga de trabajo.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-031",
+      "topic": "C",
+      "type": "single",
+      "text": "¿Cuál es la finalidad principal del Subsistema de Aplicación de Recursos de SI/TI según la cátedra?",
+      "opts": [
+        "Disponer los recursos en función de la carga de trabajo y los niveles de servicio, para brindar las prestaciones que requiere la organización, dadas las características de su ambiente informático",
+        "Disponer los recursos en función de los niveles de servicio, para satisfacer las demandas que requiere el tipo de sistema informático",
+        "Efectuar el mantenimiento preventivo de la infraestructura de Sw y Hw"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-032",
+      "topic": "C",
+      "type": "tf",
+      "text": "El rendimiento de las prestaciones refiere a los servicios que un sistema informático debe dar.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "note": "En el archivo se marcó 'Verdadero' y figura como incorrecta; por descarte la respuesta es 'Falso'."
+    },
+    {
+      "id": "asi-033",
+      "topic": "C",
+      "type": "tf",
+      "text": "Las unidades de predicción natural son variables de negocio que no tienen relación con los recursos del sistema.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "note": "Así figura confirmada (Verdadero) en este cuestionario, pero contradice al Cuestionario 24/06, donde la UPN se define como variable de negocio 'directamente relacionada con los recursos consumidos'. Conviene verificar con la cátedra cómo la toman."
+    },
+    {
+      "id": "asi-034",
+      "topic": "C",
+      "type": "info",
+      "text": "Estructura de una Gerencia de SI/TI (Desarrollo / Mantenimiento / Infraestructura). Relacione:",
+      "answer": "• Responde a: el modelo tradicional.\n• El criterio de departamentalización usado es: por funciones. (confirmada)\n• Esta organización orienta el rol de los SI/TI hacia el tipo: «hacer algo a ellos».",
+      "img": "img/gerencia_siti.jpg",
+      "note": "En el intento solo 'por funciones' quedó confirmada; 'modelo tradicional' y '«hacer algo a ellos»' provienen de la anotación manual del archivo."
+    },
+    {
+      "id": "asi-035",
+      "topic": "C",
+      "type": "multi",
+      "text": "De acuerdo con Puigjaner, seleccione las magnitudes que se deben medir de una carga:",
+      "opts": [
+        "Trabajo realizado por el sistema o por un componente del mismo",
+        "Overhead",
+        "Consumo de tiempos",
+        "Utilización de recursos o dispositivos",
+        "Productividad",
+        "Tiempo de respuesta"
+      ],
+      "correct": [
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "asi-036",
+      "topic": "C",
+      "type": "multi",
+      "text": "De acuerdo con los tres tipos de sistemas informáticos que explica Puigjaner, ¿cuáles son las variables que definen a un sistema interactivo o a demanda?",
+      "opts": [
+        "Tiempo de reflexión del usuario",
+        "Número de usuarios simultáneos",
+        "Uso de recursos",
+        "Tiempo de cada transacción"
+      ],
+      "correct": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "asi-037",
+      "topic": "C",
+      "type": "tf",
+      "text": "El subproceso de aplicación de SI/TI abarca:\n• Dimensionar la carga de trabajo.\n• Asignar los recursos en base a las prestaciones requeridas.\n• Evaluar el funcionamiento de las prestaciones.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-038",
+      "topic": "C",
+      "type": "info",
+      "text": "Clasifique el tipo de sistema:",
+      "answer": "• Realiza copias de seguridad masivas durante la madrugada, donde los procesos utilizan recursos hasta finalizar → Batch.\n• Permite realizar la compra y reservas de pasajes de avión, bloqueando inmediatamente la plaza para que no pueda ser vendida a otra persona → Transaccional."
+    },
+    {
+      "id": "asi-039",
+      "topic": "C",
+      "type": "info",
+      "text": "Discrepancias de rol (Chiavenato) — complete el gráfico Gerente/Empleado:",
+      "answer": "Orden correcto del ciclo: Expectativa del rol (Gerente) → Discrepancia en la expectativa → Rol percibido (Empleado) → Discrepancia con el rol → Comportamiento del rol → Retroalimentación de la discrepancia → Comportamiento controlado u observado → Discrepancia en el desempeño → vuelve al Gerente.",
+      "img": "img/chiavenato_rol.jpg",
+      "note": "El intento fue parcialmente correcto: según la anotación, 'Retroalimentación de la discrepancia' va donde se colocó 'Discrepancia en el desempeño' y viceversa. El orden de arriba ya incorpora esa corrección; verificar contra el material de la cátedra."
+    },
+    {
+      "id": "asi-040",
+      "topic": "C",
+      "type": "multi",
+      "text": "La planificación de talentos humanos implica:",
+      "opts": [
+        "Establecer las descripciones y análisis de el/los cargos que deben ocuparse",
+        "Previsión de las posibles necesidades de la organización en materia de personal (por sus distintas categorías)",
+        "Retroalimentar tanto al subsistema de provisión de RRHH",
+        "Análisis del sistema de trabajo de la organización",
+        "Retroalimentar a los subsistemas de Desarrollo y Mantenimiento (desarrollo de programas y medidas de desarrollo del personal; plan de carrera, respectivamente)"
+      ],
+      "correct": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "note": "El intento fue parcialmente correcto (2 confirmadas: previsión y retroalimentar a Desarrollo/Mantenimiento). Las otras dos correctas se derivan del texto de retroalimentación de la cátedra: la planificación comprende previsión de necesidades, análisis del sistema de trabajo y retroalimentar tanto a provisión como a Desarrollo y Mantenimiento."
+    },
+    {
+      "id": "asi-041",
+      "topic": "C",
+      "type": "tf",
+      "text": "Según el enfoque de Chiavenato, un equipo de alto rendimiento no se construye buscando individualidades perfectas, sino combinando roles complementarios.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "note": "Retroalimentación de la cátedra: la afirmación es cierta, pero no la planteó Chiavenato sino Belbin → por eso la respuesta correcta es 'Falso'."
+    },
+    {
+      "id": "asi-042",
+      "topic": "C",
+      "type": "tf",
+      "text": "El tiempo de respuesta de un sistema es siempre igual al tiempo de servicio.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-043",
+      "topic": "D",
+      "type": "info",
+      "section": "1er parcial 2024",
+      "text": "Complete el cuadro de magnitudes y variables de una carga:",
+      "answer": "Factor de Utilización de CPU → Magnitud: Utilización de recursos · Tipo (percepción del administrador): Interna · Característica del sistema tipo: Todos.\nTiempo de reflexión del usuario → Magnitud: Consumo de tiempos · Tipo: Externa · Característica del sistema tipo: Interactivo (conversacional).",
+      "img": "img/cuadro_carga_2024.jpg"
+    },
+    {
+      "id": "asi-044",
+      "topic": "D",
+      "type": "info",
+      "section": "1er parcial 2024",
+      "text": "Complete el cuadro del proceso de provisión de SW (relacionando la cartera de aplicaciones con la etapa correcta):",
+      "answer": "1) Investigación de las fuentes de provisión ← entradas: políticas de la organización y de SI/TI, investigación del mercado de SW, decisiones del comité de SI/TI, opiniones técnicas.\n2) Evaluación de las fuentes ← entradas: Cartera de aplicaciones (E, AP, CPO, AY) y restricciones de la organización.\n3) Selección de la fuente ← entrada: parámetros cualitativos y cuantitativos.\n4) Resultado: Desarrollo, Adquisición u Outsourcing.",
+      "img": "img/provision_sw_2024.jpg"
+    },
+    {
+      "id": "asi-045",
+      "topic": "D",
+      "type": "multi",
+      "section": "1er parcial 2024",
+      "text": "Indicar todos los errores que son los más comunes al momento de una entrevista de selección de RRHH:",
+      "opts": [
+        "No planificar la entrevista",
+        "Adoptar mayor protagonismo que el propio candidato",
+        "Brindar ambientes de confianza adecuados al candidato",
+        "No determinar criterios de selección adecuados",
+        "Ignorar la política general de reclutamiento"
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "note": "⚠ Solo 'Adoptar mayor protagonismo' quedó confirmada con ✓. 'No determinar criterios de selección' fue marcada incorrecta con la nota «previo a la entrevista». 'No planificar la entrevista' se deduce como correcta (es el error clásico junto al protagonismo), pero no está confirmada en el archivo."
+    },
+    {
+      "id": "asi-046",
+      "topic": "D",
+      "type": "info",
+      "section": "1er parcial 2024",
+      "text": "Relacione correctamente — La socialización organizacional:",
+      "answer": "1) Es: g. Un proceso. ✓\n2) En el contexto de la asignatura ASI, se pone énfasis en: d. La socialización primaria. (⚠ letra manuscrita poco legible en el archivo)\n3) Su finalidad es: b. Lograr la integración de un nuevo miembro en la organización de manera que su incorporación no sea traumática. ✓\n4) Su importancia radica: f. Aporta a la estabilidad y eficacia de las organizaciones… ✓\n5) Termina cuando: c. El nuevo miembro se siente a gusto con la organización y su puesto, cuando ha aceptado las normas y valores. ✓",
+      "img": "img/cuadro_carga_2025.jpg",
+      "note": "El ítem 2 tiene la letra manuscrita difícil de leer; verificar con apuntes."
+    },
+    {
+      "id": "asi-047",
+      "topic": "D",
+      "type": "multi",
+      "section": "1er parcial 2024",
+      "text": "Indicar los criterios a aplicar para la selección de fuentes de provisión de SW:",
+      "opts": [
+        "Costos generales para la organización",
+        "Cantidad de usuarios simultáneos",
+        "Régimen de trabajo",
+        "Marca comercial del producto de SW que se desea aprovisionar",
+        "Facilidad para realizar adecuaciones al producto de SW que se desea aprovisionar",
+        "Limitaciones en la cantidad de instalaciones por el esquema de licencias del producto SW"
+      ],
+      "correct": [
+        0,
+        4
+      ]
+    },
+    {
+      "id": "asi-048",
+      "topic": "D",
+      "type": "tf",
+      "section": "1er parcial 2024",
+      "text": "El método de planificación de la carga que se basa en las unidades de predicción natural consiste en estimar el valor de la carga futura. Es adecuado para predicciones del corto plazo y cuando la carga es estacionaria.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-049",
+      "topic": "D",
+      "type": "tf",
+      "section": "1er parcial 2024",
+      "text": "A los requisitos para reclutar personal se los califica en obligatorios y recomendables.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-050",
+      "topic": "D",
+      "type": "tf",
+      "section": "1er parcial 2024",
+      "text": "En un RDP para adquisición de paquete estándar deben incluirse los acuerdos de niveles de servicio.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "note": "Corrección del docente: los acuerdos de niveles de servicio corresponden a outsourcing, no a la adquisición de paquete estándar → Falso."
+    },
+    {
+      "id": "asi-051",
+      "topic": "D",
+      "type": "multi",
+      "section": "1er parcial 2025",
+      "text": "¿Qué implica el seguimiento de RRHH?",
+      "opts": [
+        "Aumentar la cantidad de personal",
+        "Evaluar el desempeño de los recursos humanos",
+        "Reducir costos de personal",
+        "Mejorar la comunicación interna"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-052",
+      "topic": "D",
+      "type": "multi",
+      "section": "1er parcial 2025",
+      "text": "El seguimiento de los RRHH en las organizaciones debe incluir:",
+      "opts": [
+        "El desempeño de las personas en sus tareas",
+        "Ajuste a las reglas, y los aspectos formales",
+        "Los procesos de definición de políticas y la forma y criterios con que se aplican sobre los RRHH",
+        "Cómo se define cada cargo"
+      ],
+      "correct": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "asi-053",
+      "topic": "D",
+      "type": "multi",
+      "section": "1er parcial 2025",
+      "text": "Según Edwards et al., seleccione los aspectos específicos de los SI/TI que corresponden al CONTEXTO EXTERNO para su integración con la estrategia organizacional:",
+      "opts": [
+        "i. Fuerzas que afectan a la actividad de la empresa/organización",
+        "ii. Forma en que los SI/TI se utilizan en la industria o sector económico al que se dedica la empresa/organización",
+        "iii. Investigación en desarrollo de productos, bienes y/o servicios que fabrica/presta la empresa/organización",
+        "iv. Avances en las tecnologías de la información y sus tendencias",
+        "v. Misión y objetivos de la empresa/organización",
+        "vi. Los recursos de SI/TI que tiene la empresa/organización",
+        "vii. Estructura organizativa y estilos de dirección de la empresa/organización",
+        "viii. Ventajas y capacidad de los recursos actuales de SI/TI que tiene la empresa/organización"
+      ],
+      "correct": [
+        1,
+        3
+      ],
+      "img": "img/edwards_2025.jpg"
+    },
+    {
+      "id": "asi-054",
+      "topic": "D",
+      "type": "multi",
+      "section": "1er parcial 2025",
+      "text": "Según Edwards et al., seleccione los aspectos específicos de los SI/TI que corresponden al CONTEXTO INTERNO para su integración con la estrategia organizacional:",
+      "opts": [
+        "i. Fuerzas que afectan a la actividad de la empresa/organización",
+        "ii. Forma en que los SI/TI se utilizan en la industria o sector económico al que se dedica la empresa/organización",
+        "iii. Investigación en desarrollo de productos, bienes y/o servicios que fabrica/presta la empresa/organización",
+        "iv. Avances en las tecnologías de la información y sus tendencias",
+        "v. Misión y objetivos de la empresa/organización",
+        "vi. Los recursos de SI/TI que tiene la empresa/organización",
+        "vii. Estructura organizativa y estilos de dirección de la empresa/organización",
+        "viii. Ventajas y capacidad de los recursos actuales de SI/TI que tiene la empresa/organización"
+      ],
+      "correct": [
+        5,
+        7
+      ],
+      "img": "img/edwards_2025.jpg"
+    },
+    {
+      "id": "asi-055",
+      "topic": "D",
+      "type": "single",
+      "section": "1er parcial 2025",
+      "text": "Indique la característica que corresponde a las aplicaciones de tipo estratégico:",
+      "opts": [
+        "Evitar una desventaja para la empresa o impedir un riesgo del negocio potencialmente crítico",
+        "Lograr una ventaja y mantenerla con desarrollos posteriores",
+        "Lograr el uso eficiente de todos los recursos",
+        "Hallar una solución empresarial más eficaz"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-056",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 1",
+      "text": "¿Cuál es el punto central del proceso de adquisición de software?",
+      "opts": [
+        "El costo de los equipos de hardware",
+        "La evaluación técnica del proveedor",
+        "La instalación del sistema operativo",
+        "La elección del canal de provisión más adecuado"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-057",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 1",
+      "text": "¿Qué diferencia principal existe entre el desarrollo interno y la compra de paquetes estándar?",
+      "opts": [
+        "El desarrollo interno suele ser más rápido",
+        "Los paquetes estándar son más costosos",
+        "Los paquetes estándar ofrecen menores plazos y costos más previsibles",
+        "El desarrollo interno requiere menos especialización"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-058",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 1",
+      "text": "¿Cuál es una desventaja señalada del desarrollo interno de software?",
+      "opts": [
+        "Escaso control sobre el proyecto",
+        "Alta probabilidad de sobreutilización de recursos",
+        "Falta de flexibilidad en los cambios",
+        "Excesiva dependencia del fabricante"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-059",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 1",
+      "text": "En el análisis de alternativas de obtención de software, ¿qué representa el \"nivel de corte\"?",
+      "opts": [
+        "El puntaje mínimo que una alternativa debe alcanzar para ser considerada viable",
+        "El valor máximo de cada criterio individual",
+        "El costo máximo permitido para una alternativa",
+        "La diferencia entre el puntaje más alto y el más bajo"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-060",
+      "topic": "D",
+      "type": "tf",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "En una lista de requerimientos para una aplicación contable, \"exportación de archivos a formato XLS\" es una facilidad a evaluar.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-061",
+      "topic": "D",
+      "type": "tf",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "Para decidir un esquema de tercerización de SI/TI, un criterio a evaluar es la índole de la Plataforma.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "note": "Corrección visible: el alumno marcó V y el docente anotó «marco como falso» → Falso."
+    },
+    {
+      "id": "asi-062",
+      "topic": "D",
+      "type": "tf",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "El management estratégico de los SI/TI se basa en tres cuestiones estratégicas: qué harán, dónde estarán y cómo se dispondrán los SI/TI.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-063",
+      "topic": "D",
+      "type": "tf",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "En la provisión de SI/TI, existen dos etapas: evaluación técnica y evaluación económica.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "note": "Confirmado: Verdadero. Fundamento en la sección 10 del RDP."
+    },
+    {
+      "id": "asi-064",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "Para el caso de provisión de paquetes estándar, ¿qué aspecto evalúa la funcionalidad?",
+      "opts": [
+        "El grado de adecuaciones del paquete",
+        "Si el paquete cubre los procesos operativos que el usuario requiere",
+        "La seguridad y los controles de acceso",
+        "El costo de mantenimiento"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-065",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "¿Qué criterio se refiere a la capacidad del sistema para prevenir accesos no autorizados y resguardar información?",
+      "opts": [
+        "Confiabilidad",
+        "Seguridad",
+        "Mantenimiento",
+        "Propiedad"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-066",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "¿Cuál de los siguientes criterios está vinculado al tiempo de respuesta y uso de recursos del sistema?",
+      "opts": [
+        "Uso",
+        "Flexibilidad",
+        "Performance",
+        "Capacidad"
+      ],
+      "correct": [
+        2
+      ],
+      "note": "En el parcial 'Capacidad' aparece marcada con ✗ y 'Performance' señalada como correcta."
+    },
+    {
+      "id": "asi-067",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "¿Qué implica la ponderación en el Método de Evaluación Manual (MEM)?",
+      "opts": [
+        "El cálculo de promedios de costo",
+        "La estimación del tiempo de instalación",
+        "La asignación de importancia relativa a cada requisito evaluado",
+        "La suma de las puntuaciones finales"
+      ],
+      "correct": [
+        2
+      ]
+    },
+    {
+      "id": "asi-068",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "De acuerdo con las recomendaciones de Robson, recurrir a un paquete estándar como fuente de obtención de software es conveniente, entre otras cuestiones, cuando:",
+      "opts": [
+        "La organización es una PyMES o una división pequeña de una gran empresa que requiere de un conjunto de aplicaciones bien integradas y que no exige cambios adaptativos",
+        "Cuando la aplicación en cuestión no es fundamental, y requiere de una interfase bien definida y simple",
+        "Cuando se trata de una aplicación compleja que necesite de especialización técnica en un área donde la empresa considere que no puede obtener una ventaja competitiva importante",
+        "Ninguna de las afirmaciones es válida",
+        "Todas las afirmaciones anteriores son válidas"
+      ],
+      "correct": [
+        4
+      ]
+    },
+    {
+      "id": "asi-069",
+      "topic": "D",
+      "type": "single",
+      "section": "2do parcial 2025 — Tema 2",
+      "text": "AGUNSA — Capítulo 10, inciso 10.2 del RDP para la provisión de escáneres de códigos de barras: se indica que las características obligatorias serán calificadas con 8 puntos, y en el mismo capítulo, que la escala de calificación aplicable es de 0 a 10. Evalúe la situación y marque lo correcto:",
+      "opts": [
+        "Es incorrecto porque en el formato general de un RDP la especificación de las calificaciones no se expresan en el capítulo 10",
+        "Es incorrecto el criterio, porque las características obligatorias deben calificarse siempre con la puntuación mayor",
+        "Es incorrecto el criterio; las características obligatorias deben calificarse siempre con 10",
+        "Es incorrecto porque la escala de calificación no se indica en el RDP",
+        "Es correcto el criterio; sólo las características imprescindibles se evalúan con 10",
+        "Es correcto el criterio; sólo las características imprescindibles se evalúan con la mayor calificación",
+        "Es correcto el criterio; la escala de calificación debe ser siempre de 0 a 3",
+        "Incorrecta. La escala de calificación debe ser de 0 a 3"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-070",
+      "topic": "D",
+      "type": "single",
+      "section": "Integrador 2024",
+      "text": "Según el grado de apoyo que los SI brinden al funcionamiento actual o a los planes de expansión de la empresa, las inversiones se clasifican en:",
+      "opts": [
+        "Inversiones de valor operacional o de valor estratégico",
+        "Inversión de umbral o inversiones de infraestructura",
+        "Ninguna de las anteriores"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-071",
+      "topic": "D",
+      "type": "tf",
+      "section": "1er parcial 2026",
+      "text": "Se pueden implementar en forma conjunta aunque con aspectos parciales los distintos tipos de ubicación de los SI. Todo depende de las necesidades empresariales y de la complejidad tecnológica que la organización tenga.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-072",
+      "topic": "D",
+      "type": "single",
+      "section": "1er parcial 2026",
+      "text": "Los sistemas predictivos basados en Inteligencia Artificial (IA) para la gestión de la cadena de suministro (SCM) transforman la logística de un modelo reactivo a uno proactivo. Utilizan aprendizaje automático y análisis de datos para anticipar la demanda, optimizar el inventario y prevenir disrupciones, reduciendo tiempos de entrega. Esta SI/TI reporta un beneficio genérico que es:",
+      "opts": [
+        "Eficiencia",
+        "Efectividad",
+        "Competitividad"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-073",
+      "topic": "D",
+      "type": "single",
+      "section": "1er parcial 2026",
+      "text": "El alineamiento estratégico de los SI/TI es:",
+      "opts": [
+        "El encuadre de las prioridades de SI/TI con el plan estratégico de la organización",
+        "El encuadre de la estrategia de SI/TI con la estrategia de negocio",
+        "El encuadre de los procesos de negocio con los procesos TIC",
+        "Ninguna de las anteriores",
+        "Todas las anteriores"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-074",
+      "topic": "D",
+      "type": "single",
+      "section": "1er parcial 2026",
+      "text": "Las TIC contribuyen a la cadena de valor de la empresa:",
+      "opts": [
+        "Generando ingresos y utilidades para la empresa",
+        "Facilitando la toma de decisiones y la operación diaria de la empresa",
+        "Proporcionando apoyo a los procesos internos de la empresa",
+        "Aumentando la eficacia y la eficiencia de la empresa",
+        "Ninguna de las anteriores",
+        "Todas las anteriores"
+      ],
+      "correct": [
+        5
+      ]
+    },
+    {
+      "id": "asi-075",
+      "topic": "D",
+      "type": "single",
+      "section": "1er parcial 2026",
+      "text": "Un enfoque de planificación de SI «de abajo hacia arriba» (bottom-up) basado en la agregación de actividades existentes origina:",
+      "opts": [
+        "La eliminación total del riesgo de obsolescencia tecnológica en la organización",
+        "Pérdida de oportunidades de negocio y un empleo ineficaz o descoordinado de los recursos de información",
+        "Una optimización perfecta de los recursos financieros y tecnológicos de toda la corporación",
+        "Una mejor alineación automática con las ventajas competitivas propuestas por Michael Porter"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-076",
+      "topic": "D",
+      "type": "single",
+      "section": "1er parcial 2026",
+      "text": "En el marco de referencia de planificación estratégica de SI/TI, ¿cuál de los siguientes elementos forma parte del «Entorno Interno de la Empresa»?",
+      "opts": [
+        "Las normativas legales del gobierno relativas a la protección de datos y el comercio electrónico",
+        "Las tendencias tecnológicas globales y los sistemas utilizados por los principales competidores del sector",
+        "La cartera actual de aplicaciones informáticas y la infraestructura de red instalada en el departamento de TI",
+        "La estrategia comercial actual, las metas, los procesos de negocio, la cultura organizativa y la estructura de la empresa"
+      ],
+      "correct": [
+        3
+      ]
+    },
+    {
+      "id": "asi-077",
+      "topic": "D",
+      "type": "info",
+      "section": "1er parcial 2026",
+      "text": "Complete el cuadro, de acuerdo con las magnitudes y variables de una carga:",
+      "answer": "Factor de Utilización de CPU → Magnitud: Utilización de recursos · Tipo de variable (percepción del administrador): Interna · Característica del sistema informático de tipo: Todos (batch, transaccional e interactivo).\nTiempo de reflexión del usuario → Magnitud: Consumo de tiempos · Tipo de variable: Externa · Característica del sistema informático de tipo: Interactivo.",
+      "img": "img/cuadro_carga_2026.jpg"
+    },
+    {
+      "id": "asi-078",
+      "topic": "D",
+      "type": "multi",
+      "section": "1er parcial 2026",
+      "text": "Indicar todos los errores más comunes al momento de una entrevista de selección de RRHH:",
+      "opts": [
+        "No planificar la entrevista",
+        "No determinar criterios de selección adecuados",
+        "Adoptar mayor protagonismo que el propio candidato",
+        "Ignorar la política general de reclutamiento",
+        "Adelantar aspectos que hagan a beneficios y facilidades que se tendrían en caso de ingresar a la empresa"
+      ],
+      "correct": [
+        0,
+        2
+      ],
+      "note": "En el parcial se tildaron las opciones 3 y 5 y la respuesta fue calificada con 0 puntos. Las correctas verificadas son la 1 y la 3."
+    },
+    {
+      "id": "asi-079",
+      "topic": "E",
+      "type": "single",
+      "text": "¿Cuál es la definición formal de Sistema de Información (SI) que proponen los autores Andreu, Ricart y Valor para una empresa?",
+      "opts": [
+        "El conjunto formal de procesos que, operando sobre una colección de datos estructurada, recopila, elabora y distribuye la información necesaria para la operación y dirección",
+        "Un conjunto de hardware y software encargado exclusivamente del almacenamiento de datos masivos",
+        "Un departamento técnico que resuelve las peticiones de mecanización de procesos administrativos de forma aislada",
+        "Cualquier flujo de información, mayoritariamente informal, que ocurre entre los empleados durante la jornada laboral"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-080",
+      "topic": "E",
+      "type": "single",
+      "text": "Dentro del esquema de la cadena de valor de Porter, ¿dónde se ubica explícitamente el Sistema de Información de la empresa?",
+      "opts": [
+        "Como parte de la Infraestructura de la empresa",
+        "Como parte de las actividades de Logística de entrada",
+        "Exclusivamente en el área de Desarrollo de Tecnología",
+        "Dentro de las actividades de Servicio postventa"
+      ],
+      "correct": [
+        0
+      ]
+    },
+    {
+      "id": "asi-081",
+      "topic": "E",
+      "type": "single",
+      "text": "Según el modelo de Hax y Majluf, el SI debe estar coordinado y ser coherente con otros sistemas de la infraestructura. ¿Cuál de los siguientes NO es uno de esos sistemas mencionados?",
+      "opts": [
+        "Sistema de Planificación",
+        "Sistema de Control",
+        "Sistema de Gestión de Almacenes físico",
+        "Cultura de la Organización"
+      ],
+      "correct": [
+        2
+      ],
+      "note": "⚠ RESPUESTA DEDUCIDA: en el archivo se marcó 'Cultura de la Organización' y figura como incorrecta, sin anotación. Por teoría (Hax y Majluf: estructura, sistemas de planificación y control, cultura), el que NO corresponde es el Sistema de Gestión de Almacenes físico. Verificar."
+    },
+    {
+      "id": "asi-082",
+      "topic": "E",
+      "type": "single",
+      "text": "En la evolución de la planificación de SI, ¿qué caracteriza a la Fase II denominada 'Expansión anárquica'?",
+      "opts": [
+        "La integración perfecta entre la estrategia de negocio y la tecnología de la información",
+        "La desaparición total del departamento de informática",
+        "El control absoluto de la alta dirección sobre cada prioridad de desarrollo",
+        "La existencia de multitud de aplicaciones transaccionales disjuntas con una disfuncionalidad manifiesta desde el punto de vista de empresa"
+      ],
+      "correct": [
+        3
+      ],
+      "note": "⚠ RESPUESTA DEDUCIDA: en el archivo se marcó A y figura como incorrecta, sin anotación. Por teoría, la expansión anárquica se caracteriza por la multitud de aplicaciones disjuntas (opción D). Verificar."
+    },
+    {
+      "id": "asi-083",
+      "topic": "E",
+      "type": "single",
+      "text": "Durante la Fase III de planificación (Coordinación SI-objetivos), ¿cuál es el papel principal de la alta dirección según el texto?",
+      "opts": [
+        "Eliminar el departamento de SI para subcontratar todos los servicios",
+        "Programar el código de las aplicaciones críticas",
+        "Delegar totalmente la responsabilidad en el 'técnico puro' de confianza",
+        "Intervenir directamente para 'derribar la pared' entre los objetivos estratégicos y la planificación de SI"
+      ],
+      "correct": [
+        3
+      ],
+      "note": "⚠ RESPUESTA DEDUCIDA: en el archivo se marcó C y figura como incorrecta, sin anotación. La opción D es la consistente con la teoría. Verificar."
+    },
+    {
+      "id": "asi-084",
+      "topic": "E",
+      "type": "single",
+      "text": "En un procedimiento de alineamiento de SI con la estrategia, ¿cuál es la función del 'Comité de Tecnologías y Sistemas de Información'?",
+      "opts": [
+        "Sustituir al Director General en la toma de decisiones comerciales diarias",
+        "Es el órgano con responsabilidad última que aprueba el Plan y establece criterios estratégicos para fijar prioridades",
+        "Realizar el análisis detallado de los flujos de datos de cada proceso",
+        "Instalar el hardware y configurar las redes de comunicación"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-085",
+      "topic": "E",
+      "type": "single",
+      "text": "Al documentar las necesidades de información en la Fase III del plan, ¿qué se entiende por 'Factores Críticos para el Éxito' (Rockart)?",
+      "opts": [
+        "La velocidad de procesamiento medida en millones de instrucciones por segundo",
+        "El presupuesto máximo disponible para la compra de ordenadores",
+        "Las áreas limitadas de actividad en las que los resultados favorables son necesarios para alcanzar los objetivos del directivo",
+        "El listado de todos los errores técnicos que ha tenido el sistema en el último año"
+      ],
+      "correct": [
+        2
+      ],
+      "note": "⚠ RESPUESTA DEDUCIDA: en el archivo se marcó D y figura como incorrecta, sin anotación. La opción C es la definición clásica de Rockart. Verificar."
+    },
+    {
+      "id": "asi-086",
+      "topic": "E",
+      "type": "single",
+      "text": "¿Quién es el Director Operativo de Proyecto (DOP) en el proceso de planificación de SI?",
+      "opts": [
+        "El máximo accionista de la compañía que solo interviene para firmar el presupuesto",
+        "La persona encargada de coordinar el trabajo diario del equipo de planificación y asegurar la consistencia de los desarrollos",
+        "El técnico encargado exclusivamente de reparar el software de contabilidad",
+        "Un consultor externo que toma todas las decisiones de la empresa"
+      ],
+      "correct": [
+        1
+      ]
+    },
+    {
+      "id": "asi-087",
+      "topic": "E",
+      "type": "single",
+      "text": "¿Por qué se afirma que el contenido del Plan de TI/SI debe ser 'muy poco tecnológico'?",
+      "opts": [
+        "Porque los autores del libro no creen que la informática sea eficaz",
+        "Porque la tecnología no es importante para el futuro de la empresa",
+        "Para evitar que los competidores entiendan qué software se está comprando",
+        "Porque los detalles técnicos corresponden a fases posteriores de diseño y deben estar subordinados a la perspectiva de negocio"
+      ],
+      "correct": [
+        3
+      ]
+    }
+  ]
+}

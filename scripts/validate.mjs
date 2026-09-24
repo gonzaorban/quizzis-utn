@@ -23,6 +23,7 @@ function check(slug) {
   if (typeof data.subject !== "string" || !data.subject) err("", "falta 'subject'");
   if (!HEX.test(data.accent || "")) err("", `'accent' debe ser un color #RRGGBB (vino ${JSON.stringify(data.accent)})`);
   if (data.accentDark !== undefined && !HEX.test(data.accentDark)) err("", "'accentDark' debe ser un color #RRGGBB");
+  if (data.topicFilter !== undefined && !["single", "multi"].includes(data.topicFilter)) err("", "'topicFilter' debe ser single|multi");
   if (!data.topics || typeof data.topics !== "object") { err("", "falta 'topics'"); return; }
   for (const [k, t] of Object.entries(data.topics)) {
     if (!t || typeof t.name !== "string") err(`topic ${k}`, "falta 'name'");
