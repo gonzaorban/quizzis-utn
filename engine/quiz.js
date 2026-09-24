@@ -29,6 +29,9 @@ export function score(q, ans) {
 // info cards and questions without a confirmed key are never scored
 export const isScored = (q) => q.type !== "info" && q.correct.length > 0;
 
+// true when an answer (sent or draft) has at least one option or pair chosen
+const hasAnswer = (q, ans) => !!ans && (q.type === "match" ? ans.some((a) => a >= 0) : ans.length > 0);
+
 export const REPO_URL = "https://github.com/gonzaorban/quizzis-utn/";
 const GITHUB_ICON = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>';
 
@@ -85,6 +88,9 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   let cur = 0;            // position inside view (in "all" mode: last card touched)
   let optOrder = {};      // question id -> shuffled option order
   let drafts = {};        // question id -> in-progress answer (not checked yet)
+  let bulkMsg = "";       // result of the last "Enviar todas", shown until the next change
+  let gridView = null;    // view the dot grid was built for
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 
   function loadState() {
     const base = { answers: {}, topics: topicIds.slice(), section: "all", status: "all", shuffleQ: false, shuffleO: true, mode: "one" };
@@ -161,9 +167,11 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       <button type="button" class="seg" data-mode="all" title="Muestra todas las preguntas filtradas juntas, para buscarlas con Ctrl+F">Todas en una página</button>
     </div>
     <main id="main"></main>
+    <div class="submit-all" id="submitAll" hidden></div>
     <div class="grid" id="grid" aria-label="Ir a pregunta"></div>
     <footer class="foot">
       <p>Puntaje por pregunta al estilo Moodle: en las de opción múltiple cada error descuenta un acierto; en las de emparejar vale cada par. Tu progreso queda guardado en este navegador.</p>
+      <p class="kbd-hint">Con teclado, en «Una por vez»: <kbd>1</kbd>–<kbd>9</kbd> marcan opciones, <kbd>Enter</kbd> envía la respuesta o pasa a la siguiente, <kbd>←</kbd> <kbd>→</kbd> cambian de pregunta.</p>
       ${DATA.footer ? `<p>${DATA.footer}</p>` : ""}
     </footer>
   </div>`;
@@ -210,6 +218,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     if (state.shuffleQ) idx = shuffle(idx);
     view = idx;
     cur = 0;
+    bulkMsg = "";
     saveState();
     $("filterHint").textContent = `${view.length} de ${DATA.questions.length}`;
     renderTopicNotes();
@@ -235,18 +244,48 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     $("barFill").style.width = total ? ((done.length + seen) / total) * 100 + "%" : "0";
   }
 
+  // the dots are rebuilt only when the filtered view changes; otherwise just their classes are synced
   function renderGrid() {
-    $("grid").innerHTML = view.map((qi, p) => {
-      const st = statusOf(DATA.questions[qi]);
-      const cls = ["dot", p === cur ? "cur" : "", st !== "pending" ? st : ""].join(" ");
-      return `<button type="button" class="${cls}" data-p="${p}" aria-label="Pregunta ${p + 1}"${p === cur ? ' aria-current="true"' : ""}>${p + 1}</button>`;
-    }).join("");
-    $("grid").querySelectorAll(".dot").forEach((d) => d.addEventListener("click", () => {
-      cur = +d.dataset.p;
-      if (state.mode === "all") { renderGrid(); cardAt(cur).scrollIntoView({ block: "start" }); }
-      else { render(); scrollToCard(); }
-    }));
+    if (gridView !== view) {
+      gridView = view;
+      $("grid").innerHTML = view.map((qi, p) => `<button type="button" class="dot" data-p="${p}" aria-label="Pregunta ${p + 1}">${p + 1}</button>`).join("");
+    }
+    [...$("grid").children].forEach((d, p) => {
+      const st = statusOf(DATA.questions[view[p]]);
+      const cls = ["dot", p === cur ? "cur" : "", st !== "pending" ? st : ""].filter(Boolean).join(" ");
+      if (d.className !== cls) d.className = cls;
+      d.toggleAttribute("aria-current", p === cur);
+    });
   }
+  $("grid").addEventListener("click", (e) => {
+    const d = e.target.closest(".dot");
+    if (d) goTo(+d.dataset.p);
+  });
+
+  // "Enviar todas": sends every checked-but-unsent answer in the current view at once
+  const unsent = () => view.map((i) => DATA.questions[i])
+    .filter((q) => isScored(q) && !state.answers[q.id] && hasAnswer(q, drafts[q.id]));
+  function renderSubmitAll() {
+    const n = unsent().length;
+    const box = $("submitAll");
+    box.hidden = !n && !bulkMsg;
+    box.innerHTML = n
+      ? `<p>${n === 1 ? "Tenés <b>1</b> pregunta marcada" : `Tenés <b>${n}</b> preguntas marcadas`} sin enviar. Podés enviarlas una por una o todas juntas; las que no tienen ninguna opción elegida quedan sin responder.</p>
+        <button class="btn primary" type="button" id="sendAll">Enviar todas (${n})</button>`
+      : bulkMsg;
+  }
+  $("submitAll").addEventListener("click", (e) => {
+    if (!e.target.closest("#sendAll")) return;
+    const qs = unsent();
+    qs.forEach(record);
+    saveState();
+    const by = (st) => qs.filter((q) => statusOf(q) === st).length;
+    bulkMsg = `<p class="sent" tabindex="-1">Se ${qs.length === 1 ? "envió 1 respuesta" : `enviaron ${qs.length} respuestas`}:
+      <b class="c-ok">✔︎ ${by("ok")}</b> · <b class="c-bad">✘︎ ${by("bad")}</b> · <b class="c-part">◐︎ ${by("part")}</b>.
+      Las correcciones están en cada pregunta.</p>`;
+    render();
+    $("submitAll").querySelector(".sent").focus();
+  });
 
   function renderFigure(q) {
     if (!q.img) return "";
@@ -259,8 +298,10 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   function render() {
     renderStats();
     renderGrid();
+    renderSubmitAll();
     $("viewMode").querySelectorAll(".seg").forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === state.mode));
     const main = $("main");
+    main.dataset.mode = state.mode;
     if (!view.length) {
       main.innerHTML = `<div class="card empty-state">No hay preguntas con estos filtros. ${single ? `Elegí otra opción en “${esc(L.topics)}”` : "Activá algún tema"} o cambiá “Mostrar”.</div>`;
       return;
@@ -281,6 +322,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     if (state.mode !== "all") return render();
     renderStats();
     renderGrid();
+    renderSubmitAll();
     cardAt(p).outerHTML = cardHTML(DATA.questions[view[p]], p);
   }
 
@@ -326,11 +368,10 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
             <span>${esc(q.opts[o])}</span>${tag ? `<span class="tag">${tag}</span>` : ""}</label>`;
         }).join("");
       }
-      const hasAnswer = q.type === "match" ? answer.some((a) => a >= 0) : answer.length > 0;
       if (!isScored(q)) actions = `<span class="unscored">Sin respuesta confirmada: no se corrige automáticamente.</span>`;
       else actions = locked
         ? `<button class="btn retry" type="button">Responder de nuevo</button>`
-        : `<button class="btn primary check" type="button" ${hasAnswer ? "" : "disabled"}>Enviar respuesta</button>`;
+        : `<button class="btn primary check" type="button" ${hasAnswer(q, answer) ? "" : "disabled"}>Enviar respuesta</button>`;
     }
 
     return `
@@ -364,7 +405,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   }
 
   function renderInfoReview(q) {
-    return `<section class="review" aria-live="polite">
+    return `<section class="review" aria-live="polite" tabindex="-1">
       <h3>Respuesta</h3>${renderFigure(q)}<div class="answer">${esc(q.answer)}</div>${renderNote(q)}${renderSource(q)}
     </section>`;
   }
@@ -383,7 +424,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     let fb = "";
     if (q.fb) fb = `<h3>Explicación de la cátedra</h3><div class="fb">${esc(q.fb)}</div>`;
     else if (DATA.emptyFeedback) fb = `<h3>Explicación de la cátedra</h3><div class="fb empty">${esc(DATA.emptyFeedback)}</div>`;
-    return `<section class="review" aria-live="polite">
+    return `<section class="review" aria-live="polite" tabindex="-1">
       <span class="verdict ${cls}">${label}: ${fmt(s)} / 1</span>
       <h3>${q.correct.length > 1 || q.type === "match" ? "Respuestas correctas" : "Respuesta correcta"}</h3>${key}
       ${fb}${renderNote(q)}${renderFigure(q)}${renderSource(q)}
@@ -404,14 +445,14 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       ? [...opts.querySelectorAll("select")].map((s) => +s.value)
       : [...opts.querySelectorAll("input:checked")].map((i) => +i.value);
     const check = card.querySelector(".check");
-    const d = drafts[q.id];
-    if (check) check.disabled = q.type === "match" ? !d.some((a) => a >= 0) : d.length === 0;
+    if (check) check.disabled = !hasAnswer(q, drafts[q.id]);
+    bulkMsg = "";
+    renderSubmitAll();
   });
   $("main").addEventListener("click", (e) => {
     const btn = e.target.closest("button");
     if (!btn) return;
-    if (btn.id === "prev" && cur > 0) { cur--; render(); scrollToCard(); return; }
-    if (btn.id === "next" && cur < view.length - 1) { cur++; render(); scrollToCard(); return; }
+    if (btn.id === "prev" || btn.id === "next") { goTo(cur + (btn.id === "next" ? 1 : -1), btn.id); return; }
     const c = cardOf(btn);
     if (!c) return;
     cur = c.p;
@@ -422,10 +463,11 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       delete optOrder[c.q.id];
       saveState();
       update(c.p);
+      focusIn(c.p, ".opts input, .opts select, .check");
     }
   });
 
-  function submit(q) {
+  function record(q) {
     if (q.type === "info") {
       state.answers[q.id] = { seen: true };
     } else {
@@ -433,13 +475,48 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       state.answers[q.id] = { ans, score: score(q, ans) };
       delete drafts[q.id];
     }
+  }
+
+  function submit(q) {
+    record(q);
     saveState();
     update(cur);
+    // the card was re-rendered: move focus to the correction instead of losing it to <body>
+    focusIn(cur, ".review");
+  }
+
+  function focusIn(p, selector) {
+    const card = cardAt(p);
+    const el = card && card.querySelector(selector);
+    if (el) el.focus({ preventScroll: true });
   }
 
   function scrollToCard() {
     const c = $("main").querySelector(".card");
     if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({ block: "start" });
+  }
+
+  // moves to position p; in "one" mode the card slides in the direction of travel.
+  // focusId: nav button to keep focused after the re-render ("prev" / "next")
+  function goTo(p, focusId) {
+    if (p < 0 || p >= view.length) return;
+    if (state.mode === "all") { cur = p; renderGrid(); cardAt(cur).scrollIntoView({ block: "start" }); return; }
+    if (p === cur) return;
+    const back = p < cur;
+    cur = p;
+    withTransition(back, () => {
+      render();
+      scrollToCard();
+      if (!focusId) return;
+      const b = $(focusId), other = $(focusId === "next" ? "prev" : "next");
+      if (b && !b.disabled) b.focus(); else if (other && !other.disabled) other.focus();
+    });
+  }
+
+  function withTransition(back, fn) {
+    if (!document.startViewTransition || reduceMotion.matches) return fn();
+    document.documentElement.dataset.dir = back ? "prev" : "next";
+    document.startViewTransition(fn);
   }
 
   // ---------- global controls ----------
@@ -470,10 +547,27 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     state.answers = {}; drafts = {}; optOrder = {};
     applyFilters();
   });
+  // keyboard, "one" mode only: 1–9 pick options, Enter sends (or goes on once sent), arrows navigate
   document.addEventListener("keydown", (e) => {
-    if (state.mode === "all" || e.target.matches("select, input, textarea")) return;
-    if (e.key === "ArrowRight" && cur < view.length - 1) { cur++; render(); }
-    if (e.key === "ArrowLeft" && cur > 0) { cur--; render(); }
+    if (state.mode === "all" || e.ctrlKey || e.metaKey || e.altKey || e.target.matches("select, textarea")) return;
+    const card = $("main").querySelector(".card");
+    if (!card) return;
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      if (e.target.matches("input")) return; // radios use the arrows themselves
+      goTo(cur + (e.key === "ArrowRight" ? 1 : -1));
+    } else if (e.key === "Enter") {
+      if (e.target.matches("button, a, summary")) return; // they already react to Enter
+      e.preventDefault();
+      const check = card.querySelector(".check");
+      if (check) { if (!check.disabled) check.click(); }
+      else goTo(cur + 1);
+    } else if (/^[1-9]$/.test(e.key)) {
+      const input = card.querySelectorAll(".opts input:not(:disabled)")[+e.key - 1];
+      if (!input) return;
+      e.preventDefault();
+      input.checked = input.type === "checkbox" ? !input.checked : true;
+      input.dispatchEvent(new Event("change", { bubbles: true }));
+    }
   });
   if (window.innerWidth < 600) {
     $("filters").open = false;

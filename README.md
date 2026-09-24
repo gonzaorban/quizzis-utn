@@ -7,6 +7,12 @@ modules, sin frameworks, sin build y sin dependencias en runtime.
 Las preguntas se pueden ver de a una o todas juntas en una página. La vista "Todas en una página" sirve
 para buscar una pregunta con Ctrl+F.
 
+Cada pregunta se envía por separado. Si quedan preguntas con opciones marcadas sin enviar, al final aparece
+**Enviar todas** para corregirlas de una vez; las que no tienen nada marcado quedan sin responder.
+
+En la vista "Una por vez" hay atajos de teclado: `1`–`9` marcan opciones, `Enter` envía la respuesta (o
+pasa a la siguiente si ya estaba enviada) y `←` `→` cambian de pregunta.
+
 Materias incluidas:
 
 | Materia | Carpeta | Preguntas |
