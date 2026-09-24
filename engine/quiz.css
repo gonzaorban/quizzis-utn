@@ -125,6 +125,9 @@ select{background:var(--surface);border:1px solid var(--line);border-radius:8px;
 .figure figcaption{font-size:.8rem;font-weight:700;color:var(--muted);text-align:center;margin-bottom:6px}
 .source{margin-top:12px;font-size:.93rem}
 .source a{font-weight:700;text-underline-offset:3px}
+.source-page{margin-bottom:10px}
+.source-page a{display:block;cursor:zoom-in}
+.source-page img{max-width:100%}
 
 .viewmode{display:flex;gap:0;margin:0 2px 14px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);width:fit-content;max-width:100%}
 .seg{border:none;background:transparent;padding:8px 14px;min-height:40px;cursor:pointer;font-size:.9rem;color:var(--muted)}

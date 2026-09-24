@@ -18,7 +18,7 @@ Materias incluidas:
 | Materia | Carpeta | Preguntas |
 |---|---|---|
 | Administración de Sistemas de Información | `subjects/asi/` | 87 (78 con puntaje + 9 informativas) |
-| Redes de Datos | `subjects/redes/` | 98 (90 con link a la página de la teoría) |
+| Redes de Datos | `subjects/redes/` | 98 (90 con link a la página de la teoría, 51 con la imagen de esa página) |
 
 ## Estructura
 
@@ -39,9 +39,11 @@ subjects/
     index.html
     questions.json
     sources/            # PDFs de teoría + mapping-report.md
+      pages/            # páginas de los PDFs como imagen (las genera render-source-pages.py)
 scripts/
   validate.mjs          # valida todos los questions.json
   rank-sources.mjs      # sugiere páginas de la teoría para cada pregunta
+  render-source-pages.py # renderiza como imagen las páginas de confianza alta
 serve.json, vercel.json # cleanUrls + trailingSlash (ver abajo)
 ```
 
@@ -116,7 +118,7 @@ aclaración sobre el tema, visible en los filtros y en cada pregunta.
 | `note` | opcional | Aviso que se muestra al responder (por ejemplo, una respuesta dudosa). |
 | `section` | opcional | Sub-agrupación (por ejemplo, "1er parcial 2024"). Se muestra como badge y habilita el filtro por sección. |
 | `img` | opcional | Ruta relativa a la carpeta de la materia (`img/x.jpg`). |
-| `source` | opcional | `{ "file": "sources/x.pdf", "page": 12, "confidence": "high" \| "medium" \| "low" }`. Muestra "Ver en la teoría", que abre `x.pdf#page=12`. `page` es la página física del PDF (empieza en 1). |
+| `source` | opcional | `{ "file": "sources/x.pdf", "page": 12, "confidence": "high" \| "medium" \| "low", "img": "sources/pages/x-p12.webp" }`. Muestra "Ver en la teoría", que abre `x.pdf#page=12`. `page` es la página física del PDF (empieza en 1). Si está `img`, la corrección muestra además la imagen de esa página, para ver el respaldo sin abrir el PDF. |
 
 ### Puntaje
 
@@ -157,3 +159,14 @@ node scripts/rank-sources.mjs redes redes-c8 --top 5
 Son solo candidatos: la página y la confianza de cada `source` las decide una persona. El detalle de
 las asignaciones actuales de Redes, con el fragmento que justifica cada una, está en
 [`subjects/redes/sources/mapping-report.md`](subjects/redes/sources/mapping-report.md).
+
+Para las preguntas con `confidence: "high"` (la respuesta figura seguro en esa página), la corrección muestra
+la página como imagen. Las genera `scripts/render-source-pages.py`, que necesita PyMuPDF y Pillow
+(`pip install pymupdf pillow`):
+
+```sh
+python scripts/render-source-pages.py redes
+```
+
+Escribe `sources/pages/<pdf>-p<N>.webp`, completa `source.img` en `questions.json` y borra las imágenes que ya
+no se usan. Hay que volver a correrlo después de cambiar la página o la confianza de un `source`.
