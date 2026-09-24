@@ -11,11 +11,13 @@
     "1": {
       "name": "Modelo de capas",
       "color": "#E8772E",
-      "striped": true
+      "striped": true,
+      "note": "Este tema no apareció en las prácticas del cuestionario 2026."
     },
     "2": {
       "name": "Control de flujo, errores y ARQ",
-      "color": "#E8772E"
+      "color": "#E8772E",
+      "note": "Este tema no apareció en las prácticas del cuestionario 2026."
     },
     "3": {
       "name": "HDLC, SLIP y PPP",
@@ -39,7 +41,7 @@
       "name": "WAN: Frame Relay y ATM",
       "color": "#8A5A3B",
       "striped": true,
-      "note": "Este tema salió poco en la práctica del cuestionario 2026."
+      "note": "Este tema no apareció en las prácticas del cuestionario 2026."
     },
     "8": {
       "name": "Capa de red y enrutamiento",
