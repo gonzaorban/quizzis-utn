@@ -63,7 +63,12 @@
         2,
         3,
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-introduccion.pdf",
+        "page": 1,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-m10",
@@ -83,7 +88,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u1-introduccion.pdf",
+        "page": 1,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-m14",
@@ -170,7 +180,12 @@
         4,
         5
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u1-introduccion.pdf",
+        "page": 2,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c8",
@@ -187,7 +202,12 @@
       ],
       "correct": [
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 11,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c10",
@@ -203,7 +223,12 @@
       "correct": [
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 48,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c20",
@@ -226,7 +251,12 @@
         3,
         4,
         6
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 17,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c47",
@@ -243,7 +273,12 @@
       "correct": [
         0,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 15,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m1",
@@ -262,7 +297,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 27,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m11",
@@ -282,7 +322,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 26,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m13",
@@ -301,7 +346,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 25,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m21",
@@ -320,7 +370,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 28,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c13",
@@ -334,7 +389,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 39,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c14",
@@ -348,7 +408,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 35,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c22",
@@ -373,7 +438,12 @@
         4,
         5,
         6
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 30,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c23",
@@ -387,7 +457,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 39,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c28",
@@ -401,7 +476,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 38,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c30",
@@ -415,7 +495,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 39,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c34",
@@ -442,7 +527,12 @@
         5,
         6,
         7
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 39,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c42",
@@ -469,7 +559,12 @@
         5,
         6,
         7
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 39,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c44",
@@ -483,7 +578,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 39,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c49",
@@ -500,7 +600,12 @@
       "correct": [
         2,
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 45,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c53",
@@ -514,7 +619,12 @@
       ],
       "correct": [
         1
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 45,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m4",
@@ -534,7 +644,12 @@
         0,
         0
       ],
-      "fb": "Es un protocolo de enlace de datos que permite la conexión entre dos nodos de red. Proporciona muchas funciones como el cifrado, la compresión y la autenticación. También permite que varios otros protocolos operen en el mismo enlace de red."
+      "fb": "Es un protocolo de enlace de datos que permite la conexión entre dos nodos de red. Proporciona muchas funciones como el cifrado, la compresión y la autenticación. También permite que varios otros protocolos operen en el mismo enlace de red.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 39,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-m6",
@@ -581,7 +696,12 @@
         3,
         4
       ],
-      "fb": "Hay cinco fases del PPP: Enlace Muerto es la fase después de que un lado cuelga o se desconecta; Establecimiento de Link es cuando el LCP negocia las opciones; Autenticación, que es opcional y sucede antes de establecer cualquier conexión; Protocolo de capa de red es cuando se inicia cada protocolo que se utilizará; y Terminación de Link, cuando la conexión falla o los nodos optan por desconectar."
+      "fb": "Hay cinco fases del PPP: Enlace Muerto es la fase después de que un lado cuelga o se desconecta; Establecimiento de Link es cuando el LCP negocia las opciones; Autenticación, que es opcional y sucede antes de establecer cualquier conexión; Protocolo de capa de red es cuando se inicia cada protocolo que se utilizará; y Terminación de Link, cuando la conexión falla o los nodos optan por desconectar.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 42,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c32",
@@ -598,7 +718,12 @@
         0,
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 48,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c36",
@@ -613,7 +738,12 @@
       "correct": [
         0
       ],
-      "note": "En el PDF la expresión era una imagen que no se pudo extraer. La fórmula mostrada es una reconstrucción (la estándar para Aloha puro); verificala con el apunte."
+      "note": "En el PDF la expresión era una imagen que no se pudo extraer. La fórmula mostrada es una reconstrucción (la estándar para Aloha puro); verificala con el apunte.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 51,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c46",
@@ -628,7 +758,12 @@
       "correct": [
         0
       ],
-      "note": "En el PDF la expresión era una imagen que no se pudo extraer. La fórmula mostrada es una reconstrucción (la estándar para Aloha ranurado); verificala con el apunte."
+      "note": "En el PDF la expresión era una imagen que no se pudo extraer. La fórmula mostrada es una reconstrucción (la estándar para Aloha ranurado); verificala con el apunte.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 51,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c58",
@@ -690,7 +825,12 @@
         1,
         2
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 50,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-m17",
@@ -714,7 +854,12 @@
         1,
         2
       ],
-      "fb": "Persistencia 1: la estación transmite con probabilidad 1 cuando encuentra el canal desocupado. Sin persistencia: es menos ávido que el anterior. Antes de mandar prueba el canal y manda si nadie lo está usando; si está ocupado no lo prueba constantemente, sino que espera un período aleatorio y repite el algoritmo. La utilización es mejor pero los retrasos son más largos. Persistencia p: es para canales con tiempo dividido (ranurados). Si el canal está desocupado transmite con probabilidad p; con probabilidad 1-p espera al próximo intervalo y repite el proceso, hasta que se mande el marco o haya un choque, en cuyo caso espera un período aleatorio y empieza de nuevo."
+      "fb": "Persistencia 1: la estación transmite con probabilidad 1 cuando encuentra el canal desocupado. Sin persistencia: es menos ávido que el anterior. Antes de mandar prueba el canal y manda si nadie lo está usando; si está ocupado no lo prueba constantemente, sino que espera un período aleatorio y repite el algoritmo. La utilización es mejor pero los retrasos son más largos. Persistencia p: es para canales con tiempo dividido (ranurados). Si el canal está desocupado transmite con probabilidad p; con probabilidad 1-p espera al próximo intervalo y repite el proceso, hasta que se mande el marco o haya un choque, en cuyo caso espera un período aleatorio y empieza de nuevo.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 50,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m22",
@@ -733,7 +878,12 @@
         0,
         1
       ],
-      "fb": "En Aloha Puro: la probabilidad de que se generen 0 marcos en un período t está dada por Poisson como e^-G. En un período de 2t es e^-G·e^-G = e^-2G. Por lo tanto S = G·e^-2G. La utilización máxima ocurre con G = 0,5, con S = 1/2e ≈ 0,184: la utilización máxima del canal es solamente 18%. En Aloha Ranurado: para evitar una colisión solo necesitamos que no se inicie otro marco en el mismo intervalo, por lo que la probabilidad de que no se genere ningún marco en el período vulnerable es e^-G. Entonces S = G·e^-G. Si G = 1, S = 0,368: 36% de los intervalos están vacíos, 36% tienen un marco y 27% son colisiones."
+      "fb": "En Aloha Puro: la probabilidad de que se generen 0 marcos en un período t está dada por Poisson como e^-G. En un período de 2t es e^-G·e^-G = e^-2G. Por lo tanto S = G·e^-2G. La utilización máxima ocurre con G = 0,5, con S = 1/2e ≈ 0,184: la utilización máxima del canal es solamente 18%. En Aloha Ranurado: para evitar una colisión solo necesitamos que no se inicie otro marco en el mismo intervalo, por lo que la probabilidad de que no se genere ningún marco en el período vulnerable es e^-G. Entonces S = G·e^-G. Si G = 1, S = 0,368: 36% de los intervalos están vacíos, 36% tienen un marco y 27% son colisiones.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 51,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c2",
@@ -748,7 +898,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 61,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c4",
@@ -763,7 +918,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 61,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c12",
@@ -782,7 +942,12 @@
         1,
         2,
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 75,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c17",
@@ -800,7 +965,12 @@
         0,
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 61,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c21",
@@ -815,7 +985,12 @@
       ],
       "correct": [
         1
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 67,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c35",
@@ -830,7 +1005,12 @@
       ],
       "correct": [
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 60,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c50",
@@ -850,7 +1030,12 @@
         2,
         3,
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 73,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c60",
@@ -866,7 +1051,12 @@
       "correct": [
         0,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 67,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c65",
@@ -882,7 +1072,12 @@
       ],
       "correct": [
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 130,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c66",
@@ -896,7 +1091,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 125,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c67",
@@ -914,7 +1114,12 @@
         1,
         2,
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 129,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c68",
@@ -935,7 +1140,12 @@
         2,
         3,
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 143,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c69",
@@ -950,7 +1160,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 125,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c70",
@@ -972,7 +1187,12 @@
         3,
         4,
         5
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 107,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c71",
@@ -987,7 +1207,12 @@
       ],
       "correct": [
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 136,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-m2",
@@ -1006,7 +1231,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 60,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-m19",
@@ -1029,7 +1259,12 @@
         1,
         2
       ],
-      "fb": "Longitud mínima de trama: 64 bytes. Longitud máxima: 1500+ bytes. Direcciones físicas de 6 bytes = 48 bits. Detección de colisiones: proceso ANALÓGICO. Exponential back-off (retroceso exponencial binario). Jamming, IFG. Errores: Runts (restos de tramas erróneas con longitudes menores a la mínima), Giants (tramas con longitudes superiores a la máxima), Jabbering (señales erráticas ocasionadas por placas defectuosas o malos contactos). Originalmente half duplex. Regla 5-4-3-2-1. En 10Base-T aparecen los HUBS."
+      "fb": "Longitud mínima de trama: 64 bytes. Longitud máxima: 1500+ bytes. Direcciones físicas de 6 bytes = 48 bits. Detección de colisiones: proceso ANALÓGICO. Exponential back-off (retroceso exponencial binario). Jamming, IFG. Errores: Runts (restos de tramas erróneas con longitudes menores a la mínima), Giants (tramas con longitudes superiores a la máxima), Jabbering (señales erráticas ocasionadas por placas defectuosas o malos contactos). Originalmente half duplex. Regla 5-4-3-2-1. En 10Base-T aparecen los HUBS.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 61,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-m20",
@@ -1048,7 +1283,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 61,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-m23",
@@ -1067,7 +1307,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 118,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-m24",
@@ -1086,7 +1331,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 118,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-m25",
@@ -1122,7 +1372,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 55,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c25",
@@ -1138,7 +1393,12 @@
       ],
       "correct": [
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 90,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c27",
@@ -1166,7 +1426,12 @@
         5,
         6,
         8
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 99,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c29",
@@ -1187,7 +1452,12 @@
         2,
         3,
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 52,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c51",
@@ -1201,7 +1471,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 55,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m0",
@@ -1223,7 +1498,12 @@
         1,
         2
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 84,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m8",
@@ -1243,7 +1523,12 @@
         1
       ],
       "fb": "",
-      "note": "En el PDF el enunciado dice \"El esándar 802.1 Implementa\"; se corrigió el typo."
+      "note": "En el PDF el enunciado dice \"El esándar 802.1 Implementa\"; se corrigió el typo.",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 85,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-m12",
@@ -1263,7 +1548,12 @@
         0,
         1
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u2-2025.pdf",
+        "page": 88,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c6",
@@ -1280,7 +1570,12 @@
         0,
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 10,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c7",
@@ -1303,7 +1598,12 @@
         3,
         4,
         5
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 1,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c9",
@@ -1318,7 +1618,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 1,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c11",
@@ -1332,7 +1637,12 @@
       ],
       "correct": [
         1
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 5,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c15",
@@ -1348,7 +1658,12 @@
       ],
       "correct": [
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 1,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c16",
@@ -1365,7 +1680,12 @@
         0,
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 15,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c18",
@@ -1383,7 +1703,12 @@
         0,
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 12,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c19",
@@ -1397,7 +1722,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 15,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c33",
@@ -1417,7 +1747,12 @@
         1,
         3,
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 5,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c38",
@@ -1436,7 +1771,12 @@
         1,
         2,
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 16,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c39",
@@ -1452,7 +1792,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 2,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c40",
@@ -1467,7 +1812,12 @@
       ],
       "correct": [
         1
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 1,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c41",
@@ -1484,7 +1834,12 @@
       ],
       "correct": [
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 15,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c43",
@@ -1501,7 +1856,12 @@
       ],
       "correct": [
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 15,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c48",
@@ -1518,7 +1878,12 @@
       "correct": [
         0,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 5,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c52",
@@ -1536,7 +1901,12 @@
         0,
         2,
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 3,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c54",
@@ -1553,7 +1923,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 15,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c59",
@@ -1575,7 +1950,12 @@
         3,
         4,
         5
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 8,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c62",
@@ -1591,7 +1971,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 3,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-m5",
@@ -1617,7 +2002,12 @@
         2,
         3
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u1-frame-relay-atm.pdf",
+        "page": 16,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c0",
@@ -1635,7 +2025,12 @@
         0,
         2,
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 22,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c1",
@@ -1674,7 +2069,12 @@
         4,
         5,
         7
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 12,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c24",
@@ -1693,7 +2093,12 @@
         1,
         2,
         3
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 19,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c26",
@@ -1715,7 +2120,12 @@
         2,
         4,
         5
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 18,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c31",
@@ -1729,7 +2139,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 14,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c37",
@@ -1745,7 +2160,12 @@
       "correct": [
         0,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 15,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c45",
@@ -1781,7 +2201,12 @@
       "correct": [
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 9,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c56",
@@ -1795,7 +2220,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 10,
+        "confidence": "high"
+      }
     },
     {
       "id": "redes-c57",
@@ -1812,7 +2242,12 @@
       "correct": [
         1,
         2
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 14,
+        "confidence": "medium"
+      }
     },
     {
       "id": "redes-c63",
@@ -1827,7 +2262,12 @@
       ],
       "correct": [
         0
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 9,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-c64",
@@ -1845,7 +2285,12 @@
       "correct": [
         1,
         4
-      ]
+      ],
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 17,
+        "confidence": "low"
+      }
     },
     {
       "id": "redes-m16",
@@ -1867,7 +2312,12 @@
         1,
         2
       ],
-      "fb": ""
+      "fb": "",
+      "source": {
+        "file": "sources/u3-capa-de-red.pdf",
+        "page": 10,
+        "confidence": "high"
+      }
     }
   ]
 }

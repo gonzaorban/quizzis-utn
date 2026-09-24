@@ -315,13 +315,22 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     bindCard(q);
   }
 
+  // link to the theory PDF page backing the question (source.page is the physical PDF page)
+  function renderSource(q) {
+    if (!q.source) return "";
+    const { file, page, confidence } = q.source;
+    const name = file.split("/").pop();
+    const low = confidence === "low" ? " · referencia aproximada (confianza baja)" : "";
+    return `<p class="source"><a href="${esc(asset(file))}#page=${page}" target="_blank" rel="noopener" title="Se abre en una pestaña nueva">Ver en la teoría (${esc(name)}, pág. ${page})${low}</a></p>`;
+  }
+
   function renderNote(q) {
     return q.note ? `<div class="note"><b>Atención:</b> ${esc(q.note)}</div>` : "";
   }
 
   function renderInfoReview(q) {
     return `<section class="review" aria-live="polite">
-      <h3>Respuesta</h3>${renderFigure(q)}<div class="answer">${esc(q.answer)}</div>${renderNote(q)}
+      <h3>Respuesta</h3>${renderFigure(q)}<div class="answer">${esc(q.answer)}</div>${renderNote(q)}${renderSource(q)}
     </section>`;
   }
 
@@ -342,7 +351,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     return `<section class="review" aria-live="polite">
       <span class="verdict ${cls}">${label}: ${fmt(s)} / 1</span>
       <h3>${q.correct.length > 1 || q.type === "match" ? "Respuestas correctas" : "Respuesta correcta"}</h3>${key}
-      ${fb}${renderNote(q)}${renderFigure(q)}
+      ${fb}${renderNote(q)}${renderFigure(q)}${renderSource(q)}
     </section>`;
   }
 
