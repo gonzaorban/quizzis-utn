@@ -788,11 +788,11 @@
         "e^-G"
       ],
       "correct": [
-        1,
-        0
+        0,
+        1
       ],
-      "fb": "El período de vulnerabilidad es el intervalo en el que, si otra estación empieza a transmitir, la trama choca (t = tiempo de una trama). En Aloha Puro se transmite en cualquier momento, así que la trama es vulnerable durante 2t: la pisa cualquier trama que haya empezado hasta t antes o que empiece antes de que termine. Por Poisson, la probabilidad de que no se genere ninguna trama en 2t es e^-2G, por lo que S = G·e^-2G; el máximo es con G = 0,5: S = 1/2e ≈ 0,184 (18%). En Aloha Ranurado solo se puede transmitir al inicio de una ranura, así que el período vulnerable se reduce a t (una sola ranura): la probabilidad de que nadie más transmita en esa ranura es e^-G y S = G·e^-G; el máximo es con G = 1: S = 1/e ≈ 0,368 (37%). Con G = 1, alrededor del 37% de las ranuras quedan vacías, 37% tienen una transmisión exitosa y 26% son colisiones.",
-      "note": "La clave del PDF original es correcta (Aloha Puro → e^-2G, Aloha Ranurado → e^-G). Lo que estaba mal era la explicación: se reescribió aclarando el período vulnerable de cada caso (2t en Puro, t en Ranurado) y corrigiendo los porcentajes con G = 1 (37% vacías, 37% éxitos y 26% colisiones)."
+      "fb": "Según la clave de la cátedra: Aloha Ranurado → e^-2G y Aloha Puro → e^-G. Ojo: la bibliografía da lo contrario. En Aloha Puro se transmite en cualquier momento, así que la trama es vulnerable durante 2t (t = tiempo de una trama) y la probabilidad de que no haya otra transmisión en ese intervalo es e^-2G (S = G·e^-2G, máximo 18% con G = 0,5). En Aloha Ranurado el período vulnerable es una sola ranura, t, y esa probabilidad es e^-G (S = G·e^-G, máximo 37% con G = 1).",
+      "note": "La respuesta sigue la clave del PDF de la cátedra (Aloha Ranurado → e^-2G, Aloha Puro → e^-G). La bibliografía dice lo contrario (Puro → e^-2G, Ranurado → e^-G); consultalo con la cátedra."
     },
     {
       "id": "redes-m9",
