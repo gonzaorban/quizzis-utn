@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Redes de Información: cuestionario 1er parcial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F3; --surface:#FFFFFF; --ink:#1C2833; --muted:#5C6B77; --line:#D5DCE1;
+  --accent:#2F6FD6; --accent-ink:#FFFFFF;
+  --ok:#1E7D4F; --ok-bg:#E3F2EA; --bad:#B3261E; --bad-bg:#FBE6E4; --part:#A8660B; --part-bg:#FBEFD9;
+  --note-bg:#FFF6DB; --note-line:#E0B84A;
+  --w-orange:#E8772E; --w-green:#2E9E57; --w-blue:#2F6FD6; --w-brown:#8A5A3B; --w-white:#F7F7F4;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12181D; --surface:#1A2229; --ink:#E6ECF0; --muted:#9AA8B3; --line:#2C3740;
+    --accent:#5B8FE6; --accent-ink:#0E1419;
+    --ok:#5CC48D; --ok-bg:#16342A; --bad:#F08A80; --bad-bg:#3A1D1B; --part:#E6B25C; --part-bg:#3A2D14;
+    --note-bg:#33291A; --note-line:#8D6E2B; --w-white:#D9DAD6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12181D; --surface:#1A2229; --ink:#E6ECF0; --muted:#9AA8B3; --line:#2C3740;
+  --accent:#5B8FE6; --accent-ink:#0E1419;
+  --ok:#5CC48D; --ok-bg:#16342A; --bad:#F08A80; --bad-bg:#3A1D1B; --part:#E6B25C; --part-bg:#3A2D14;
+  --note-bg:#33291A; --note-line:#8D6E2B; --w-white:#D9DAD6;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+button,select,input{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1{font:700 2.1rem/1 "Barlow Condensed","Arial Narrow",sans-serif;letter-spacing:.01em;margin:4px 0 4px}
+.sub{color:var(--muted);margin:0 0 18px;font-size:.95rem}
+
+/* wire swatch: T568B pair colors, one per topic */
+.wire{display:inline-block;width:26px;height:8px;border-radius:4px;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.t1{background:repeating-linear-gradient(115deg,var(--w-white) 0 5px,var(--w-orange) 5px 10px)}
+.t2{background:var(--w-orange)}
+.t3{background:repeating-linear-gradient(115deg,var(--w-white) 0 5px,var(--w-green) 5px 10px)}
+.t4{background:var(--w-blue)}
+.t5{background:repeating-linear-gradient(115deg,var(--w-white) 0 5px,var(--w-blue) 5px 10px)}
+.t6{background:var(--w-green)}
+.t7{background:repeating-linear-gradient(115deg,var(--w-white) 0 5px,var(--w-brown) 5px 10px)}
+.t8{background:var(--w-brown)}
+
+.filters{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+.filters summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.filters summary::-webkit-details-marker{display:none}
+.filters summary .hint{font-weight:400;color:var(--muted);font-size:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:transparent;border-radius:999px;padding:7px 12px 7px 10px;cursor:pointer;font-size:.92rem;min-height:40px}
+.chip[aria-pressed="true"]{border-color:var(--ink);background:var(--bg);font-weight:700}
+.chip[aria-pressed="false"] .wire{opacity:.35}
+.chip .n{color:var(--muted);font-weight:400;font-size:.85rem}
+.row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.row label{display:inline-flex;align-items:center;gap:8px;font-size:.93rem}
+select{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:7px 10px;max-width:100%}
+.linkbtn{background:none;border:none;color:var(--accent);cursor:pointer;padding:6px 0;font-size:.93rem;text-decoration:underline;text-underline-offset:3px}
+
+.stats{display:flex;gap:18px;flex-wrap:wrap;margin:16px 2px 10px;color:var(--muted);font-size:.92rem}
+.stats b{color:var(--ink);font-size:1.05rem}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:0 2px 18px}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .25s}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px}
+.meta{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.88rem;margin-bottom:8px;flex-wrap:wrap}
+.qnum{font:600 1.25rem/1 "Barlow Condensed","Arial Narrow",sans-serif;color:var(--ink)}
+.qtext{font-size:1.12rem;font-weight:700;margin:4px 0 6px;line-height:1.45}
+.kind{color:var(--muted);font-size:.9rem;margin:0 0 12px;font-style:italic}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:11px 12px;cursor:pointer;position:relative}
+.opt input{margin:3px 0 0;width:18px;height:18px;flex:none;accent-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.opt.locked{cursor:default}
+.opt.locked.is-ok,.opt.locked.is-ok:has(input:checked){border-color:var(--ok);background:var(--ok-bg)}
+.opt.locked.is-bad,.opt.locked.is-bad:has(input:checked){border-color:var(--bad);background:var(--bad-bg)}
+.opt.is-missed{border-color:var(--ok);border-style:dashed}
+.opt .tag{margin-left:auto;font-size:.8rem;font-weight:700;white-space:nowrap;padding-left:8px}
+.is-ok .tag{color:var(--ok)} .is-bad .tag{color:var(--bad)} .is-missed .tag{color:var(--ok)}
+.pair{border:1px solid var(--line);border-radius:10px;padding:11px 12px;display:flex;flex-direction:column;gap:8px}
+.pair .stem{font-weight:700}
+.pair select{width:100%}
+.pair.is-ok{border-color:var(--ok);background:var(--ok-bg)}
+.pair.is-bad{border-color:var(--bad);background:var(--bad-bg)}
+.pair .fix{font-size:.9rem;color:var(--ok)}
+
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 16px;cursor:pointer;font-weight:700;min-height:44px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn:focus-visible,.chip:focus-visible,.opt:focus-within,.dot:focus-visible,select:focus-visible,.linkbtn:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 55%,transparent);outline-offset:2px}
+
+.review{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;animation:reveal .25s ease-out}
+@keyframes reveal{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.verdict{display:inline-block;font-weight:700;border-radius:8px;padding:4px 10px;margin-bottom:10px}
+.verdict.ok{background:var(--ok-bg);color:var(--ok)} .verdict.bad{background:var(--bad-bg);color:var(--bad)} .verdict.part{background:var(--part-bg);color:var(--part)}
+.review h3{font-size:.95rem;margin:12px 0 4px}
+.review p{margin:0 0 6px}
+.review ul{margin:0;padding-left:20px}
+.fb{border-left:4px solid var(--accent);padding:8px 12px;background:color-mix(in srgb,var(--accent) 7%,transparent);border-radius:0 8px 8px 0}
+.fb.empty{border-left-color:var(--line);background:transparent;color:var(--muted);font-style:italic}
+.note{border-left:4px solid var(--note-line);background:var(--note-bg);padding:8px 12px;border-radius:0 8px 8px 0;margin-top:10px;font-size:.93rem}
+
+.nav{display:flex;justify-content:space-between;gap:10px;margin:14px 0}
+.grid{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.dot{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-size:.8rem;cursor:pointer;padding:0;display:grid;place-items:center}
+.dot.cur{border:2px solid var(--ink);font-weight:700}
+.dot.ok{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.dot.bad{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+.dot.part{background:var(--part-bg);border-color:var(--part);color:var(--part)}
+.empty-state{text-align:center;color:var(--muted);padding:30px 10px}
+.foot{color:var(--muted);font-size:.85rem;margin-top:26px}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:480px){h1{font-size:1.8rem}.card{padding:15px 14px}.qtext{font-size:1.05rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Redes de Información</h1>
+  <p class="sub">Banco de preguntas del 1er parcial (ISI, UTN FRRe), armado desde las revisiones del cuestionario de estudio.</p>
+
+  <details class="filters" id="filters" open>
+    <summary><span>Temas y opciones</span><span class="hint" id="filterHint"></span></summary>
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por tema"></div>
+    <div class="row">
+      <button class="linkbtn" id="allTopics" type="button">Todos los temas</button>
+      <button class="linkbtn" id="noTopics" type="button">Ninguno</button>
+    </div>
+    <div class="row" style="margin-top:8px">
+      <label>Mostrar
+        <select id="statusFilter">
+          <option value="all">todas</option>
+          <option value="pending">sin responder</option>
+          <option value="wrong">incorrectas o parciales</option>
+        </select>
+      </label>
+      <label><input type="checkbox" id="shuffleQ"> Mezclar preguntas</label>
+      <label><input type="checkbox" id="shuffleO" checked> Mezclar opciones</label>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <button class="linkbtn" id="reset" type="button">Borrar mis respuestas</button>
+    </div>
+  </details>
+
+  <div class="stats" id="stats"></div>
+  <div class="bar"><i id="barFill"></i></div>
+
+  <main id="main"></main>
+
+  <div class="grid" id="grid" aria-label="Ir a pregunta"></div>
+
+  <p class="foot">Puntaje por pregunta al estilo Moodle: en las de opción múltiple cada error descuenta un acierto; en las de emparejar vale cada par. Tu progreso queda guardado en este navegador.</p>
+</div>
+
+<script>
+const DATA = {"topics": {"1": "Modelo de capas", "2": "Control de flujo, errores y ARQ", "3": "HDLC, SLIP y PPP", "4": "Acceso al medio: ALOHA y CSMA", "5": "Ethernet, LLC, switches y bridges", "6": "Inalámbricas: 802.11 y WPA", "7": "WAN: Frame Relay y ATM", "8": "Capa de red y enrutamiento"}, "questions": [{"id": "c61", "topic": 1, "type": "multi", "text": "¿Cual es la ventaja del diseño de redes en capas o pilas?", "fb": "", "opts": ["Separar en partes, permite facilitar el abordaje de un problema complejo", "Reducir la complejidad del diseño", "Permitir el desarrollo y actualización de capas individualmente", "Abstraer las complejidades de las capas inferiores", "Permitir la modificación de los mecanismos de una capa sin influir en las otras"], "correct": [0, 1, 2, 3, 4]}, {"id": "m10", "topic": 1, "type": "match", "text": "Defina lo siguiente escogiendo la opción correcta:", "stems": ["Protocolo:", "Servicio:"], "choices": ["Conjunto de reglas que gobiernan el formato y significado de los mensajes intercambiados entre pares de entidades pertenecientes a una misma capa", "Conjunto de operaciones (primitivas), que una capa ofrece a una capa superior", "Conjunto de operaciones (primitivas), que una capa ofrece a una capa inferior"], "correct": [0, 1], "fb": ""}, {"id": "m14", "topic": 1, "type": "match", "text": "Coloque el Nº de capa correcto a cada una de las siguientes opciones pertenecientes al modelo OSI", "stems": ["Física", "Enlace", "Red", "Transporte", "Sesión", "Presentación", "Aplicación"], "choices": ["1", "2", "3", "4", "5", "6", "7", "0"], "correct": [0, 1, 2, 3, 4, 5, 6], "fb": ""}, {"id": "m15", "topic": 1, "type": "match", "text": "Modelo OSI vs TCP/IP: (seleccione las opciones correctas)", "stems": ["El Modelo OSI:", "TCP/IP:"], "choices": ["Referente teórico general y detallado. Excelente para el análisis de sistemas de comunicación pero pocos protocolos implementados", "No distingue con claridad los conceptos de servicio, interfaz y protocolo, tiene estándares abiertos y muchas aplicaciones lo usan en la actualidad, siendo sus interfaces de programación de aplicaciones bien documentadas.", "Referente general de 7 capas, sin definición explícita de servicios y protocolos"], "correct": [0, 1], "fb": ""}, {"id": "m18", "topic": 1, "type": "match", "text": "Seleccione las respuestas correctas para definir cada componente", "stems": ["Entidad:", "Unidad de datos de la Interfaz", "ICI:", "SDU:", "PDU", "SAP:"], "choices": ["Elemento activo de una capa que implementa un servicio (puede ser hardware o software)", "SDU + ICI", "información de control de la interfaz.", "unidad de datos de servicio", "unidad de datos de protocolo utilizada por la capa n para pasar la información a las capas más bajas", "(punto de acceso al servicio): Lugar donde el usuario (capa n+1) accede al servicio de la capa n, cada SAP tiene asociada una dirección que lo identifica unívocamente.", "Protocolo que comunica con la capa inferior"], "correct": [0, 1, 2, 3, 4, 5], "fb": ""}, {"id": "c8", "topic": 2, "type": "single", "text": "El control de flujo refiere a:", "fb": "", "opts": ["La velocidad del enlace", "El problema de un receptor rápido y un emisor lento", "El ancho de banda", "La cantidad d eenlaces", "El problema de un emisor rápido y un receptor lento"], "correct": [4]}, {"id": "c10", "topic": 2, "type": "multi", "text": "Los enlaces pueden ser: (marque las opciones correctas)", "fb": "", "opts": ["Mixtos", "Punto a Punto", "Difusión"], "correct": [1, 2]}, {"id": "c20", "topic": 2, "type": "multi", "text": "¿Cual de los siguientes procedimientos se relacionan con el control de errores?", "fb": "", "opts": ["ARQ con parada y espera", "ARQ con rechazo selectivo", "Parada y espera", "ARQ con vuelta atrás N", "Implementación de un código con capacidad de detección que depende de los bits transmitidos", "Ventana Deslizante", "Retransmisión de tramas no confirmadas"], "correct": [0, 1, 3, 4, 6]}, {"id": "c47", "topic": 2, "type": "multi", "text": "¿Cual de los siguientes procedimientos se relacionan con el control de flujo?", "fb": "", "opts": ["Ventana Deslizante", "Retransmisión de tramas no confirmadas", "Parada y espera", "Implementación de un código con capacidad de detección que depende de los bits transmitidos"], "correct": [0, 2]}, {"id": "m1", "topic": 2, "type": "match", "text": "Rendimiento de protocolos ARQ con Selective Repeat:", "stems": ["1 − P", "W(1−P) / (2a+1)"], "choices": ["si W ≥ 2a+1", "si W < 2a+1"], "correct": [0, 1], "fb": ""}, {"id": "m11", "topic": 2, "type": "match", "text": "Rendimiento de protocolos ARQ parada y espera con errores:", "stems": ["U", "0, si:"], "choices": ["= (1−P) / (1+2a)", "Probabilidad de error es 100%", "si W ≥ 2a+1"], "correct": [0, 1], "fb": ""}, {"id": "m13", "topic": 2, "type": "match", "text": "El rendimiento de un protocolo utilizando control de flujo con ventana deslizante y sin errores es:", "stems": ["1", "W / (2a+1)"], "choices": ["si W ≥ 2a+1", "si W < 2a+1"], "correct": [0, 1], "fb": ""}, {"id": "m21", "topic": 2, "type": "match", "text": "Rendimiento de protocolos ARQ con Go-Back-N:", "stems": ["(1−P) / (1+2aP)", "W(1−P) / [(2a+1)(1−P+WP)]"], "choices": ["si W ≥ 2a+1", "si W < 2a+1"], "correct": [0, 1], "fb": ""}, {"id": "c13", "topic": 3, "type": "tf", "text": "PPP se creo para reemplazar a SLIP y LAPB", "fb": "PPP se desarrolló para reemplazar el Protocolo de Internet de línea serie (SLIP) y el protocolo de acceso al enlace, equilibrado (LAPB) en la década de 1980. El sistema anterior se creía que era demasiado simple y no proporcionan la funcionalidad requerida. La primera propuesta de la norma fue publicada en 1989 por la Internet Engineering Task Force (IETF). Esta definición se utilizó hasta 1994, cuando el \"RFC1661 --- The Point-to-Point Protocol (PPP)\" se publicó definición.", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c14", "topic": 3, "type": "tf", "text": "El Protocolo LAP B es similar a HDLC salvo que no utiliza direccionamiento", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c22", "topic": 3, "type": "multi", "text": "Cual de las siguientes opciones son válidas para HDLC", "fb": "", "opts": ["LAPx (CCITT)", "ADCCP (ANSI)", "HDLC (ISO)", "Tres modos de operación: respuesta normal, respuesta asincrónica, balanceado asincrónico", "Origen: SDLC (IBM)", "Contempla todas las funciones de la capa de enlace", "Orientado al bit (relleno de bits)"], "correct": [0, 1, 2, 3, 4, 5, 6]}, {"id": "c23", "topic": 3, "type": "tf", "text": "PPP opera en la capa de enlace", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c28", "topic": 3, "type": "tf", "text": "SLIP es un protocolo de enlace extremadamente elemental que apenas cumple con la función de entramado", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c30", "topic": 3, "type": "single", "text": "Cómo se negocian las opciones de protocolos de red en PPP?", "fb": "PPP permite que varios protocolos a ser utilizados en la misma conexión de red, proporcionando una manera para que puedan ser encapsulados y configurados. Para cada protocolo separado individual utilizada través de la conexión, hay un nuevo protocolo de control de red (NCP) proporcionado para negociar las configuraciones para el protocolo.", "opts": ["Con NCP", "Con LCP"], "correct": [0]}, {"id": "c34", "topic": 3, "type": "multi", "text": "Cual de las siguientes afirmaciones son verdaderas para el protocolo PPP", "fb": "", "opts": ["Especificado en IETF RFC 1661, 1662, 1663", "Sincrónico/asincrónico", "Autenticación", "Negociación dinámica de una dirección de capa 3 (IP)", "Multienlace", "Subprotocolos separados para gestión del enlace y de las opciones de capa de red (LCP y NCP)", "Completamente multiprotocolo (+50 protocolos soportados)", "Compresión"], "correct": [0, 1, 2, 3, 4, 5, 6, 7]}, {"id": "c42", "topic": 3, "type": "multi", "text": "Cuales de las siguientes opciones son válidas para el protocolo PPP", "fb": "", "opts": ["Sincrónico/asincrónico", "IETF RFC 1661, 1662, 1663", "Compresión de encabezado", "Negociación dinámica de una dirección de capa 3", "Subprotocolos separados para gestión del enlace y de las opciones de capa de red (LCP y NCP)", "Multienlace", "Autenticación", "Completamente multiprotocolo"], "correct": [0, 1, 2, 3, 4, 5, 6, 7]}, {"id": "c44", "topic": 3, "type": "single", "text": "Cómo se inician las sesiones PPP?", "fb": "Protocolo de Control de Enlace (LCP) es cómo se inician las sesiones PPP. En primer lugar, uno solicitudes router o módem para abrir un enlace PPP con otro router e incluye sus preferencias para el tamaño de trama de datos, velocidad, etc. El otro debe estar de acuerdo o en desacuerdo y responder con sus preferencias. Después de preferencias se establecen y autenticación sucede, los datos pasan entre los dos puntos usando PPP. Una vez finalizada la sesión, un mensaje de \"terminar\" es enviado por un lado, acordó por la otra, y se desconecta el enlace.", "opts": ["Con LCP", "Con NCP"], "correct": [0]}, {"id": "c49", "topic": 3, "type": "multi", "text": "El protocolo PPP, tiene las siguientes funciones de capa de enlace", "fb": "", "opts": ["Control de Flujo", "Direccionamiento", "Entramado y encapsulamiento", "Control de errores"], "correct": [2, 3]}, {"id": "c53", "topic": 3, "type": "tf", "text": "El protocolo PPP incluye las funciones de control de flujo y direccionamiento", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [1]}, {"id": "m4", "topic": 3, "type": "match", "text": "PPP es:", "stems": ["Un protocolo utilizado por los ISP para brindar acceso a Internet", "Es un protocolo de enlace de datos que permite la conexión entre dos nodos de red. Proporciona muchas funciones como el cifrado, la compresión y la autenticación. También permite que varios otros protocolos operen en el mismo enlace de red."], "choices": ["Correcto", "Incorrecto", "Un protocolo que permite negociar una dirección de Red pero no brinda autenticacion"], "correct": [0, 0], "fb": "Es un protocolo de enlace de datos que permite la conexión entre dos nodos de red. Proporciona muchas funciones como el cifrado, la compresión y la autenticación. También permite que varios otros protocolos operen en el mismo enlace de red."}, {"id": "m6", "topic": 3, "type": "match", "text": "Los números mágicos en PPP se utilizan:", "stems": ["Los números mágicos en PPP se utilizan para identificar una conexión de capa de red", "Los números mágicos en PPP se utilizan para detectar bucles"], "choices": ["Incorrecto", "Correcto"], "correct": [0, 1], "fb": "PPP incluye una característica llamada \"números mágicos\" para detectar conexiones en bucle. Cuando se envía un paquete o mensaje LCP se puede incluir un número mágico. Si la máquina recibe su propio número mágico en lugar del de la otra máquina, reconoce que la línea está en bucle y no alcanza el nodo de red deseado."}, {"id": "m7", "topic": 3, "type": "match", "text": "Numere las cinco fases de una conexión PPP", "stems": ["Sensado, Enlace Muerto es la fase después de un lado cuelga o se desconecta", "LCP negocia para las opciones", "autenticación (opcional)", "Protocolo de capa de red es cuando se inicia cada protocolo que se utilizará", "Cuando la conexión falla o los nodos optó por desconectar."], "choices": ["1", "2", "3", "4", "5"], "correct": [0, 1, 2, 3, 4], "fb": "Hay cinco fases del PPP: Enlace Muerto es la fase después de que un lado cuelga o se desconecta; Establecimiento de Link es cuando el LCP negocia las opciones; Autenticación, que es opcional y sucede antes de establecer cualquier conexión; Protocolo de capa de red es cuando se inicia cada protocolo que se utilizará; y Terminación de Link, cuando la conexión falla o los nodos optan por desconectar."}, {"id": "c32", "topic": 4, "type": "multi", "text": "Una cuestión central en los canales de difusión es el problema de asignación del canal a los usuarios. ¿cual de las siguientes opciones están relacionadas con este tema?", "fb": "", "opts": ["La asignación puede ser dinámica", "Los protocolos utilizados para determinar quien accede al canal pertenecen a una subcapa de la capa de enlace de datos", "La asignación puede ser estática"], "correct": [0, 1, 2]}, {"id": "c36", "topic": 4, "type": "tf", "text": "Esta expresión representa el rendimiento de Aloha puro: S = G·e^(−2G)", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0], "note": "En el PDF la expresión era una imagen que no se pudo extraer. La fórmula mostrada es una reconstrucción (la estándar para Aloha puro); verificala con el apunte."}, {"id": "c46", "topic": 4, "type": "tf", "text": "Esta expresión representa el rendimiento de Aloha ranurado: S = G·e^(−G)", "fb": "Si se considera una ranura como intervalo de vulnerabilidad", "opts": ["Verdadero", "Falso"], "correct": [0], "note": "En el PDF la expresión era una imagen que no se pudo extraer. La fórmula mostrada es una reconstrucción (la estándar para Aloha ranurado); verificala con el apunte."}, {"id": "c58", "topic": 4, "type": "multi", "text": "¿Cuales son los supuestos en cuanto al tiempo en que las estaciones de un canal compartido pueden transmitir? (seleccione las opciones válidas)", "fb": "", "opts": ["Las estaciones pueden saber si el canal está en uso antes de intentar utilizarlo", "Tiempo Ranurado", "La transmisión de una trama comienza al inicio de una ranura de tiempo", "No hay reloj maestro que divida el tiempo en intervalos discretos", "Tiempo Continuo"], "correct": [1, 2, 3, 4]}, {"id": "m3", "topic": 4, "type": "match", "text": "El período de vulnerabilidad de una trama en:", "stems": ["Aloha Ranurado", "Aloha Puro"], "choices": ["e^-2G", "e^-G"], "correct": [0, 1], "fb": "En Aloha Puro: la probabilidad de que se generen 0 marcos en un período t está dada por Poisson como e^-G. En un período de 2t es e^-G·e^-G = e^-2G. Por lo tanto S = G·e^-2G. La utilización máxima ocurre con G = 0,5, con S = 1/2e ≈ 0,184: la utilización máxima del canal es solamente 18%. En Aloha Ranurado: para evitar una colisión solo necesitamos que no se inicie otro marco en el mismo intervalo, por lo que la probabilidad de que no se genere ningún marco en el período vulnerable es e^-G. Entonces S = G·e^-G. Si G = 1, S = 0,368: 36% de los intervalos están vacíos, 36% tienen un marco y 27% son colisiones.", "note": "Ojo: la clave de la cátedra asigna e^-2G a Aloha Ranurado y e^-G a Aloha Puro, pero su propia explicación dice lo contrario (Puro: e^-2G, Ranurado: e^-G), que es lo que indica la bibliografía. La app corrige según la clave original; consultalo con la cátedra."}, {"id": "m9", "topic": 4, "type": "match", "text": "Para protocolos que utilizan CSMA, con respecto de la latencia:", "stems": ["¿Qué probabilidad se ajusta mejor a una carga muy variable?", "Para alta carga", "Para cargas muy bajas"], "choices": ["P - persistente", "No persistente", "1 - persistente"], "correct": [0, 1, 2], "fb": ""}, {"id": "m17", "topic": 4, "type": "match", "text": "Los protocolos CSMA (Carrier Sense Multiple Access) pueden ser:", "stems": ["P - Persistente", "1 - Persistente", "No Persistente"], "choices": ["Se aplica a canales ranurados. Si el canal se encuentra inactivo la estación transmite con una probabilidad p, y con una probabilidad q = 1−p espera hasta la siguiente ranura.", "La estación transmite con probabilidad 1 cuando encuentra el canal inactivo", "Si la estación encuentra el canal ocupado espera un período de tiempo aleatorio antes de transmitir", "Si el canal está libre transmite con una probabilidad q = 1−P", "Si el canal está ocupado espera la siguiente ranura con probabilidad p"], "correct": [0, 1, 2], "fb": "Persistencia 1: la estación transmite con probabilidad 1 cuando encuentra el canal desocupado. Sin persistencia: es menos ávido que el anterior. Antes de mandar prueba el canal y manda si nadie lo está usando; si está ocupado no lo prueba constantemente, sino que espera un período aleatorio y repite el algoritmo. La utilización es mejor pero los retrasos son más largos. Persistencia p: es para canales con tiempo dividido (ranurados). Si el canal está desocupado transmite con probabilidad p; con probabilidad 1-p espera al próximo intervalo y repite el proceso, hasta que se mande el marco o haya un choque, en cuyo caso espera un período aleatorio y empieza de nuevo."}, {"id": "m22", "topic": 4, "type": "match", "text": "El rendimiento máximo de:", "stems": ["Aloha Puro", "Aloha Ranurado"], "choices": ["es del 18%", "es del 36%"], "correct": [0, 1], "fb": "En Aloha Puro: la probabilidad de que se generen 0 marcos en un período t está dada por Poisson como e^-G. En un período de 2t es e^-G·e^-G = e^-2G. Por lo tanto S = G·e^-2G. La utilización máxima ocurre con G = 0,5, con S = 1/2e ≈ 0,184: la utilización máxima del canal es solamente 18%. En Aloha Ranurado: para evitar una colisión solo necesitamos que no se inicie otro marco en el mismo intervalo, por lo que la probabilidad de que no se genere ningún marco en el período vulnerable es e^-G. Entonces S = G·e^-G. Si G = 1, S = 0,368: 36% de los intervalos están vacíos, 36% tienen un marco y 27% son colisiones."}, {"id": "c2", "topic": 5, "type": "single", "text": "Cual es la longitud máxima del campo payload de la trama Ethernet", "fb": "", "opts": ["1500 bytes", "1492 bytes", "64 bytes"], "correct": [0]}, {"id": "c4", "topic": 5, "type": "single", "text": "Cual es la longitud mínima de la trama Ethernet", "fb": "", "opts": ["64 bytes", "1500 bytes", "1492 bytes"], "correct": [0]}, {"id": "c12", "topic": 5, "type": "multi", "text": "Seleccione las opciones correctas para Gigabit Ethernet", "fb": "", "opts": ["La mayoría de las implementaciones son enlaces PaP FD", "Soporta configuracions half y full duplex", "Permite el envío de ráfagas de tramas pequeñas", "Se aumenta el tamaño de la trama a 512 bytes"], "correct": [0, 1, 2, 3]}, {"id": "c17", "topic": 5, "type": "multi", "text": "La deteccion de colisiones es un proceso analógico Por que motivo puede ser dañino para deteccion de colisiones?", "fb": "El proceso de detección es suceptible de fallar por todas las características de un medio físisco, ruido, conexiones defectuosas, longitudes incorrectas en los medios. Si tenemos conexiones Full Duplex, no existe riesgo de colisión porque hay un canal de transmisión y otro canal de recepción, por ende dos estaciones comunicadas en full duplex transmiten y reciben por canales dedicados y no puede existir una colisión entre una trama transmitida y una que se recibe simultaneamente. Las colisiones se pueden producir en canales half duplex", "opts": ["Por el ruido", "Por conexiones defectuosas", "Por la longitud del cableado", "En un medio half duplex no existen colisiones"], "correct": [0, 1, 2]}, {"id": "c21", "topic": 5, "type": "single", "text": "Cual es el único servivio que presta LLC", "fb": "", "opts": ["Con conexión no confiable", "Sin conexión no confiable", "Con conexión confiable"], "correct": [1]}, {"id": "c35", "topic": 5, "type": "single", "text": "Que empresa desarrolló la primer version d Ethernet", "fb": "", "opts": ["Intel", "Digital", "Xerox"], "correct": [2]}, {"id": "c50", "topic": 5, "type": "multi", "text": "Seleccione las opciones correctas para Fast Ethernet", "fb": "", "opts": ["El máximo segmento de red tiene 100 m", "Solo soporta un tipo de medio físico", "Soportan configuraciones Full o Half Duplex", "Se aumenta 10x la tasa de bits", "Soporte de autodetección de configuración mediante FLP – Fast Link Pulse"], "correct": [0, 2, 3, 4]}, {"id": "c60", "topic": 5, "type": "multi", "text": "LLC :", "fb": "", "opts": ["MAC serializa la trama y la envía mediante capa física", "Si pierde una trama solicita retransmisión", "Entrega la PDU a la subcapa MAC para su transmisión"], "correct": [0, 2]}, {"id": "c65", "topic": 5, "type": "single", "text": "La capacidad de conmutación de un switch se mide en:", "fb": "La capacidad de conmutación se mied en paquetes por segundo PPS", "opts": ["GBPS", "MBPS", "PPS", "BPS"], "correct": [2]}, {"id": "c66", "topic": 5, "type": "tf", "text": "Ante una conexión redundante es preferible una perdida de conectividad temporal a que se formen bucles", "fb": "Correcto!! siempres es preferible una perdida de conectividad temporal a una tormenta de broadcast Si se producen bucles va existir una proliferación descontrolada de tramas!!!", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c67", "topic": 5, "type": "multi", "text": "Los modos de operación de un switch pueden ser:", "fb": "", "opts": ["bit-a-bit", "Cut-Throught", "Store and Forward", "Fragment Free"], "correct": [1, 2, 3]}, {"id": "c68", "topic": 5, "type": "multi", "text": "Seleccione de entre las siguientes opciones las que sean correctas para un switch", "fb": "", "opts": ["Si se conecta una estación por puerto → LAN completamente conmutada", "Full Duplex → ∄ colisión!", "Conmutación asimétrica", "Eliminación escucha promiscua", "Escalabilidad"], "correct": [0, 1, 2, 3, 4]}, {"id": "c69", "topic": 5, "type": "single", "text": "Cuando se produce un cambio en la topologóa se debe esperar:", "fb": "", "opts": ["FORWARD_DELAY (15s)", "Hello Time (2s)", "MAX_AGE (20s)"], "correct": [0]}, {"id": "c70", "topic": 5, "type": "multi", "text": "Indique cual de las siguientes afirmaciones son verdaderas para los bridges", "fb": "", "opts": ["Dividen dominios de colisión", "Aumentan % pérdida/error/dup./desord.", "Dividen dominios de difusión", "Permiten redundancia de enlaces", "Pueden ocurrir conversiones de trama no deseadas (HB)", "Conectan segmentos LAN en f.transparente"], "correct": [0, 1, 3, 4, 5]}, {"id": "c71", "topic": 5, "type": "single", "text": "Que compromete mas la performance de un switch trabajando en modo fragment free?", "fb": "Lo que más compromete a un switch en modo fragment free es mucha cantidad de tramas mínimas pues solo examina los primeros 64 bytes, de esta forma si el trafico es regular y con tramas grandes, las conmuta despues de leer 64 bytes sin importar el resto", "opts": ["Un tráfico regular de tramas máximas", "la existencia de muchas tramas erroneas", "Muchas tramas mínimas"], "correct": [2]}, {"id": "m2", "topic": 5, "type": "match", "text": "Las tramas Ethernet II y 802.3 difieren en:", "stems": ["Ethernet II", "802.3"], "choices": ["TYPE", "LEN"], "correct": [0, 1], "fb": ""}, {"id": "m19", "topic": 5, "type": "match", "text": "Complete las siguientes definiciones", "stems": ["Jabbering", "Runts", "Giants"], "choices": ["señales erráticas ocasionadas por placas defectuosas o malos contactos", "restos de tramas erróneas con longitudes menores a la mínima", "tramas con longitudes superiores a la máxima", "Tramas con longitudes de 1499 bytes"], "correct": [0, 1, 2], "fb": "Longitud mínima de trama: 64 bytes. Longitud máxima: 1500+ bytes. Direcciones físicas de 6 bytes = 48 bits. Detección de colisiones: proceso ANALÓGICO. Exponential back-off (retroceso exponencial binario). Jamming, IFG. Errores: Runts (restos de tramas erróneas con longitudes menores a la mínima), Giants (tramas con longitudes superiores a la máxima), Jabbering (señales erráticas ocasionadas por placas defectuosas o malos contactos). Originalmente half duplex. Regla 5-4-3-2-1. En 10Base-T aparecen los HUBS."}, {"id": "m20", "topic": 5, "type": "match", "text": "En una trama Ethernet:", "stems": ["Las direcciones tienen una longitud de:", "Las direcciones reciben el nombre de:"], "choices": ["48 bits", "MAC"], "correct": [0, 1], "fb": ""}, {"id": "m23", "topic": 5, "type": "match", "text": "Ajustes finos del bridge", "stems": ["Las BPDUs se distribuyen por:", "Para seleccionar siempre un mismo bridge como raíz se debe configurar"], "choices": ["Multicast (a todos los bridges) con DSAP/SSAP conocidos", "campo Prioridad (2 bytes)"], "correct": [0, 1], "fb": ""}, {"id": "m24", "topic": 5, "type": "match", "text": "Bridge - Ajustes finos - Temporización", "stems": ["Las BPDUs se intercambian cada:", "¿Cuánto tiempo debe esperar un bridge hasta decidir que un vecino dejó de funcionar?"], "choices": ["HELLO_TIME (2s)", "MAX_AGE (20s)"], "correct": [0, 1], "fb": ""}, {"id": "m25", "topic": 5, "type": "match", "text": "Bridges - Reconfiguración", "stems": ["Se utilizan tiempos de caché:", "Para los puertos se espera un tiempo:", "Se intercambian mensajes"], "choices": ["Corto", "FORWARD_DELAY (15s)", "TC / TCA"], "correct": [0, 1, 2], "fb": ""}, {"id": "c5", "topic": 6, "type": "tf", "text": "El protocolo MACAW difiere de MACA en incorporar ACK", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c25", "topic": 6, "type": "single", "text": "¿Cuantos campos de direcciones tiene una trama 802.11?", "fb": "", "opts": ["2", "3", "6", "4"], "correct": [3]}, {"id": "c27", "topic": 6, "type": "multi", "text": "Seleccione las opciones válidas para el protocolo WPA", "fb": "", "opts": ["Diseñado para RADIUS/EAP/802.11i", "WPA no elimina el proceso de cifrado WEP, sólo lo fortalece", "soporta PSK", "Combina K con la MAC del cliente y un IV más largo y menos predecible", "Utiliza AES", "Incorpora un hash de mensaje denominado MIC", "Cada 10000 paquetes se regeneran las claves", "Diseñado para WEP", "basado en RC4"], "correct": [0, 1, 2, 3, 4, 5, 6, 8]}, {"id": "c29", "topic": 6, "type": "multi", "text": "Marque las opciones correctas para un escenario con protocolos de acceso inalambrico", "fb": "", "opts": ["No podemos usar CSMA", "No podemos usar CDMA: Interferencia en el receptor llevan a la destrucción de la trama", "No todas las estaciones están en el rango de alcance de las otras", "Tienen el inconveniente de las estaciones expuestas", "Tienen el incoveniente de las estaciones ocultas"], "correct": [0, 1, 2, 3, 4]}, {"id": "c51", "topic": 6, "type": "tf", "text": "Los protocolos MACA (Media Acces Colision Avoid) utilizan mensajes RTS (Ready to Send) y CTS (Clear to Send)", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "m0", "topic": 6, "type": "match", "text": "El estándar 802.11 define:", "stems": ["En capa física, implementa:", "Subcapa superior de enlace:", "Subcapa inferior de enlace:"], "choices": ["métodos de transmisión (FHSS, DSSS, OFDM), y en particular las frecuencias y sus velocidades asociadas", "LLC", "MAC: con CSMA/CA, basado en MACAW"], "correct": [0, 1, 2], "fb": ""}, {"id": "m8", "topic": 6, "type": "match", "text": "El estándar 802.11 implementa:", "stems": ["Control PCF:", "Control DCF:"], "choices": ["En modo Infraestructura", "En modo Ad-Hoc"], "correct": [0, 1], "fb": "", "note": "En el PDF el enunciado dice \"El esándar 802.1 Implementa\"; se corrigió el typo."}, {"id": "m12", "topic": 6, "type": "match", "text": "En el estándar 802.11:", "stems": ["PCF utiliza:", "PCF puede coexistir con DCF con el uso de:"], "choices": ["beacon o trama de control base → hosts", "IFS", "Beacon - ACK"], "correct": [0, 1], "fb": ""}, {"id": "c6", "topic": 7, "type": "multi", "text": "¿Cual es el mecanismo que utiliza ATM para acomodar el trafico de acuerdo a su tipo / fuente? (marque las opciones válidas)", "fb": "", "opts": ["Se denomina AAL (ATM Adaptation Layer)", "Los protocolos de servicio específicos se mapean a las correspondientes SDU's", "Utiliza un mecanismo denominado adaptación de capa definiendo cinco tipos"], "correct": [0, 1, 2]}, {"id": "c7", "topic": 7, "type": "multi", "text": "¿Cual de las siguientes opciones son válidas para Frame Relay?", "fb": "", "opts": ["Utiliza la infraestructura existente de la red del proveedor", "Impone poco \"overhead\"", "Rangos de velocidad desde fraccionales T1 (ej. 64 Kbps, 128 Kbps) hasta OC-3 (155 Mbps)", "Aprovecha la escasa probabilidad de error de las lineas de alta velocidad", "Implementa el paradigma de circuitos virtuales privados", "Desarrollado para mejorar el desempeño de X.25"], "correct": [0, 1, 2, 3, 4, 5]}, {"id": "c9", "topic": 7, "type": "single", "text": "¿A que nivel e produce la conmutación en Frame Relay?", "fb": "", "opts": ["Enlace", "Red", "Transporte"], "correct": [0]}, {"id": "c11", "topic": 7, "type": "tf", "text": "En un enlace Frame Relay un cliente puede transmitir a la velocidad del enlace tramas durante cualquier tiempo arbitrario", "fb": "Esto es falso pues aquellas tramas que superen Bc+Be son directamente descartadas", "opts": ["Verdadero", "Falso"], "correct": [1]}, {"id": "c15", "topic": 7, "type": "single", "text": "¿Que hace Frame Relay cuando recibe una trama dañada?", "fb": "Frame Relay no hace ningún tipo de control de errores sobre la trama ni dispone de ningún campo para ello en su encabezado, por ende descarta la trama sin más", "opts": ["Marca la trama para posterior descarte", "Solicita una retransmisión", "Descarta la trama y avisa al origen", "Descarta la trama sin más"], "correct": [3]}, {"id": "c16", "topic": 7, "type": "multi", "text": "ATM define tipos de trafico como:", "fb": "", "opts": ["Velocidad de Trasmisión (Cte. / Variable)", "Tiempo Real / NRT", "Orientado a Conexión / Sin Conexión"], "correct": [0, 1, 2]}, {"id": "c18", "topic": 7, "type": "multi", "text": "ATM puede conmutar / multiplexar en función de:", "fb": "", "opts": ["VPI", "VCI", "VCI y VPI", "Si se conmuta por VPI no se pueden usar distintos VCI"], "correct": [0, 1, 2]}, {"id": "c19", "topic": 7, "type": "tf", "text": "Debido a que son muy parecidas AAL3 y AAL4 se convirtieron en una única AAL 3/4", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c33", "topic": 7, "type": "multi", "text": "¿Cuales son los parámetros bajo los cuales un cliente contrata un enlace Frame Relay?", "fb": "", "opts": ["DE", "Tc", "FECN", "Be", "Bc", "BECN"], "correct": [1, 3, 4]}, {"id": "c38", "topic": 7, "type": "multi", "text": "¿Cuales son las categorías de servicio de ATM?", "fb": "", "opts": ["UBR", "CBR", "VBR", "ABR"], "correct": [0, 1, 2, 3]}, {"id": "c39", "topic": 7, "type": "single", "text": "¿En función de cual campo de su cabecera conmuta Frame Relay?", "fb": "", "opts": ["DLCI", "LMI", "FECN", "BECN"], "correct": [0]}, {"id": "c40", "topic": 7, "type": "single", "text": "¿Porque motivo Frame Relay no utiliza Nº de secuencia?", "fb": "El motivo es que utiliza circuitos virtuales, por ende todas las tramas llegan en el orden que fueron transmitidas", "opts": ["Porque no hace control de errores", "Porque utiliza circuitos virtuales", "Porque descarta tramas sin avisar al origen"], "correct": [1]}, {"id": "c41", "topic": 7, "type": "single", "text": "¿Cual es la AAL correspondiente a un circuito de voz (emulación de circuito telefónico)?", "fb": "", "opts": ["AAL3", "AAL5", "AAL4", "AAL1", "AAL2"], "correct": [3]}, {"id": "c43", "topic": 7, "type": "single", "text": "¿Cual es la AAL correspondiente a una transmisión de video con compresión?", "fb": "", "opts": ["AAL1", "AAL4", "AAL5", "AAL3", "AAL2"], "correct": [4]}, {"id": "c48", "topic": 7, "type": "multi", "text": "¿Que sucede cuando un cliente Frame Relay transmite a un tasa Be?", "fb": "Las tramas transmitidas a una tasa Be (Ráfaga en exceso) son transmitidas con el bit DE (Elegible para descarte) puesto a 1, la consecuencia es que en caso de congestión en la red, ésta trama sera descartada antes que cualquiera que no tenga el bit DE activo", "opts": ["En caso de congestión esta trama se descarta primero", "Activa el campo FECN", "Se marca la trama con el bit DE puesto a 1", "Activa el campo BECN"], "correct": [0, 2]}, {"id": "c52", "topic": 7, "type": "multi", "text": "¿Cuales son los formatos definidos para LMI (Local Managment Interface)?", "fb": "", "opts": ["Cisco", "ISO", "Implementaciones Opcionales", "Ansi"], "correct": [0, 2, 3]}, {"id": "c54", "topic": 7, "type": "single", "text": "¿Cual es la AAL correspondiente a IP?", "fb": "", "opts": ["AAL5", "AAL3", "AAL2", "AAL1", "AAL4"], "correct": [0]}, {"id": "c59", "topic": 7, "type": "multi", "text": "¿Cual de las siguientes opciones son válidas para el protocolo ATM?", "fb": "", "opts": ["Su naturaleza asincrónica le permite mejores rendimientos que otras técnicas de multiplexado (xDM)", "Sus tramas son de longitud variable", "Está basado en SONET/SDH como capa física", "Permite la multiplexación de varios circuitos virtuales sobre las conexiones físicas", "Utiliza un formato de celda de longitud fija", "Utiliza dos tipos de identificadores"], "correct": [0, 2, 3, 4, 5]}, {"id": "c62", "topic": 7, "type": "single", "text": "¿Que mecanismo utiliza un router corriendo Frame Relay para mapear una dirección de red a DLCI?", "fb": "Con ARP inverso, el router conoce la dirección de capa 2, que es el DLCI local, y envía una solicitud para la dirección IP de capa 3 de destino. Cuando una interfaz que admite ARP inverso se activa, inicia el protocolo ARP inverso y da formato a una solicitud de ARP inverso para el VC activo.", "opts": ["ARP inverso", "ARP - DLCI", "Se mapea directamente", "DLCI dinámico"], "correct": [0]}, {"id": "m5", "topic": 7, "type": "match", "text": "Con respecto a la capacidad del enlace, ¿cómo se ordenan las categorías de servicio en ATM? (nivel de exigencia)", "stems": ["CBR", "VBR", "ABR", "UBR"], "choices": ["Siempre en primer lugar", "En 2º lugar", "En 3º lugar", "En 4º lugar", "Puede ocupar el 2º y 3º lugar indistintamente"], "correct": [0, 1, 2, 3], "fb": ""}, {"id": "c0", "topic": 8, "type": "multi", "text": "Seleccione características de ruteo jerarquico", "fb": "", "opts": ["Las tablas de ruta crecen con la red. Después de algún punto no es práctico mantener toda la información sobre la red en cada ruteador.", "No es adaptativo", "Divide la red en regiones. Los ruteadores solamente saben la estructura interna de sus regiones.", "Para una subred de N ruteadores el número óptimo de niveles es lnN."], "correct": [0, 2, 3]}, {"id": "c1", "topic": 8, "type": "tf", "text": "La técnica de horizonte dividido funciona en todas las topologías", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [1]}, {"id": "c3", "topic": 8, "type": "multi", "text": "Que propiedades debiera tener un algoritmo de enrutamiento", "fb": "", "opts": ["Equidad", "Velocidad", "Sencillez", "Estabilidad", "Optimización", "Exactitud", "Complejidad", "Robustez"], "correct": [0, 2, 3, 4, 5, 7]}, {"id": "c24", "topic": 8, "type": "multi", "text": "Cuales de las siguientes opciones son verdaderas para enrutamiento por estado de enlace:", "fb": "", "opts": ["Rápida convergencia con baja complejidad", "La parte mas complicada del algoritmo, es la distribución de los paquetes de estado de enlace", "Utiliza el algoritmo de Dijktra para calcular la ruta mas corta a los demás enrutadores", "Rápida convergencia con alta complejidad", "No es necesario que cada enrutador tenga una idea razonable del retardo a cada uno de sus vecinos"], "correct": [1, 2, 3]}, {"id": "c26", "topic": 8, "type": "multi", "text": "En el enrutamiento por estado de enlace, cada ruteador debe:", "fb": "", "opts": ["Enviar el paquete con lo aprendido a todos los routers de la topología", "Medir el retardo o costo para cada uno de sus vecinos", "Construir un paquete que indique todo lo que acaba de aprender", "Enviar su tabla de ruteo completa, solamente a sus vecinos", "Descubrir a sus vecinos y conocer sus direcciones de red", "Calcular la ruta más corta a todos los demas routers"], "correct": [0, 1, 2, 4, 5]}, {"id": "c31", "topic": 8, "type": "tf", "text": "A los algoritmos de enrutamiento no adpatativos se los utiliza en enrutamiento estático", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c37", "topic": 8, "type": "multi", "text": "El algoritmo de vector distancia es también conocido por:", "fb": "", "opts": ["Algoritmo de Ford-Fulkerson", "Algoritmo de Dijktra", "Algoritmo de Bellman-Ford"], "correct": [0, 2]}, {"id": "c45", "topic": 8, "type": "multi", "text": "Las causas de la congestión pueden ser:", "fb": "", "opts": ["Escaso ancho de banda", "Buffers insuficientes", "Receptores lentos", "Emisores demasiado rápidos", "Procesadores lentos"], "correct": [0, 1, 4]}, {"id": "c55", "topic": 8, "type": "multi", "text": "Las principales funciones de la capa de red son:", "fb": "", "opts": ["Controlar el flujo", "Conmutación", "Hallar el camino", "Controlar la congestión"], "correct": [1, 2]}, {"id": "c56", "topic": 8, "type": "tf", "text": "El árbol de optimalidad es aquel que se forma por las rutas óptimas desde todos los orígenes a un destino dado", "fb": "", "opts": ["Verdadero", "Falso"], "correct": [0]}, {"id": "c57", "topic": 8, "type": "multi", "text": "Seleccione algoritmos de enrutamiento estático:", "fb": "", "opts": ["Vector Distancia", "Inundación", "Ruta mas corta (Dijktra)", "Estado de enlace"], "correct": [1, 2]}, {"id": "c63", "topic": 8, "type": "single", "text": "En que condiciones de la red es útil la aplicación de QoS", "fb": "", "opts": ["Congestión Moderada", "Sin Congestión", "Congestión severa o fuerte"], "correct": [0]}, {"id": "c64", "topic": 8, "type": "multi", "text": "El problema de conteo a Infinito que tiene el algoritmo de vector distancia se puede mitigar con:", "fb": "", "opts": ["Inundacion Controlada", "Horizonte dividido", "Mapeo de interfaces", "Optimizando los temporizadores", "Envenenamiento de rutas"], "correct": [1, 4]}, {"id": "m16", "topic": 8, "type": "match", "text": "El principio de optimalidad establece que:", "stems": ["El principio de optimalidad establece que:", "El principio de optimalidad establece que no puede existir", "El principio de optimalidad establece que si (J,K) no es óptimo puede J ∈ opt(I,K)"], "choices": ["si J ∈ opt(I,K) ⇒ (J,K) es óptimo", "(J,K) con mejor camino si J ∈ opt(I,K)", "Esto es incorrecto"], "correct": [0, 1, 2], "fb": ""}]};
+const STORE_KEY = "ri-quiz-v1";
+
+// ---------- state ----------
+let state = loadState();
+let view = [];          // question indexes after filters
+let cur = 0;            // position inside view
+let optOrder = {};      // question id -> shuffled option order
+let drafts = {};        // question id -> in-progress answer (not checked yet)
+
+function loadState() {
+  const base = { answers: {}, topics: Object.keys(DATA.topics).map(Number), status: "all", shuffleQ: false, shuffleO: true };
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return base;
+    return Object.assign(base, JSON.parse(raw));
+  } catch (e) { return base; }
+}
+function saveState() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* storage unavailable: keep in memory */ }
+}
+
+// ---------- helpers ----------
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
+function orderFor(q) {
+  const n = q.type === "match" ? q.choices.length : q.opts.length;
+  if (!optOrder[q.id]) {
+    const idx = [...Array(n).keys()];
+    optOrder[q.id] = state.shuffleO && q.type !== "tf" ? shuffle(idx) : idx;
+  }
+  return optOrder[q.id];
+}
+const kindLabel = { single: "Seleccioná una opción", multi: "Seleccioná una o más opciones", tf: "Verdadero o falso", match: "Elegí la opción correcta para cada ítem" };
+
+// score in [0,1]
+function score(q, ans) {
+  if (q.type === "match") {
+    let ok = 0;
+    q.correct.forEach((c, i) => { if (ans[i] === c) ok++; });
+    return ok / q.correct.length;
+  }
+  if (q.type === "multi") {
+    const hits = ans.filter((a) => q.correct.includes(a)).length;
+    const wrong = ans.length - hits;
+    return Math.max(0, (hits - wrong) / q.correct.length);
+  }
+  return ans.length === 1 && q.correct.includes(ans[0]) ? 1 : 0;
+}
+function statusOf(q) {
+  const a = state.answers[q.id];
+  if (!a) return "pending";
+  return a.score >= 0.999 ? "ok" : a.score <= 0 ? "bad" : "part";
+}
+
+// ---------- filters ----------
+function buildChips() {
+  const counts = {};
+  DATA.questions.forEach((q) => { counts[q.topic] = (counts[q.topic] || 0) + 1; });
+  $("chips").innerHTML = Object.entries(DATA.topics).map(([k, name]) =>
+    `<button type="button" class="chip" data-topic="${k}" aria-pressed="${state.topics.includes(+k)}">
+       <span class="wire t${k}" aria-hidden="true"></span>${esc(name)} <span class="n">${counts[k] || 0}</span>
+     </button>`).join("");
+  $("chips").querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => {
+    const t = +b.dataset.topic;
+    state.topics = state.topics.includes(t) ? state.topics.filter((x) => x !== t) : [...state.topics, t];
+    b.setAttribute("aria-pressed", state.topics.includes(t));
+    applyFilters();
+  }));
+}
+function applyFilters(keepCurrent = false) {
+  const currentId = view.length ? DATA.questions[view[cur]]?.id : null;
+  let idx = DATA.questions.map((q, i) => i).filter((i) => {
+    const q = DATA.questions[i];
+    if (!state.topics.includes(q.topic)) return false;
+    const st = statusOf(q);
+    if (state.status === "pending") return st === "pending";
+    if (state.status === "wrong") return st === "bad" || st === "part";
+    return true;
+  });
+  if (state.shuffleQ) idx = shuffle(idx);
+  view = idx;
+  cur = 0;
+  if (keepCurrent && currentId) {
+    const p = view.findIndex((i) => DATA.questions[i].id === currentId);
+    if (p >= 0) cur = p;
+  }
+  saveState();
+  $("filterHint").textContent = `${view.length} de ${DATA.questions.length}`;
+  render();
+}
+
+// ---------- rendering ----------
+function renderStats() {
+  const qs = view.map((i) => DATA.questions[i]);
+  const done = qs.filter((q) => state.answers[q.id]);
+  const pts = done.reduce((s, q) => s + state.answers[q.id].score, 0);
+  const pct = done.length ? Math.round((pts / done.length) * 100) : 0;
+  $("stats").innerHTML = `<span>Respondidas <b>${done.length}/${qs.length}</b></span>
+    <span>Puntaje <b>${pts.toFixed(2).replace(".", ",")}</b></span>
+    <span>Acierto <b>${done.length ? pct + "%" : "–"}</b></span>`;
+  $("barFill").style.width = qs.length ? (done.length / qs.length) * 100 + "%" : "0";
+}
+
+function renderGrid() {
+  $("grid").innerHTML = view.map((qi, p) => {
+    const st = statusOf(DATA.questions[qi]);
+    const cls = ["dot", p === cur ? "cur" : "", st !== "pending" ? st : ""].join(" ");
+    return `<button type="button" class="${cls}" data-p="${p}" aria-label="Pregunta ${p + 1}">${p + 1}</button>`;
+  }).join("");
+  $("grid").querySelectorAll(".dot").forEach((d) => d.addEventListener("click", () => { cur = +d.dataset.p; render(); scrollToCard(); }));
+}
+
+function render() {
+  renderStats();
+  renderGrid();
+  const main = $("main");
+  if (!view.length) {
+    main.innerHTML = `<div class="card empty-state">No hay preguntas con estos filtros. Activá algún tema o cambiá “Mostrar”.</div>`;
+    return;
+  }
+  const q = DATA.questions[view[cur]];
+  const saved = state.answers[q.id];
+  const answer = saved ? saved.ans : (drafts[q.id] || (q.type === "match" ? q.stems.map(() => -1) : []));
+  const locked = !!saved;
+
+  let body = "";
+  if (q.type === "match") {
+    const order = orderFor(q);
+    body = q.stems.map((stem, i) => {
+      const sel = answer[i];
+      let cls = "pair", fix = "";
+      if (locked) {
+        cls += sel === q.correct[i] ? " is-ok" : " is-bad";
+        if (sel !== q.correct[i]) fix = `<span class="fix">Correcta: ${esc(q.choices[q.correct[i]])}</span>`;
+      }
+      const options = [`<option value="-1">Elegir…</option>`].concat(order.map((c) =>
+        `<option value="${c}" ${sel === c ? "selected" : ""}>${esc(q.choices[c])}</option>`)).join("");
+      return `<div class="${cls}"><span class="stem">${esc(stem)}</span>
+        <select data-i="${i}" ${locked ? "disabled" : ""} aria-label="${esc(stem)}">${options}</select>${fix}</div>`;
+    }).join("");
+  } else {
+    const order = orderFor(q);
+    const inputType = q.type === "multi" ? "checkbox" : "radio";
+    body = order.map((o) => {
+      const checked = answer.includes(o);
+      let cls = "opt" + (locked ? " locked" : ""), tag = "";
+      if (locked) {
+        const isCorrect = q.correct.includes(o);
+        if (checked && isCorrect) { cls += " is-ok"; tag = "Correcta"; }
+        else if (checked && !isCorrect) { cls += " is-bad"; tag = "Incorrecta"; }
+        else if (!checked && isCorrect) { cls += " is-missed"; tag = "Faltó marcar"; }
+      }
+      return `<label class="${cls}"><input type="${inputType}" name="q" value="${o}" ${checked ? "checked" : ""} ${locked ? "disabled" : ""}>
+        <span>${esc(q.opts[o])}</span>${tag ? `<span class="tag">${tag}</span>` : ""}</label>`;
+    }).join("");
+  }
+
+  const hasAnswer = q.type === "match" ? answer.some((a) => a >= 0) : answer.length > 0;
+  main.innerHTML = `
+    <article class="card" id="card">
+      <div class="meta"><span class="qnum">Pregunta ${cur + 1}</span><span class="wire t${q.topic}" aria-hidden="true"></span><span>${esc(DATA.topics[q.topic])}</span></div>
+      <p class="qtext">${esc(q.text)}</p>
+      <p class="kind">${kindLabel[q.type]}</p>
+      <div class="opts" id="opts">${body}</div>
+      <div class="actions">
+        ${locked
+          ? `<button class="btn" id="retry" type="button">Responder de nuevo</button>`
+          : `<button class="btn primary" id="check" type="button" ${hasAnswer ? "" : "disabled"}>Enviar respuesta</button>`}
+      </div>
+      ${locked ? renderReview(q, saved) : ""}
+    </article>
+    <div class="nav">
+      <button class="btn" id="prev" type="button" ${cur === 0 ? "disabled" : ""}>Anterior</button>
+      <button class="btn" id="next" type="button" ${cur === view.length - 1 ? "disabled" : ""}>Siguiente</button>
+    </div>`;
+  bindCard(q);
+}
+
+function renderReview(q, saved) {
+  const s = saved.score;
+  const [cls, label] = s >= 0.999 ? ["ok", "Correcta"] : s <= 0 ? ["bad", "Incorrecta"] : ["part", "Parcialmente correcta"];
+  let key;
+  if (q.type === "match") {
+    key = `<ul>${q.stems.map((st, i) => `<li>${esc(st)} → ${esc(q.choices[q.correct[i]])}</li>`).join("")}</ul>`;
+  } else if (q.correct.length > 1) {
+    key = `<ul>${q.correct.map((c) => `<li>${esc(q.opts[c])}</li>`).join("")}</ul>`;
+  } else {
+    key = `<p>${esc(q.opts[q.correct[0]])}</p>`;
+  }
+  const fb = q.fb
+    ? `<div class="fb">${esc(q.fb)}</div>`
+    : `<div class="fb empty">La cátedra no incluyó explicación para esta pregunta.</div>`;
+  const note = q.note ? `<div class="note"><b>Atención:</b> ${esc(q.note)}</div>` : "";
+  return `<section class="review" aria-live="polite">
+    <span class="verdict ${cls}">${label}: ${s.toFixed(2).replace(".", ",")} / 1</span>
+    <h3>${q.correct.length > 1 || q.type === "match" ? "Respuestas correctas" : "Respuesta correcta"}</h3>${key}
+    <h3>Explicación de la cátedra</h3>${fb}${note}
+  </section>`;
+}
+
+function bindCard(q) {
+  const opts = $("opts");
+  const locked = !!state.answers[q.id];
+  if (!locked) {
+    opts.addEventListener("change", () => {
+      if (q.type === "match") {
+        drafts[q.id] = [...opts.querySelectorAll("select")].map((s) => +s.value);
+      } else {
+        drafts[q.id] = [...opts.querySelectorAll("input:checked")].map((i) => +i.value);
+      }
+      const d = drafts[q.id];
+      $("check").disabled = q.type === "match" ? !d.some((a) => a >= 0) : d.length === 0;
+    });
+    $("check").addEventListener("click", () => submit(q));
+  } else {
+    $("retry").addEventListener("click", () => {
+      delete state.answers[q.id];
+      delete drafts[q.id];
+      delete optOrder[q.id];
+      saveState();
+      render();
+    });
+  }
+  $("prev").addEventListener("click", () => { if (cur > 0) { cur--; render(); scrollToCard(); } });
+  $("next").addEventListener("click", () => { if (cur < view.length - 1) { cur++; render(); scrollToCard(); } });
+}
+
+function submit(q) {
+  const ans = drafts[q.id] || (q.type === "match" ? q.stems.map(() => -1) : []);
+  state.answers[q.id] = { ans, score: score(q, ans) };
+  delete drafts[q.id];
+  saveState();
+  render();
+}
+
+function scrollToCard() {
+  const c = $("card");
+  if (c && c.getBoundingClientRect().top < 0) c.scrollIntoView({ block: "start" });
+}
+
+// ---------- global controls ----------
+$("statusFilter").value = state.status;
+$("shuffleQ").checked = state.shuffleQ;
+$("shuffleO").checked = state.shuffleO;
+$("statusFilter").addEventListener("change", (e) => { state.status = e.target.value; applyFilters(); });
+$("shuffleQ").addEventListener("change", (e) => { state.shuffleQ = e.target.checked; applyFilters(); });
+$("shuffleO").addEventListener("change", (e) => { state.shuffleO = e.target.checked; optOrder = {}; saveState(); render(); });
+$("allTopics").addEventListener("click", () => { state.topics = Object.keys(DATA.topics).map(Number); buildChips(); applyFilters(); });
+$("noTopics").addEventListener("click", () => { state.topics = []; buildChips(); applyFilters(); });
+$("reset").addEventListener("click", () => {
+  if (!confirm("¿Borrar todas tus respuestas guardadas?")) return;
+  state.answers = {}; drafts = {}; optOrder = {};
+  applyFilters();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.target.matches("select, input")) return;
+  if (e.key === "ArrowRight" && cur < view.length - 1) { cur++; render(); }
+  if (e.key === "ArrowLeft" && cur > 0) { cur--; render(); }
+});
+if (window.innerWidth < 600) $("filters").open = false;
+
+buildChips();
+applyFilters();
+</script>
+</body>
+</html>
