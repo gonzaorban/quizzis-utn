@@ -79,7 +79,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   const topicOf = (q) => DATA.topics[String(q.topic)];
   // "multi": chips toggle independently (Redes). "single": one chip at a time plus "Todas" (ASI).
   const single = DATA.topicFilter === "single";
-  const L = Object.assign({ topics: "Temas", allTopics: "Todos los temas", noTopics: "Ninguno", section: "Sección" }, DATA.labels);
+  const L = Object.assign({ topics: "Temas", allTopics: "Todos los temas", noTopics: "Ninguno", section: "Sección", feedback: "Explicación de la cátedra" }, DATA.labels);
   const sections = [...new Set(DATA.questions.map((q) => q.section).filter(Boolean))];
 
   // ---------- state ----------
@@ -392,10 +392,12 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   }
 
   // theory PDF page backing the question (source.page is the physical PDF page): a picture of the page when
-  // source.img exists, plus the link to the PDF
+  // source.img exists, plus the link to the PDF. Without file, only the picture, captioned with source.label
   function renderSource(q) {
     if (!q.source) return "";
-    const { file, page, confidence, img } = q.source;
+    const { file, page, confidence, img, label } = q.source;
+    if (!file) return `<figure class="figure source-page"><figcaption>En la teoría: ${esc(label)}</figcaption>
+      <a href="${esc(asset(img))}" target="_blank" rel="noopener" title="Ver la imagen en tamaño completo"><img src="${esc(asset(img))}" alt="${esc(label)}" loading="lazy"></a></figure>`;
     const name = file.split("/").pop();
     const low = confidence === "low" ? " · referencia aproximada (confianza baja)" : "";
     const shot = img ? `<figure class="figure source-page"><figcaption>En la teoría: ${esc(name)}, pág. ${page}</figcaption>
@@ -425,8 +427,8 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       key = `<p>${esc(q.opts[q.correct[0]])}</p>`;
     }
     let fb = "";
-    if (q.fb) fb = `<h3>Explicación de la cátedra</h3><div class="fb">${esc(q.fb)}</div>`;
-    else if (DATA.emptyFeedback) fb = `<h3>Explicación de la cátedra</h3><div class="fb empty">${esc(DATA.emptyFeedback)}</div>`;
+    if (q.fb) fb = `<h3>${esc(L.feedback)}</h3><div class="fb">${esc(q.fb)}</div>`;
+    else if (DATA.emptyFeedback) fb = `<h3>${esc(L.feedback)}</h3><div class="fb empty">${esc(DATA.emptyFeedback)}</div>`;
     return `<section class="review" aria-live="polite" tabindex="-1">
       <span class="verdict ${cls}">${label}: ${fmt(s)} / 1</span>
       <h3>${q.correct.length > 1 || q.type === "match" ? "Respuestas correctas" : "Respuesta correcta"}</h3>${key}

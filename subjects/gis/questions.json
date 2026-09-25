@@ -1,0 +1,2094 @@
+{
+  "subject": "1er parcial GIS",
+  "description": "Sistemas de Información Geográfica (ISI, UTN FRRe): las preguntas importantes y las del 1er parcial 2025, con la página del apunte de donde sale cada una.",
+  "accent": "#CE1B1B",
+  "accentDark": "#F26B6B",
+  "emptyFeedback": null,
+  "topicFilter": "multi",
+  "labels": {
+    "topics": "Unidades",
+    "allTopics": "Todas las unidades",
+    "noTopics": "Ninguna",
+    "section": "Origen",
+    "feedback": "Explicación"
+  },
+  "imageCaption": "Figura del apunte",
+  "about": [
+    "<p>Selección del banco de <a href=\"https://github.com/matiasgzlez/GIS\" target=\"_blank\" rel=\"noopener noreferrer\">1er Parcial GIS</a>: solo las preguntas de los temas marcados como importantes (o «pregunta de parcial») en clase y las del <b>1er parcial de septiembre de 2025</b> con sus variantes. Con <b>Origen</b> podés practicar solo las del parcial.</p>",
+    "<p>Están en el orden de lectura de los apuntes. Al responder, se muestra la página del apunte de donde sale la pregunta; tocala para verla en tamaño completo.</p>"
+  ],
+  "footer": "Material de la cátedra de Sistemas de Información Geográfica de UTN FRRe (Ing. Ilse Hodapp – Ing. Rodrigo Valdés): Unidades 1 a 4 y el cuadernillo <i>Conceptos cartográficos</i> del IGN (España), además de lo visto en clase.",
+  "topics": {
+    "1": {
+      "name": "U1 · Introducción",
+      "color": "#E8772E"
+    },
+    "2": {
+      "name": "U2 · Modelos",
+      "color": "#2E9E57"
+    },
+    "3": {
+      "name": "U3 · Cartografía",
+      "color": "#2F6FD6"
+    },
+    "4": {
+      "name": "U4 · Visualización",
+      "color": "#8E44AD"
+    }
+  },
+  "questions": [
+    {
+      "id": "gis-u1-def",
+      "topic": "1",
+      "type": "single",
+      "text": "¿Cuál es la definición de SIG que da el apunte de la cátedra?",
+      "opts": [
+        "Un software de dibujo asistido que permite digitalizar mapas en papel",
+        "Una integración organizada de hardware, software y datos geográficos diseñada para capturar, almacenar, manipular, analizar y desplegar información geográficamente referenciada para resolver problemas complejos de planificación y gestión",
+        "Una base de datos relacional que almacena direcciones postales",
+        "Un conjunto de imágenes satelitales georreferenciadas"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "La clave es la integración de hardware + software + datos geográficos, con el fin de resolver problemas complejos de planificación y gestión.\n\nFuente: Unidad 1 · Concepto, pág. 1",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 1",
+        "page": 1,
+        "confidence": "high",
+        "img": "slides/u1-1.webp"
+      }
+    },
+    {
+      "id": "gis-u1-preguntas-sig",
+      "topic": "1",
+      "type": "multi",
+      "text": "¿Cuáles de estas preguntas figuran entre las que un SIG debe poder responder?",
+      "opts": [
+        "¿Dónde está el objeto A?",
+        "¿Qué hay en el punto (X, Y)?",
+        "¿Cuántas ocurrencias del tipo A hay en una distancia D de B?",
+        "¿Cuál es el resultado de la intersección de diferentes tipos de información?",
+        "¿Cuál es la licencia del software utilizado?",
+        "¿Cuánto cuesta digitalizar un mapa en papel?"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "La lista del apunte también incluye: dimensión de B (perímetro, área, volumen), camino más corto, objetos próximos a otros con ciertas características, clasificar información espacial y simular un proceso P en un tiempo T.\n\nFuente: Unidad 1 · Concepto, pág. 1",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 1",
+        "page": 1,
+        "confidence": "high",
+        "img": "slides/u1-1.webp"
+      }
+    },
+    {
+      "id": "gis-c-categorias",
+      "topic": "1",
+      "type": "multi",
+      "text": "Las preguntas que un SIG debe poder responder se agrupan en categorías. ¿Cuáles son?",
+      "opts": [
+        "Localización",
+        "Relación",
+        "Densidad / Distancia",
+        "Atributos",
+        "Morfometría",
+        "Análisis espacial",
+        "Compresión"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fb": "Localización (¿dónde está A? / ¿qué hay en x,y?), Relación (¿dónde está A respecto de B?), Densidad/Distancia (¿cuántas A hay a una distancia D de B?), Atributos (valor de Z en X), Morfometría (dimensión de B) y Análisis espacial (intersección de capas).\n\nFuente: Presentación Unidad 1 · Preguntas que responde un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 1",
+        "page": 1,
+        "confidence": "high",
+        "img": "slides/u1-1.webp"
+      }
+    },
+    {
+      "id": "gis-c-cat-localizacion",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — “¿Qué hay en el punto (x, y)?” ¿A qué categoría de pregunta pertenece?",
+      "opts": [
+        "Localización",
+        "Atributos",
+        "Relación",
+        "Morfometría"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Localización agrupa “¿Dónde está el objeto A?” y “¿Qué hay en el punto x,y?”.\n\nFuente: Presentación Unidad 1 · Preguntas que responde un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 1",
+        "page": 1,
+        "confidence": "high",
+        "img": "slides/u1-1.webp"
+      }
+    },
+    {
+      "id": "gis-c-cat-atributos",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — “¿Cuál es el valor de la función Z en la posición X?” ¿A qué categoría de pregunta pertenece?",
+      "opts": [
+        "Atributos",
+        "Localización",
+        "Densidad / Distancia",
+        "Análisis espacial"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Atributos: el valor de una variable en una posición. Localización pregunta dónde está algo o qué hay en un punto.\n\nFuente: Presentación Unidad 1 · Preguntas que responde un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 1",
+        "page": 1,
+        "confidence": "high",
+        "img": "slides/u1-1.webp"
+      }
+    },
+    {
+      "id": "gis-c-cat-morfometria",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — “¿Cuál es el perímetro, el área o el volumen de B?” ¿A qué categoría de pregunta pertenece?",
+      "opts": [
+        "Morfometría",
+        "Atributos",
+        "Relación",
+        "Densidad / Distancia"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Morfometría: la dimensión de B (perímetro, área, volumen).\n\nFuente: Presentación Unidad 1 · Preguntas que responde un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 1",
+        "page": 1,
+        "confidence": "high",
+        "img": "slides/u1-1.webp"
+      }
+    },
+    {
+      "id": "gis-c-cat-analisis",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — “¿Cuál es el resultado de la intersección de diferentes capas de información?” ¿A qué categoría de pregunta pertenece?",
+      "opts": [
+        "Análisis espacial",
+        "Relación",
+        "Morfometría",
+        "Localización"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Análisis espacial: cruzar (intersectar) distintas capas de información.\n\nFuente: Presentación Unidad 1 · Preguntas que responde un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 1",
+        "page": 1,
+        "confidence": "high",
+        "img": "slides/u1-1.webp"
+      }
+    },
+    {
+      "id": "gis-c-capacidades",
+      "topic": "1",
+      "type": "single",
+      "text": "PREGUNTA DE PARCIAL: ¿Cuáles son las capacidades básicas de un SIG?",
+      "opts": [
+        "Análisis, consulta y visualización / representación",
+        "Captura, compresión e impresión",
+        "Hardware, software y datos",
+        "Geodesia, cartografía y topología"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Los SIG son herramientas versátiles: según la situación se usa prioritariamente una u otra capacidad (análisis, consulta, visualización/representación).\n\nFuente: Presentación Unidad 1 · 3. Áreas de aplicación (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 2",
+        "page": 2,
+        "confidence": "high",
+        "img": "slides/u1-2.webp"
+      }
+    },
+    {
+      "id": "gis-c-capacidades-vf",
+      "topic": "1",
+      "type": "tf",
+      "text": "En conjunto, las capacidades del SIG ofrecen utilidades que cada comunidad emplea de modo particular, según las necesidades de su trabajo.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Es la conclusión de la diapositiva: los SIG son versátiles y adaptables a distintas situaciones y entornos.\n\nFuente: Presentación Unidad 1 · 3. Áreas de aplicación (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 2",
+        "page": 2,
+        "confidence": "high",
+        "img": "slides/u1-2.webp"
+      }
+    },
+    {
+      "id": "gis-p25-cap-relacion",
+      "topic": "1",
+      "type": "single",
+      "text": "Según la capacidad del SIG de uso prioritario: “¿Dónde está A con relación a B?”",
+      "opts": [
+        "Visualización / representación",
+        "Consulta",
+        "Análisis"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Es una consulta. Los ejemplos de análisis del apunte trabajan con distancias y radios (100 m, 10 km, 500 m).\n\nFuente: 1er parcial · septiembre 2025 · pregunta 7 · Unidad 1 · págs. 1-2",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 2",
+        "page": 2,
+        "confidence": "high",
+        "img": "slides/u1-2.webp"
+      }
+    },
+    {
+      "id": "gis-p25-cap-clientes",
+      "topic": "1",
+      "type": "single",
+      "text": "Según la capacidad del SIG de uso prioritario: “¿Cuál es el número total de clientes en un radio de 10 km de este negocio?”",
+      "opts": [
+        "Visualización / representación",
+        "Consulta",
+        "Análisis"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "Es análisis: el apunte lo pone entre los ejemplos de análisis espacial, junto con las casas a 100 m de una fuente de agua y la alfalfa a 500 m de un pozo.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 7 · Unidad 1 · págs. 1-2",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 2",
+        "page": 2,
+        "confidence": "high",
+        "img": "slides/u1-2.webp"
+      }
+    },
+    {
+      "id": "gis-p25-cap-cartografia",
+      "topic": "1",
+      "type": "single",
+      "text": "Según la capacidad del SIG de uso prioritario: “Crear cartografía, elaborar el Mapa Oficial de la República Argentina.”",
+      "opts": [
+        "Visualización / representación",
+        "Consulta",
+        "Análisis"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Producir mapas es la capacidad de visualización / representación.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 7 · Presentación Unidad 1",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 2",
+        "page": 2,
+        "confidence": "high",
+        "img": "slides/u1-2.webp"
+      }
+    },
+    {
+      "id": "gis-r-ncgia",
+      "topic": "1",
+      "type": "single",
+      "text": "Según la definición de la NCGIA (1990), un SIG es un sistema de…",
+      "opts": [
+        "Hardware, software y procedimientos para la obtención, gestión, manipulación, análisis, modelado, representación y salida de datos espacialmente referenciados, para resolver problemas complejos de planificación y gestión",
+        "Imágenes satelitales para producir cartografía impresa",
+        "Procedimientos exclusivamente manuales para dibujar mapas",
+        "Bases de datos alfanuméricas sin referencia espacial"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "NCGIA: National Center for Geographic Information and Analysis. Aronoff (1989) lo define como procedimientos manuales o computarizados para almacenar y tratar datos georreferenciados.\n\nFuente: Unidad 1 · Definiciones, pág. 3",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-papeles",
+      "topic": "1",
+      "type": "multi",
+      "text": "Marcá los PAPELES que un SIG desempeña en el trabajo según la clasificación vista en clase.",
+      "opts": [
+        "Herramienta modelizadora",
+        "Herramienta para toma de decisiones",
+        "Herramienta para difusión de información geográfica",
+        "Herramienta centralizadora",
+        "Herramienta de compresión de imágenes"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "Son cuatro: modelizadora, para toma de decisiones (caso particular de la anterior), para difusión de información geográfica y centralizadora.\n\nFuente: Presentación Unidad 1 · Clasificación de los papeles de un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-papel-caso-particular",
+      "topic": "1",
+      "type": "tf",
+      "text": "La herramienta para toma de decisiones es un caso particular de la herramienta modelizadora.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Así lo indica la clasificación: decisiones en función de distintas variables (cada una una capa, que se pueden combinar).\n\nFuente: Presentación Unidad 1 · Papeles de un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-papel-brotes",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — Clasificá: predecir la propagación de brotes de infección a nivel mundial o regional, con brotes tempranos, localizaciones en tiempo real y posibles movimientos.",
+      "opts": [
+        "Herramienta modelizadora",
+        "Herramienta para difusión de información geográfica",
+        "Herramienta centralizadora",
+        "No es un papel de un SIG"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Usa procesos de análisis espacial para modelizar una realidad geográfica compleja (cómo se propaga el brote).\n\nFuente: Presentación Unidad 1 · Papeles de un SIG (ejemplo de clase) (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-papel-hospital",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — Clasificá: elegir la ubicación óptima para un nuevo hospital cruzando capas con las características de las personas y de sus alrededores.",
+      "opts": [
+        "Herramienta centralizadora",
+        "Herramienta para toma de decisiones",
+        "Herramienta para difusión de información geográfica",
+        "Herramienta de visualización únicamente"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Se decide en función de distintas variables, cada una en una capa, que se combinan. Es un caso particular de la herramienta modelizadora.\n\nFuente: Presentación Unidad 1 · Papeles de un SIG (ejemplo de clase) (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-papel-transporte",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — Clasificá: una aplicación que da a cualquier persona información en tiempo real sobre el transporte público.",
+      "opts": [
+        "Herramienta modelizadora",
+        "Herramienta centralizadora",
+        "Herramienta para difusión de información geográfica",
+        "Herramienta para toma de decisiones"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "Ofrece funcionalidades propias de un SIG a usuarios sin perfil técnico; las tecnologías web cumplen un papel clave con mapas interactivos.\n\nFuente: Presentación Unidad 1 · Papeles de un SIG (ejemplo de clase) (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-papel-municipio",
+      "topic": "1",
+      "type": "single",
+      "text": "EJERCICIO — Clasificá: la gestión urbana de un municipio, donde el equipo organiza en una base de datos geográfica las nuevas obras públicas y la recaudación.",
+      "opts": [
+        "Herramienta centralizadora",
+        "Herramienta modelizadora",
+        "Herramienta para difusión de información geográfica",
+        "No es un papel de un SIG"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Coordina las tareas de un equipo y organiza y gestiona la información geográfica mediante el diseño e implementación de una base de datos geográfica.\n\nFuente: Presentación Unidad 1 · Papeles de un SIG (ejemplo de clase) (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-papel-difusion",
+      "topic": "1",
+      "type": "multi",
+      "text": "Sobre el SIG como herramienta para difusión de información geográfica, marcá lo correcto.",
+      "opts": [
+        "Ofrece funcionalidades propias de un SIG incluso a usuarios sin perfil técnico",
+        "Las tecnologías web tienen un papel clave: mapas interactivos y funcionalidades SIG",
+        "En campos más técnicos es catalizador de avances y descubrimientos",
+        "Solo puede usarlo personal técnico especializado"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "Justamente su valor es llegar a usuarios sin perfil técnico.\n\nFuente: Presentación Unidad 1 · Papeles de un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-sig",
+      "topic": "1",
+      "type": "tf",
+      "text": "Definición de SIG: Sistema de hardware, software y procedimientos elaborados para facilitar la obtención, gestión, manipulación, análisis, modelado, representación y salida de datos espacialmente referenciados, para resolver problemas complejos de planificación y gestión.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Es la definición de la NCGIA (1990) del apunte.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 1 · pág. 3",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 3",
+        "page": 3,
+        "confidence": "high",
+        "img": "slides/u1-3.webp"
+      }
+    },
+    {
+      "id": "gis-c-factores-clasificacion",
+      "topic": "1",
+      "type": "multi",
+      "text": "Para clasificar los ámbitos de aplicación de un SIG se usan factores relativos a los elementos que lo conforman. ¿Cuáles son?",
+      "opts": [
+        "Procesos principales de interés",
+        "Tipo fundamental de datos con los que se trabaja",
+        "Volumen de variables y datos empleados",
+        "Precisión de trabajo necesaria",
+        "Tipo de usuarios de SIG esperados",
+        "Complejidad de las operaciones y tareas",
+        "La marca del software utilizado",
+        "El color de los mapas"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fb": "También: la medida en que los SIG responden a las necesidades existentes. Además de estos factores se tienen en cuenta el ámbito propiamente dicho y las funcionalidades esperadas.\n\nFuente: Presentación Unidad 1 · Caracterización de las aplicaciones de un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 4",
+        "page": 4,
+        "confidence": "high",
+        "img": "slides/u1-4.webp"
+      }
+    },
+    {
+      "id": "gis-c-recursos-naturales",
+      "topic": "1",
+      "type": "multi",
+      "text": "Sobre el área de GESTIÓN DE RECURSOS NATURALES, marcá lo correcto.",
+      "opts": [
+        "Usan la tecnología SIG desde sus orígenes",
+        "Son responsables del desarrollo de los primeros SIG",
+        "Usan datos de tipos variados (raster y vectorial)",
+        "Sus capacidades más usadas son la gestión de datos y el análisis",
+        "Solo trabajan con datos vectoriales"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "Ejemplo de esos orígenes: el CGIS se hizo para inventariar los recursos forestales de Canadá.\n\nFuente: Presentación Unidad 1 · Áreas de aplicación de un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 4",
+        "page": 4,
+        "confidence": "high",
+        "img": "slides/u1-4.webp"
+      }
+    },
+    {
+      "id": "gis-c-riesgos",
+      "topic": "1",
+      "type": "multi",
+      "text": "Sobre el área de GESTIÓN DE RIESGOS (naturales o generados por el hombre), marcá lo correcto.",
+      "opts": [
+        "Estudia la distribución y la probabilidad de ocurrencia de los riesgos",
+        "Se usa fundamentalmente la capacidad de análisis",
+        "Usa principalmente datos raster (variables continuas) y también vectoriales, como registros de incendios o inundaciones",
+        "Sus usuarios son avanzados y exigen amplias funcionalidades",
+        "Sus usuarios no tienen perfil técnico y usan funciones mínimas"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "A diferencia de la difusión de información geográfica, acá los usuarios son avanzados.\n\nFuente: Presentación Unidad 1 · Áreas de aplicación de un SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 4",
+        "page": 4,
+        "confidence": "high",
+        "img": "slides/u1-4.webp"
+      }
+    },
+    {
+      "id": "gis-c-dos-factores",
+      "topic": "1",
+      "type": "multi",
+      "text": "En la década del ’60 aparecen los componentes principales de los SIG gracias a que confluyen dos factores. ¿Cuáles?",
+      "opts": [
+        "La necesidad de información geográfica y de una gestión y uso óptimo de la misma",
+        "La aparición de las primeras computadoras",
+        "El abaratamiento del software y el hardware",
+        "La difusión de internet y del software libre"
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "fb": "Estos dos factores aún hoy siguen impulsando el avance de los SIG. El abaratamiento de la tecnología es la cuarta etapa.\n\nFuente: Presentación Unidad 1 · 4. Revisión histórica y evolución de los SIG (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 4",
+        "page": 4,
+        "confidence": "high",
+        "img": "slides/u1-4.webp"
+      }
+    },
+    {
+      "id": "gis-r-symap-grid",
+      "topic": "1",
+      "type": "single",
+      "text": "En Harvard se desarrollaron SYMAP (1968) y GRID. ¿Qué enfoque inicia cada uno?",
+      "opts": [
+        "SYMAP: vectorial · GRID: raster (información almacenada como cuadrículas)",
+        "SYMAP: raster · GRID: vectorial",
+        "Ambos son raster",
+        "Ambos son topológicos"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Línea de la fundación: CGIS de Roger Tomlinson, “el padre del SIG” (Canadá) → DIME 1967 (datos vectoriales topológicos) → SYMAP 1968 → GRID 1969.\n\nFuente: Unidad 1 · Evolución de los SIG, pág. 6 · Presentación Unidad 1",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 6",
+        "page": 6,
+        "confidence": "high",
+        "img": "slides/u1-6.webp"
+      }
+    },
+    {
+      "id": "gis-c-motor-sig",
+      "topic": "1",
+      "type": "multi",
+      "text": "En la presentación, ¿quiénes forman “el motor del SIG”?",
+      "opts": [
+        "Usuarios",
+        "Diseñadores",
+        "Beneficiarios",
+        "Proveedores de satélites",
+        "Fabricantes de hardware"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "La tecnología y los datos son completamente inertes sin el personal adecuado.\n\nFuente: Presentación Unidad 1 · Personal (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 14",
+        "page": 14,
+        "confidence": "high",
+        "img": "slides/u1-14.webp"
+      }
+    },
+    {
+      "id": "gis-c-personal-perfiles",
+      "topic": "1",
+      "type": "multi",
+      "text": "Sobre las personas en un SIG, marcá lo correcto según la presentación.",
+      "opts": [
+        "La tecnología y los datos son completamente inertes sin el personal adecuado",
+        "Hay distintos perfiles: diseñan la arquitectura, administran la base de datos y aplican el SIG a problemas reales",
+        "La visualización es fundamental para ofrecer funcionalidades SIG a usuarios finales sin perfil técnico (tomadores de decisiones, ciudadanos)",
+        "Un SIG bien instalado funciona sin personas"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "Coincide con el apunte: sin gente, los datos se desactualizan y el hardware no se usa en todo su potencial.\n\nFuente: Presentación Unidad 1 · Personal (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 14",
+        "page": 14,
+        "confidence": "high",
+        "img": "slides/u1-14.webp"
+      }
+    },
+    {
+      "id": "gis-c-elementos-sistema",
+      "topic": "1",
+      "type": "multi",
+      "text": "Según lo visto en clase, ¿cuáles son los elementos de un sistema de información geográfica?",
+      "opts": [
+        "Hardware",
+        "Software",
+        "Datos",
+        "Métodos",
+        "Procedimientos",
+        "Personas",
+        "Proyecciones"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fb": "El apunte de la unidad 1 los agrupa en hardware, software, datos, personal y métodos; en clase se listaron también los procedimientos.\n\nFuente: Anotaciones de clase · Unidad 1 · 4. Componentes (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 14",
+        "page": 14,
+        "confidence": "high",
+        "img": "slides/u1-14.webp"
+      }
+    },
+    {
+      "id": "gis-c-olaya",
+      "topic": "1",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: componentes de un SIG según Olaya (autor del libro que usa la cátedra). Marcá los correctos.",
+      "opts": [
+        "Datos",
+        "Procesos / métodos de análisis",
+        "Visualización",
+        "Tecnología (hardware y software)",
+        "Factor organizativo (personas)",
+        "Topología"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fb": "Olaya agrupa hardware y software como “tecnología”, y suma procesos (análisis), visualización, datos y el factor organizativo (personas). Verificalo con tus apuntes: no está en los PDFs.\n\nFuente: Anotaciones de clase · Olaya, Sistemas de Información Geográfica (libro citado en la U2) (apunte de clase)",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 1 · Contenidos, pág. 14",
+        "page": 14,
+        "confidence": "high",
+        "img": "slides/u1-14.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-division",
+      "topic": "2",
+      "type": "tf",
+      "text": "La división horizontal de la información geográfica consiste en realizar cortes horizontales en la información de manera arbitraria para organizarla en capas.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "La división horizontal usa criterios espaciales: corta el territorio en zonas. Las capas surgen de la división VERTICAL, según características temáticas comunes.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 2 (parte 1) · diapositivas 7-10",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 10",
+        "page": 10,
+        "confidence": "high",
+        "img": "slides/u2a-10.webp"
+      }
+    },
+    {
+      "id": "gis-r-mayor-abstraccion",
+      "topic": "2",
+      "type": "single",
+      "text": "PREGUNTA DE PARCIAL: ¿cuál de los tres modelos es el de MAYOR nivel de abstracción (alto nivel)?",
+      "opts": [
+        "Modelo geográfico",
+        "Modelo de representación",
+        "Modelo de almacenamiento",
+        "Los tres tienen el mismo nivel"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "El geográfico es el modelo conceptual de la realidad y su comportamiento: alto nivel.\n\nFuente: Unidad 2 (parte 1) · diapositiva 18",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 18",
+        "page": 18,
+        "confidence": "high",
+        "img": "slides/u2a-18.webp"
+      }
+    },
+    {
+      "id": "gis-r-menor-abstraccion",
+      "topic": "2",
+      "type": "single",
+      "text": "PREGUNTA DE PARCIAL: ¿cuál de los tres modelos es el de MENOR nivel de abstracción (bajo nivel)?",
+      "opts": [
+        "Modelo geográfico",
+        "Modelo de representación",
+        "Modelo de almacenamiento",
+        "Los tres tienen el mismo nivel"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "El de almacenamiento es de bajo nivel, inherente a la naturaleza informática del SIG. El geográfico es el de alto nivel.\n\nFuente: Unidad 2 (parte 1) · diapositiva 18",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 18",
+        "page": 18,
+        "confidence": "high",
+        "img": "slides/u2a-18.webp"
+      }
+    },
+    {
+      "id": "gis-u2-niveles",
+      "topic": "2",
+      "type": "single",
+      "text": "Ordená de mayor a menor nivel de abstracción los tres modelos del proceso de conversión realidad → SIG.",
+      "opts": [
+        "Almacenamiento → Representación → Geográfico",
+        "Representación → Geográfico → Almacenamiento",
+        "Geográfico → Representación → Almacenamiento",
+        "Geográfico → Almacenamiento → Representación"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "Geográfico (alto nivel, conceptual) → Representación (serie finita de elementos) → Almacenamiento (bajo nivel, naturaleza informática).\n\nFuente: Unidad 2 (parte 1) · diapositiva 18",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 18",
+        "page": 18,
+        "confidence": "high",
+        "img": "slides/u2a-18.webp"
+      }
+    },
+    {
+      "id": "gis-p25-raster-cual",
+      "topic": "2",
+      "type": "multi",
+      "text": "¿Cuáles de estas representaciones de la elevación muestran el modelo de representación RASTER?",
+      "opts": [
+        "Curvas de nivel",
+        "Malla de celdas",
+        "Red de triángulos irregulares (TIN)",
+        "Puntos regulares"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Solo la malla de celdas es raster. Curvas (líneas), TIN (polígonos) y puntos regulares son vectoriales. En el parcial, la malla se mostraba con el valor de elevación de cada celda.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 6 · Unidad 2 (parte 1) · diapositivas 27 y 41",
+      "section": "Parcial 2025",
+      "img": "img/p25-elevacion.jpg",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 27",
+        "page": 27,
+        "confidence": "high",
+        "img": "slides/u2a-27.webp"
+      }
+    },
+    {
+      "id": "gis-p25-raster-pixel",
+      "topic": "2",
+      "type": "single",
+      "text": "Para modelar digitalmente el mundo real, el modelo raster…",
+      "opts": [
+        "Utiliza la estructura arco-nodo",
+        "Divide el espacio geográfico en sectores de forma regular denominados comúnmente píxel",
+        "Utiliza 3 elementos geométricos: punto, línea y polígono",
+        "Ninguna de las otras opciones"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Arco-nodo y las tres primitivas (punto, línea, polígono) son del modelo vectorial.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 5.2 · Unidad 2 (parte 1) · diapositiva 33",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 33",
+        "page": 33,
+        "confidence": "high",
+        "img": "slides/u2a-33.webp"
+      }
+    },
+    {
+      "id": "gis-p25-redes",
+      "topic": "2",
+      "type": "single",
+      "text": "Capa vectorial: para realizar procesos de análisis de redes es imprescindible que la capa tenga…",
+      "opts": [
+        "Estructura arco-nodo",
+        "Atributos",
+        "Topología"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "Lo imprescindible es la topología: sin ella no se sabe dónde hay cruces, pasos elevados ni sentidos de circulación. Arco-nodo es una forma de almacenarla, no el requisito.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 5.1 · Unidad 2 (parte 1) · diapositivas 55-56",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 56",
+        "page": 56,
+        "confidence": "high",
+        "img": "slides/u2a-56.webp"
+      }
+    },
+    {
+      "id": "gis-p25-comp-conectividad",
+      "topic": "2",
+      "type": "single",
+      "text": "Completá: “La relación topológica de ______ permite recorrer una red de entidades lineales conectadas entre sí.”",
+      "opts": [
+        "Cuantitativas",
+        "Cualitativas",
+        "Adyacencia",
+        "Conectividad",
+        "Reducción",
+        "Ampliación"
+      ],
+      "correct": [
+        3
+      ],
+      "fb": "Conectividad: un arco está conectado a otro cuando comparten un nodo.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 8 · Unidad 2 (parte 1) · diapositiva 70",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 2 · Parte 1, diap. 70",
+        "page": 70,
+        "confidence": "high",
+        "img": "slides/u2a-70.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-indices",
+      "topic": "2",
+      "type": "tf",
+      "text": "Los índices continuos (Modelos de Almacenamiento Vectorial) utilizan las coordenadas de las entidades, simplificándolas.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Es verdadera. Continuos: usan las coordenadas de las entidades, simplificadas. Discretos: discretizan el espacio.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 2 (parte 2) · diapositiva 11",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 2 · Parte 2, diap. 11",
+        "page": 11,
+        "confidence": "high",
+        "img": "slides/u2b-11.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-shapefile",
+      "topic": "2",
+      "type": "tf",
+      "text": "El formato ESRI Shapefile es un formato multiarchivo, donde algunos son obligatorios y otros son opcionales.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Obligatorios: .shp, .shx y .dbf. Opcionales: .prj, .sbn/.sbx, .shp.xml, entre otros.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 2 (parte 2) · diapositivas 19-20",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 2 · Parte 2, diap. 20",
+        "page": 20,
+        "confidence": "high",
+        "img": "slides/u2b-20.webp"
+      }
+    },
+    {
+      "id": "gis-c-generalizacion-def",
+      "topic": "3",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: definición de generalización. ¿Qué problemas cartográficos resuelve según la unidad 3?",
+      "opts": [
+        "Eliminar características del objeto representado que no son relevantes al objetivo del mapa",
+        "Reducir la complejidad de las características a ser representadas",
+        "Representar el área del objeto en una superficie plana",
+        "Organizar los elementos del mapa para comunicar el mensaje a la audiencia"
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "fb": "Representar en el plano es el problema de las proyecciones; organizar los elementos es el diseño.\n\nFuente: Unidad 3 · diapositivas 8-9",
+      "section": "Importante en clase",
+      "img": "img/u3-escala-grafica.jpg",
+      "source": {
+        "label": "Unidad 3, diap. 9",
+        "page": 9,
+        "confidence": "high",
+        "img": "slides/u3-9.webp"
+      }
+    },
+    {
+      "id": "gis-e-escala-tipo",
+      "topic": "3",
+      "type": "single",
+      "text": "PREGUNTA DE PARCIAL — Tipos de escala: se dibuja una pieza mecánica pequeña al doble de su tamaño real. ¿Qué escala y de qué tipo es?",
+      "opts": [
+        "1:2, de reducción",
+        "2:1, de ampliación",
+        "1:1, natural",
+        "2:1, de reducción"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Modelo : realidad. El dibujo es 2 veces la realidad → 2:1, escala de ampliación (se usa para piezas pequeñas).\n\nFuente: Unidad 3 · diapositivas 11-12",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 3, diap. 12",
+        "page": 12,
+        "confidence": "high",
+        "img": "slides/u3-12.webp"
+      }
+    },
+    {
+      "id": "gis-p25-comp-ampliacion",
+      "topic": "3",
+      "type": "single",
+      "text": "Completá: “La escala 10:1 corresponde al tipo ‘Escalas de ______’.”",
+      "opts": [
+        "Cuantitativas",
+        "Cualitativas",
+        "Adyacencia",
+        "Conectividad",
+        "Reducción",
+        "Ampliación"
+      ],
+      "correct": [
+        5
+      ],
+      "fb": "El dibujo es 10 veces mayor que la realidad (modelo : realidad): escala de ampliación, usada para piezas pequeñas.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 8 · Unidad 3 · diapositiva 12",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 3, diap. 12",
+        "page": 12,
+        "confidence": "high",
+        "img": "slides/u3-12.webp"
+      }
+    },
+    {
+      "id": "gis-u3-escala-tipos",
+      "topic": "3",
+      "type": "multi",
+      "text": "Marcá las afirmaciones correctas sobre escalas.",
+      "opts": [
+        "La figura es una escala gráfica",
+        "1:250.000 es una escala de reducción",
+        "10:1 es una escala de ampliación, usada para piezas pequeñas",
+        "En 1:100 el primer número corresponde a la realidad",
+        "1:1 es la escala natural"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "fb": "La notación es modelo : realidad, así que en 1:100 el 1 es el modelo.\n\nFuente: Unidad 3 · diapositivas 11-13",
+      "section": "Importante en clase",
+      "img": "img/u3-escala-grafica.jpg",
+      "source": {
+        "label": "Unidad 3, diap. 13",
+        "page": 13,
+        "confidence": "high",
+        "img": "slides/u3-13.webp"
+      }
+    },
+    {
+      "id": "gis-e-escala-representaciones",
+      "topic": "3",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL — ¿Cuáles son las formas de representar una escala?",
+      "opts": [
+        "Numérica (1:100)",
+        "Unidad por unidad (1 cm = 4 km)",
+        "Gráfica (segmentos)",
+        "Topológica",
+        "Por bandas"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "Las tres representaciones del apunte: numérica, unidad por unidad y gráfica. Los tipos, en cambio, son natural, de reducción y de ampliación.\n\nFuente: Unidad 3 · diapositiva 13",
+      "section": "Importante en clase",
+      "img": "img/u3-escala-grafica.jpg",
+      "source": {
+        "label": "Unidad 3, diap. 13",
+        "page": 13,
+        "confidence": "high",
+        "img": "slides/u3-13.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-elipsoide",
+      "topic": "3",
+      "type": "tf",
+      "text": "El elipsoide es la superficie equipotencial del campo gravitatorio de la Tierra que mejor se ajusta al nivel medio del mar.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Esa es la definición del GEOIDE. El elipsoide es la figura geométrica que se obtiene al rotar una elipse sobre uno de sus ejes, fácil de representar matemáticamente.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 3 · diapositivas 21 y 27",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 3, diap. 27",
+        "page": 27,
+        "confidence": "high",
+        "img": "slides/u3-27.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-coord",
+      "topic": "3",
+      "type": "tf",
+      "text": "Coordenadas geográficas: pueden expresar cualquier posición sobre la superficie de la Tierra, utilizando latitud y longitud.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Combinando los dos ángulos, latitud y longitud, se expresa cualquier posición sobre la superficie terrestre.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 3 · diapositivas 34-36",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 3, diap. 36",
+        "page": 36,
+        "confidence": "high",
+        "img": "slides/u3-36.webp"
+      }
+    },
+    {
+      "id": "gis-p25-equivalentes",
+      "topic": "3",
+      "type": "single",
+      "text": "Las proyecciones equivalentes preservan…",
+      "opts": [
+        "Las formas locales y los ángulos",
+        "Las distancias entre ciertos puntos del mapa",
+        "El área de los objetos en el mapa",
+        "Ninguna de las otras opciones"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "Conformes: formas locales y ángulos. Equidistantes: distancias entre ciertos puntos. Equivalentes: áreas.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 5.3 · Unidad 3 · diapositivas 52-54",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 3, diap. 53",
+        "page": 53,
+        "confidence": "high",
+        "img": "slides/u3-53.webp"
+      }
+    },
+    {
+      "id": "gis-r-epsg-problema",
+      "topic": "3",
+      "type": "single",
+      "text": "¿Qué problema resuelve la estandarización del EPSG?",
+      "opts": [
+        "No existe una única manera de referenciar un objeto (distintos elipsoides, puntos fundamentales, proyecciones) y trabajar con tantos parámetros es engorroso",
+        "Las imágenes raster ocupan mucho espacio",
+        "Los shapefiles no tienen atributos",
+        "El geoide no puede medirse"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "El EPSG Geodetic Dataset identifica cada CRS sin ambigüedades y define las reproyecciones entre ellos.\n\nFuente: Unidad 3 · diapositivas 63-64",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 3, diap. 63",
+        "page": 63,
+        "confidence": "high",
+        "img": "slides/u3-63.webp"
+      }
+    },
+    {
+      "id": "gis-u3-epsg-def",
+      "topic": "3",
+      "type": "multi",
+      "text": "¿Para qué sirven los códigos EPSG?",
+      "opts": [
+        "Identificar unívocamente el CRS usado por una capa",
+        "Ayudar a sus reproyecciones",
+        "Solicitar datos a servicios web",
+        "Comprimir imágenes raster"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "EPSG = European Petroleum Survey Group, que creó el EPSG Geodetic Dataset con CRS y transformaciones.\n\nFuente: Unidad 3 · diapositivas 63-65",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 3, diap. 65",
+        "page": 65,
+        "confidence": "high",
+        "img": "slides/u3-65.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-posgar",
+      "topic": "3",
+      "type": "tf",
+      "text": "El Marco de Referencia actual en la Argentina es POSGAR 07, el cual materializa al WGS84.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "POSGAR 07 es el marco actual; el IGN es el ente responsable. Un marco es la materialización de un sistema de referencia mediante una red de puntos medidos.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 3 · diapositivas 43 y 70",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 3, diap. 70",
+        "page": 70,
+        "confidence": "high",
+        "img": "slides/u3-70.webp"
+      }
+    },
+    {
+      "id": "gis-q4-hay-que-saber",
+      "topic": "4",
+      "type": "multi",
+      "text": "Antes de diseñar un mapa, ¿qué hay que saber?",
+      "opts": [
+        "¿Quién será el usuario?",
+        "¿Para qué va a servir?",
+        "¿Qué software se usará?",
+        "¿Cuánto pesará el archivo?"
+      ],
+      "correct": [
+        0,
+        1
+      ],
+      "fb": "Esas respuestas guían la toma de decisiones del cartógrafo (diseño cartográfico): qué representar, cómo, la escala y la proyección.\n\nFuente: Unidad 4 · diapositiva 7",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 7",
+        "page": 7,
+        "confidence": "high",
+        "img": "slides/u4-7.webp"
+      }
+    },
+    {
+      "id": "gis-c-elementos-mapa",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: elementos del mapa. ¿Cuáles forman parte de la composición del mapa?",
+      "opts": [
+        "Canevás (intersección de paralelos y meridianos)",
+        "Metadatos y autoría (título, autor, sistema de referencia, fecha)",
+        "Norte (orientación)",
+        "Leyenda",
+        "Escala (numérica y gráfica)",
+        "Localizador y mapas de detalle",
+        "Índice R-Tree"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fb": "El mapa es una colección de gráficos que representan objetos del mundo real más estos elementos adicionales. El R-Tree es un índice espacial (Unidad 2).\n\nFuente: Unidad 4 · diapositiva 12",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 12",
+        "page": 12,
+        "confidence": "high",
+        "img": "slides/u4-12.webp"
+      }
+    },
+    {
+      "id": "gis-p25-elementos",
+      "topic": "4",
+      "type": "multi",
+      "text": "En el mapa del dengue, ¿qué elementos de la composición de un mapa se reconocen?",
+      "opts": [
+        "Norte",
+        "Escala gráfica",
+        "Leyenda",
+        "Canevás (grilla de paralelos y meridianos)",
+        "Tabla de atributos"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "El parcial pedía reconocer al menos 3: norte (arriba a la izquierda), escala gráfica (arriba) y leyenda (a la derecha). También hay un mapa de detalle, el recuadro ampliado. No se dibujó el canevás.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 10 · Unidad 4 · diapositiva 12",
+      "section": "Parcial 2025",
+      "img": "img/p25-dengue.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 12",
+        "page": 12,
+        "confidence": "high",
+        "img": "slides/u4-12.webp"
+      }
+    },
+    {
+      "id": "gis-q4-base-tematica",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: sobre cartografía base y temática, marcá lo correcto.",
+      "opts": [
+        "La base se centra en el QUÉ y también se llama topográfica o fundamental",
+        "La base documenta con precisión matemática las características físicas de la Tierra (canevás, red fluvial, vías, nombres)",
+        "La temática se centra en el CÓMO: el comportamiento espacial de una variable específica",
+        "La temática usa la cartografía base como lienzo de contexto",
+        "La temática no necesita ninguna cartografía base"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "Es la clasificación de los mapas según el tipo de información que aportan. La base es de carácter general.\n\nFuente: Unidad 4 · diapositiva 13",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 13",
+        "page": 13,
+        "confidence": "high",
+        "img": "slides/u4-13.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-base",
+      "topic": "4",
+      "type": "tf",
+      "text": "El objetivo de la cartografía base es recoger con precisión qué hay sobre la Tierra, documentando a través del documento cartográfico las características físicas de esta.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Es la cartografía base (topográfica o fundamental): se centra en el QUÉ. La temática se centra en el CÓMO.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 4 · diapositiva 13",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 13",
+        "page": 13,
+        "confidence": "high",
+        "img": "slides/u4-13.webp"
+      }
+    },
+    {
+      "id": "gis-q4-generalizacion-escala",
+      "topic": "4",
+      "type": "single",
+      "text": "PREGUNTA DE PARCIAL: ¿qué es la generalización cartográfica, según su vínculo con la escala?",
+      "opts": [
+        "Representar datos geográficos a una escala diferente (de mayor o menor detalle) de la que originalmente poseen",
+        "Cambiar la proyección de un mapa",
+        "Agregar atributos a la tabla de una capa",
+        "Comprimir una imagen raster sin pérdida"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Su propósito es expresar la información de forma más resumida, para que sea comprensible, legible y aprovechable por el usuario.\n\nFuente: Unidad 4 · diapositiva 16",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 16",
+        "page": 16,
+        "confidence": "high",
+        "img": "slides/u4-16.webp"
+      }
+    },
+    {
+      "id": "gis-q4-gen-def",
+      "topic": "4",
+      "type": "single",
+      "text": "PREGUNTA DE PARCIAL: definición formal. La generalización es un proceso sistemático cuyo objetivo es…",
+      "opts": [
+        "Producir una imagen cartográfica legible y expresiva, reduciendo el contenido a lo que sea posible y necesario representar",
+        "Representar todos los elementos con sus dimensiones reales",
+        "Convertir las capas vectoriales en raster",
+        "Aumentar la cantidad de elementos del mapa"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Enfatiza lo trascendente (aumenta la visibilidad de lo importante) y suprime lo irrelevante (filtra el ruido visual).\n\nFuente: Unidad 4 · diapositiva 20",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 20",
+        "page": 20,
+        "confidence": "high",
+        "img": "slides/u4-20.webp"
+      }
+    },
+    {
+      "id": "gis-q4-operaciones",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: ¿cuáles son las cinco operaciones de generalización cartográfica?",
+      "opts": [
+        "Simplificación",
+        "Agregación",
+        "Suavizado",
+        "Exageración",
+        "Desplazamiento",
+        "Reproyección",
+        "Compresión"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fb": "Suelen combinarse para potenciar el resultado.\n\nFuente: Unidad 4 · diapositiva 21",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 21",
+        "page": 21,
+        "confidence": "high",
+        "img": "slides/u4-21.webp"
+      }
+    },
+    {
+      "id": "gis-c-generalizacion-tipos",
+      "topic": "4",
+      "type": "single",
+      "text": "PREGUNTA DE PARCIAL: ¿cuáles son las dos estrategias (tipos) de generalización en un SIG?",
+      "opts": [
+        "Al vuelo y multiescalar",
+        "Conforme y equivalente",
+        "Tangente y secante",
+        "Raster y vectorial"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Conforme y equivalente son propiedades de proyecciones, tangente y secante son superficies desarrollables, y raster y vectorial son modelos de representación.\n\nFuente: Unidad 4 · diapositiva 26",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 26",
+        "page": 26,
+        "confidence": "high",
+        "img": "slides/u4-26.webp"
+      }
+    },
+    {
+      "id": "gis-c-generalizacion-vuelo",
+      "topic": "4",
+      "type": "single",
+      "text": "El software calcula y generaliza los datos dinámicamente, en tiempo de ejecución, según la escala solicitada. ¿Qué estrategia es?",
+      "opts": [
+        "Al vuelo (on-the-fly)",
+        "Multiescalar (pre-calculado)",
+        "Pirámides raster",
+        "Suavizado"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "En el enfoque multiescalar, en cambio, se guarda la misma zona pre-procesada a escalas fijas y se elige la más adecuada para cada zoom.\n\nFuente: Unidad 4 · diapositiva 26",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 26",
+        "page": 26,
+        "confidence": "high",
+        "img": "slides/u4-26.webp"
+      }
+    },
+    {
+      "id": "gis-p25-vf-multiescalar",
+      "topic": "4",
+      "type": "tf",
+      "text": "En un SIG, el proceso de generalización de tipo “enfoque multiescalar” trabaja con todo el conjunto de datos y generaliza a medida que necesita, en función de la escala.",
+      "opts": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Eso describe la generalización AL VUELO. El enfoque multiescalar guarda la misma zona ya generalizada a escalas fijas y enciende la capa adecuada según el zoom.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 1 · Unidad 4 · diapositivas 26-28",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 28",
+        "page": 28,
+        "confidence": "high",
+        "img": "slides/u4-28.webp"
+      }
+    },
+    {
+      "id": "gis-q4-vv-lista",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: ¿cuáles son las variables visuales?",
+      "opts": [
+        "Posición",
+        "Forma",
+        "Tamaño",
+        "Tono",
+        "Valor",
+        "Textura",
+        "Orientación",
+        "Proyección"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "fb": "Tono y valor son componentes del color. La proyección es la base matemática del mapa, no una variable visual.\n\nFuente: Unidad 4 · diapositiva 38",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 38",
+        "page": 38,
+        "confidence": "high",
+        "img": "slides/u4-38.webp"
+      }
+    },
+    {
+      "id": "gis-q4-propiedades",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: ¿cuáles son las propiedades de las variables visuales?",
+      "opts": [
+        "Asociativa",
+        "Selectiva",
+        "Ordenada",
+        "Cuantitativa",
+        "Topológica"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "Determinan la capacidad de cada variable para transmitir significados específicos en el mapa.\n\nFuente: Unidad 4 · diapositiva 50",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 50",
+        "page": 50,
+        "confidence": "high",
+        "img": "slides/u4-50.webp"
+      }
+    },
+    {
+      "id": "gis-q4-tipos-variables",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: sobre los tipos de variables de la componente temática, marcá lo correcto.",
+      "opts": [
+        "Las alfanuméricas son cualitativas",
+        "Las numéricas nominales son cualitativas",
+        "Ordinal, intervalos y razones son numéricas cuantitativas",
+        "Las nominales son cuantitativas"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "Conocer el tipo de variable es importante porque cada una se simboliza distinto, según las propiedades de las variables visuales.\n\nFuente: Unidad 4 · diapositiva 53",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 53",
+        "page": 53,
+        "confidence": "high",
+        "img": "slides/u4-53.webp"
+      }
+    },
+    {
+      "id": "gis-p25-var-orden",
+      "topic": "4",
+      "type": "single",
+      "text": "Tipos de variables numéricas: “El valor establece un orden o categoría.”",
+      "opts": [
+        "Nominal",
+        "Ordinal",
+        "Intervalo",
+        "Razones o índices"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "Ordinal. Ej.: niveles de satisfacción con un servicio (1 a 5).\n\nFuente: 1er parcial · septiembre 2025 · pregunta 3a · Unidad 4 · diapositiva 54",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 54",
+        "page": 54,
+        "confidence": "high",
+        "img": "slides/u4-54.webp"
+      }
+    },
+    {
+      "id": "gis-p25-var-razones",
+      "topic": "4",
+      "type": "single",
+      "text": "Tipos de variables numéricas: “Las relaciones (proporciones y porcentajes) entre valores de la variable tienen un significado.”",
+      "opts": [
+        "Nominal",
+        "Ordinal",
+        "Intervalo",
+        "Razones o índices"
+      ],
+      "correct": [
+        3
+      ],
+      "fb": "Razones o índices. Ej.: 1.000 mm de precipitación es el doble que 500 mm.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 3a · Unidad 4 · diapositiva 54",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 54",
+        "page": 54,
+        "confidence": "high",
+        "img": "slides/u4-54.webp"
+      }
+    },
+    {
+      "id": "gis-p25-var-diferencias",
+      "topic": "4",
+      "type": "single",
+      "text": "Tipos de variables numéricas: “Las diferencias entre valores de la variable tienen un significado.”",
+      "opts": [
+        "Nominal",
+        "Ordinal",
+        "Intervalo",
+        "Razones o índices"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "Intervalo. Ej.: la diferencia entre dos valores de elevación.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 3a · Unidad 4 · diapositiva 54",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 54",
+        "page": 54,
+        "confidence": "high",
+        "img": "slides/u4-54.webp"
+      }
+    },
+    {
+      "id": "gis-p25-var-identificacion",
+      "topic": "4",
+      "type": "single",
+      "text": "Tipos de variables numéricas: “El valor sólo representa una identificación.”",
+      "opts": [
+        "Nominal",
+        "Ordinal",
+        "Intervalo",
+        "Razones o índices"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Nominal. Ej.: el número de DNI o el número de un portal.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 3a · Unidad 4 · diapositiva 54",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 54",
+        "page": 54,
+        "confidence": "high",
+        "img": "slides/u4-54.webp"
+      }
+    },
+    {
+      "id": "gis-p25-var-ejemplo",
+      "topic": "4",
+      "type": "single",
+      "text": "Elegí un tipo y un ejemplo correcto de variable NUMÉRICA.",
+      "opts": [
+        "Ordinal: nivel de satisfacción con un servicio, de 1 a 5",
+        "Ordinal: tamaño pequeño – mediano – grande",
+        "Razón: número de DNI",
+        "Nominal: precipitación media anual en mm"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Ojo: en el parcial se corrigió como error “pequeño – mediano – grande”, porque la consigna pide variables NUMÉRICAS y esa es alfanumérica. El DNI es nominal y la precipitación, de razón.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 3b · Unidad 4 · diapositiva 54",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 54",
+        "page": 54,
+        "confidence": "high",
+        "img": "slides/u4-54.webp"
+      }
+    },
+    {
+      "id": "gis-p25-comp-cuanti",
+      "topic": "4",
+      "type": "single",
+      "text": "Completá: “Para las variables ______, el valor del color y el tamaño son las más adecuadas.”",
+      "opts": [
+        "Cuantitativas",
+        "Cualitativas",
+        "Adyacencia",
+        "Conectividad",
+        "Reducción",
+        "Ampliación"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Valor y tamaño expresan orden y magnitud: sirven para información cuantitativa.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 8 · Unidad 4 · diapositiva 57",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 57",
+        "page": 57,
+        "confidence": "high",
+        "img": "slides/u4-57.webp"
+      }
+    },
+    {
+      "id": "gis-q4-jenks",
+      "topic": "4",
+      "type": "single",
+      "text": "Clases basadas en las agrupaciones naturales de los datos, con límites donde hay diferencias considerables entre valores, son:",
+      "opts": [
+        "Rupturas o intervalos naturales (Jenks)",
+        "Intervalos iguales",
+        "Percentiles",
+        "Símbolos graduados"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Los valores similares se agrupan y se maximizan las diferencias entre clases.\n\nFuente: Unidad 4 · diapositiva 62",
+      "section": "Parcial 2025",
+      "source": {
+        "label": "Unidad 4, diap. 62",
+        "page": 62,
+        "confidence": "high",
+        "img": "slides/u4-62.webp"
+      }
+    },
+    {
+      "id": "gis-q4-graduados",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: sobre el mapa de símbolos graduados, marcá lo correcto.",
+      "opts": [
+        "Varía el tamaño de los símbolos, para datos en índice o rango",
+        "El punto puede ser un lugar específico o el centro de gravedad de una superficie",
+        "El símbolo por excelencia es el círculo, proporcional al valor",
+        "Permite representar proporciones de distintos tipos de elementos",
+        "Varía la forma del símbolo según la clase"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "También se usan cuadrados o triángulos. Los SIG actuales los generan automáticamente.\n\nFuente: Unidad 4 · diapositiva 68",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 68",
+        "page": 68,
+        "confidence": "high",
+        "img": "slides/u4-68.webp"
+      }
+    },
+    {
+      "id": "gis-p25-mapa-a",
+      "topic": "4",
+      "type": "single",
+      "text": "El mapa (A), población rural del Chaco, usa círculos cuyo tamaño depende del porcentaje de cada departamento. ¿Qué tipo de mapa es?",
+      "opts": [
+        "Mapa de puntos",
+        "Mapa de símbolos graduados",
+        "Mapa coroplético",
+        "Mapa de flujos"
+      ],
+      "correct": [
+        1
+      ],
+      "fb": "El tamaño del símbolo varía según el dato: mapa de símbolos graduados. En el parcial era un mapa de exportaciones por provincia con círculos, y la etiqueta “coroplético” sobraba.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 2 · Unidad 4 · diapositivas 68-72",
+      "section": "Parcial 2025",
+      "img": "img/p25-mapas-abc.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 72",
+        "page": 72,
+        "confidence": "high",
+        "img": "slides/u4-72.webp"
+      }
+    },
+    {
+      "id": "gis-p25-dengue-info",
+      "topic": "4",
+      "type": "single",
+      "text": "Mapa del dengue en Argentina 2023. Completá: “El tipo de información representada es ______.”",
+      "opts": [
+        "Cuantitativa",
+        "Cualitativa",
+        "Valor y tamaño",
+        "Orientación y forma",
+        "De símbolos graduados",
+        "De puntos"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Muestra cantidades de casos en rangos (1-20, 21-90…): información cuantitativa.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 9 · Mapa 1 del Boletín Epidemiológico Nacional N° 644 (Ministerio de Salud, 2023) · Unidad 4",
+      "section": "Parcial 2025",
+      "img": "img/p25-dengue.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 72",
+        "page": 72,
+        "confidence": "high",
+        "img": "slides/u4-72.webp"
+      }
+    },
+    {
+      "id": "gis-p25-dengue-vv",
+      "topic": "4",
+      "type": "single",
+      "text": "Mapa del dengue en Argentina 2023. Completá: “Las variables visuales utilizadas son ______.”",
+      "opts": [
+        "Cuantitativa",
+        "Cualitativa",
+        "Valor y tamaño",
+        "Orientación y forma",
+        "De símbolos graduados",
+        "De puntos"
+      ],
+      "correct": [
+        2
+      ],
+      "fb": "Tamaño en los círculos de casos, y valor (claridad del verde) en los departamentos según las notificaciones de arbovirus.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 9 · Mapa 1 del Boletín Epidemiológico Nacional N° 644 (Ministerio de Salud, 2023) · Unidad 4",
+      "section": "Parcial 2025",
+      "img": "img/p25-dengue.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 72",
+        "page": 72,
+        "confidence": "high",
+        "img": "slides/u4-72.webp"
+      }
+    },
+    {
+      "id": "gis-p25-dengue-mapa",
+      "topic": "4",
+      "type": "single",
+      "text": "Mapa del dengue en Argentina 2023. Completá: “El tipo de mapa es ______.”",
+      "opts": [
+        "Cuantitativa",
+        "Cualitativa",
+        "Valor y tamaño",
+        "Orientación y forma",
+        "De símbolos graduados",
+        "De puntos"
+      ],
+      "correct": [
+        4
+      ],
+      "fb": "Círculos con tamaño según la cantidad de casos: mapa de símbolos graduados. En un mapa de puntos todos los puntos serían iguales.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 9 · Mapa 1 del Boletín Epidemiológico Nacional N° 644 (Ministerio de Salud, 2023) · Unidad 4",
+      "section": "Parcial 2025",
+      "img": "img/p25-dengue.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 72",
+        "page": 72,
+        "confidence": "high",
+        "img": "slides/u4-72.webp"
+      }
+    },
+    {
+      "id": "gis-q4-puntos",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: sobre el mapa de puntos, marcá lo correcto.",
+      "opts": [
+        "Representa magnitudes referidas a un área mediante la densidad de puntos",
+        "Muestra detalles de carácter locacional con más claridad que cualquier otro mapa",
+        "Todos los puntos son iguales",
+        "Usa un escalado de índice",
+        "Cada punto tiene un tamaño distinto según su valor"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "La cantidad de puntos de cada polígono se relaciona con el dato exacto que se quiere mostrar.\n\nFuente: Unidad 4 · diapositiva 73",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 73",
+        "page": 73,
+        "confidence": "high",
+        "img": "slides/u4-73.webp"
+      }
+    },
+    {
+      "id": "gis-p25-mapa-c",
+      "topic": "4",
+      "type": "single",
+      "text": "El mapa (C), departamentos de Santa Fe, usa puntos todos iguales, donde “1 punto = 5.000 habitantes”. ¿Qué tipo de mapa es?",
+      "opts": [
+        "Mapa de puntos",
+        "Mapa de símbolos graduados",
+        "Mapa coroplético",
+        "Mapa de flujos"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "Todos los puntos son iguales y cada uno vale una cantidad fija: mapa de puntos, con escalado de índice. En el parcial era la población económicamente activa de La Pampa y San Luis, con 1 punto = 200 personas.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 2 · Unidad 4 · diapositivas 73-75",
+      "section": "Parcial 2025",
+      "img": "img/p25-mapas-abc.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 75",
+        "page": 75,
+        "confidence": "high",
+        "img": "slides/u4-75.webp"
+      }
+    },
+    {
+      "id": "gis-q4-flujos",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: sobre el mapa de flujos, marcá lo correcto.",
+      "opts": [
+        "Representa trayectorias lineales",
+        "La variable visual más usada es el tamaño (grosor de la línea)",
+        "Líneas curvas: trayectorias no identificables en la realidad; rectas: itinerario concreto",
+        "Las flechas señalan dirección",
+        "Cada línea une puntos de igual valor"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "Unir puntos de igual valor es propio de las isolíneas. En los flujos también se usan forma (continua, discontinua) y color.\n\nFuente: Unidad 4 · diapositiva 76",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 76",
+        "page": 76,
+        "confidence": "high",
+        "img": "slides/u4-76.webp"
+      }
+    },
+    {
+      "id": "gis-p25-mapa-b",
+      "topic": "4",
+      "type": "single",
+      "text": "El mapa (B), rutas de la provincia del Chaco, usa líneas con flechas cuyo grosor depende de las unidades vehiculares. ¿Qué tipo de mapa es?",
+      "opts": [
+        "Mapa de puntos",
+        "Mapa de símbolos graduados",
+        "Mapa coroplético",
+        "Mapa de flujos"
+      ],
+      "correct": [
+        3
+      ],
+      "fb": "Líneas que representan trayectorias, con grosor según la magnitud y flechas para la dirección: mapa de flujos. En el parcial eran flechas de exportaciones hacia distintos destinos.\n\nFuente: 1er parcial · septiembre 2025 · pregunta 2 · Unidad 4 · diapositivas 76-77",
+      "section": "Parcial 2025",
+      "img": "img/p25-mapas-abc.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 77",
+        "page": 77,
+        "confidence": "high",
+        "img": "slides/u4-77.webp"
+      }
+    },
+    {
+      "id": "gis-q4-isolineas",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: sobre el mapa de isolíneas, marcá lo correcto.",
+      "opts": [
+        "Se usa cuando la magnitud es un volumen que se distribuye por toda la superficie",
+        "Cada línea une puntos de igual valor",
+        "Se parte de datos puntuales, se definen intervalos y se trazan las líneas interpolando",
+        "Las isobaras representan presión atmosférica y las isohietas, precipitaciones",
+        "Cada línea representa la trayectoria de un flujo"
+      ],
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "fb": "Las trayectorias son propias de los mapas de flujos.\n\nFuente: Unidad 4 · diapositiva 78",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 78",
+        "page": 78,
+        "confidence": "high",
+        "img": "slides/u4-78.webp"
+      }
+    },
+    {
+      "id": "gis-q4-coro-dasi-iso",
+      "topic": "4",
+      "type": "multi",
+      "text": "PREGUNTA DE PARCIAL: sobre los mapas coroplético, dasimétrico e isoplético, marcá lo correcto.",
+      "opts": [
+        "Coroplético: las cantidades se asignan a polígonos predefinidos, a menudo límites administrativos",
+        "Dasimétrico: el propio fenómeno define el polígono",
+        "Isoplético: usa como base un mapa de isolíneas y resalta umbrales con símbolos zonales",
+        "Coroplético: las zonas se adaptan a la distribución real de la variable"
+      ],
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "fb": "En el coroplético las zonas tienen un significado arbitrario, no relacionado con la variable; el que se adapta a la distribución real es el dasimétrico.\n\nFuente: Unidad 4 · diapositiva 81",
+      "section": "Importante en clase",
+      "source": {
+        "label": "Unidad 4, diap. 81",
+        "page": 81,
+        "confidence": "high",
+        "img": "slides/u4-81.webp"
+      }
+    },
+    {
+      "id": "gis-e4-cartograma",
+      "topic": "4",
+      "type": "single",
+      "text": "EJERCICIO — En este mapa, el tamaño de cada país de la UE es proporcional a su población y el tono indica la densidad. ¿Qué tipo de mapa es?",
+      "opts": [
+        "Cartograma",
+        "Coroplético",
+        "Dasimétrico",
+        "Símbolos graduados"
+      ],
+      "correct": [
+        0
+      ],
+      "fb": "La variable tamaño se aplica directamente sobre las unidades de superficie, que se distorsionan.\n\nFuente: Unidad 4 · diapositiva 84",
+      "section": "Importante en clase",
+      "img": "img/u4-cartograma.jpg",
+      "source": {
+        "label": "Unidad 4, diap. 84",
+        "page": 84,
+        "confidence": "high",
+        "img": "slides/u4-84.webp"
+      }
+    }
+  ]
+}
