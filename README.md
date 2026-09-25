@@ -4,6 +4,9 @@ Bancos de preguntas de repaso para materias de ISI (UTN FRRe), con corrección i
 Moodle y progreso guardado en el navegador. Es un sitio estático: HTML, CSS y JavaScript vanilla con ES
 modules, sin frameworks, sin build y sin dependencias en runtime.
 
+Los cuestionarios están divididos por materia y, dentro de cada materia, por parcial: en la landing se
+elige la materia y después el parcial que se quiere practicar.
+
 Las preguntas se pueden ver de a una o todas juntas en una página. La vista "Todas en una página" sirve
 para buscar una pregunta con Ctrl+F.
 
@@ -13,33 +16,56 @@ Cada pregunta se envía por separado. Si quedan preguntas con opciones marcadas 
 En la vista "Una por vez" hay atajos de teclado: `1`–`9` marcan opciones, `Enter` envía la respuesta (o
 pasa a la siguiente si ya estaba enviada) y `←` `→` cambian de pregunta.
 
-Materias incluidas:
+Materias y parciales incluidos:
 
-| Materia | Carpeta | Preguntas |
-|---|---|---|
-| Administración de Sistemas de Información | `subjects/asi/` | 87 (78 con puntaje + 9 informativas) |
-| Redes de Datos | `subjects/redes/` | 98 (90 con link a la página de la teoría, 51 con la imagen de esa página) |
+| Materia | Parcial | Carpeta | Preguntas |
+|---|---|---|---|
+| Administración de Sistemas de Información | 1er parcial | `subjects/asi/1er-parcial/` | 87 (78 con puntaje + 9 informativas) |
+| | 2do parcial | `subjects/asi/2do-parcial/` | todavía ninguna (aparece como «Próximamente») |
+| Redes de Datos | 1er parcial | `subjects/redes/1er-parcial/` | 97 (89 con link a la página de la teoría) |
+| | 2do parcial | `subjects/redes/2do-parcial/` | todavía ninguna (aparece como «Próximamente») |
+| Sistemas de Información Geográfica | 1er parcial | `subjects/gis/1er-parcial/` | 84 (las ★ importantes y las 33 del 1er parcial 2025, con la página del apunte) |
+
+Las de GIS salen del banco de [matiasgzlez/GIS](https://github.com/matiasgzlez/GIS): solo las marcadas como
+importantes en clase y las del parcial 2025 (con sus variantes), en el orden de lectura de los apuntes.
 
 ## Estructura
 
 ```
-index.html              # landing: lista las materias de subjects/subjects.json
+index.html              # landing: lista las materias de subjects/subjects.json con sus parciales
 favicon.ico, apple-touch-icon.png
 img/                    # logo de la UTN y favicon en PNG, compartidos por todas las páginas
 engine/
-  quiz.js               # motor común (render, puntaje, filtros, progreso)
+  quiz.js               # motor común de un cuestionario (render, puntaje, filtros, progreso)
+  subject.js            # página de una materia: lista sus parciales para elegir uno
   quiz.css              # diseño común (claro/oscuro, mobile-first)
 subjects/
   subjects.json         # manifiesto: slugs de las materias que muestra la landing
   asi/
-    index.html          # carga el motor con initQuiz({ slug: "asi" })
-    questions.json
-    img/                # imágenes referenciadas por las preguntas
+    index.html          # elegir el parcial: initSubject({ slug: "asi" })
+    subject.json        # nombre, descripción, color y parciales de la materia
+    1er-parcial/
+      index.html        # carga el motor con initQuiz({ slug: "asi", exam: "1er-parcial" })
+      questions.json
+      img/              # imágenes referenciadas por las preguntas
+    2do-parcial/        # preparado, sin preguntas todavía
+      index.html
+      questions.json
   redes/
-    index.html
-    questions.json
-    sources/            # PDFs de teoría + mapping-report.md
-      pages/            # páginas de los PDFs como imagen (las genera render-source-pages.py)
+    index.html, subject.json
+    1er-parcial/
+      index.html
+      questions.json
+      sources/          # PDFs de teoría + mapping-report.md
+        pages/          # páginas de los PDFs como imagen (las genera render-source-pages.py)
+    2do-parcial/        # preparado, sin preguntas todavía
+  gis/
+    index.html, subject.json
+    1er-parcial/
+      index.html
+      questions.json
+      img/              # figuras de los apuntes
+      slides/           # página del apunte de donde sale cada pregunta (sin los PDFs)
 scripts/
   validate.mjs          # valida todos los questions.json
   rank-sources.mjs      # sugiere páginas de la teoría para cada pregunta
@@ -58,35 +84,70 @@ npx serve .
 y abrí la URL que imprime (por defecto <http://localhost:3000>).
 
 `serve.json` activa `cleanUrls` y `trailingSlash`, igual que en producción: `/subjects/redes` redirige a
-`/subjects/redes/`. Sin la barra final, los paths relativos de cada materia (`questions.json`, `img/…`,
-`sources/…`) no se resuelven. Cualquier servidor que publique el sitio tiene que hacer lo mismo.
+`/subjects/redes/` (y `/subjects/redes/1er-parcial` a `/subjects/redes/1er-parcial/`). Sin la barra final,
+los paths relativos de cada parcial (`questions.json`, `img/…`, `sources/…`) no se resuelven. Cualquier servidor que publique el sitio tiene que hacer lo mismo.
+
+## Cargar las preguntas de un parcial preparado
+
+El 2do parcial de Administración y el de Redes ya tienen su carpeta, su página y un `questions.json` sin
+preguntas; mientras `questions` esté vacío, la materia lo muestra como «Próximamente». Para cargarlo, completá
+`topics` y `questions` en `subjects/<slug>/2do-parcial/questions.json` siguiendo el esquema de abajo (las
+imágenes van en `img/` o `sources/` dentro de esa misma carpeta) y corré `node scripts/validate.mjs`.
+
+Los ids de las preguntas empiezan con `<slug>-` y son únicos en todo el sitio. Para no chocar con los del
+1er parcial conviene usar un prefijo propio, por ejemplo `redes-p2-01` o `asi-p2-01`.
+
+## Agregar un parcial a una materia
+
+1. Creá `subjects/<slug>/<parcial>/` (en minúsculas, sin espacios; por ejemplo `integrador`).
+2. Copiá `subjects/redes/2do-parcial/index.html` y cambiá el `<title>` y el parcial en
+   `initQuiz({ slug: "<slug>", exam: "<parcial>" })`.
+3. Escribí `questions.json` con el esquema de abajo. `subject` es el nombre de la materia y `exam` el del
+   parcial, iguales a los de `subject.json`.
+4. Agregá `{ "slug": "<parcial>", "name": "<nombre visible>" }` a `exams` en `subjects/<slug>/subject.json`,
+   en el orden en que se tienen que listar.
+5. Corré `node scripts/validate.mjs` hasta que no marque errores.
 
 ## Agregar una materia
 
 1. Creá `subjects/<slug>/` (slug en minúsculas, sin espacios; por ejemplo `sistemas-operativos`).
-2. Copiá `subjects/redes/index.html` a la carpeta nueva y cambiá el `<title>` y el slug en
-   `initQuiz({ slug: "<slug>" })`.
-3. Escribí `subjects/<slug>/questions.json` siguiendo el esquema de abajo. Los ids de las preguntas
-   empiezan con `<slug>-`.
+2. Copiá `subjects/redes/index.html` y `subjects/redes/subject.json` a la carpeta nueva. En el `index.html`
+   cambiá el `<title>` y el slug de `initSubject({ slug: "<slug>" })`; en `subject.json`, el nombre, la
+   descripción, el color y la lista de parciales:
+
+   ```jsonc
+   {
+     "name": "Sistemas Operativos",          // nombre visible (igual al "subject" de cada questions.json)
+     "description": "…",                     // opcional, subtítulo en la landing y en la materia
+     "accent": "#2F6FD6",                    // color de la tarjeta en la landing (#RRGGBB)
+     "accentDark": "#5B8FE6",                // opcional, acento en modo oscuro
+     "exams": [{ "slug": "1er-parcial", "name": "1er parcial" }]
+   }
+   ```
+3. Creá cada parcial como en la sección anterior.
 4. Agregá el slug a `subjects/subjects.json` para que aparezca en la landing.
 5. Corré `node scripts/validate.mjs` hasta que no marque errores.
 
-El progreso de cada materia se guarda en `localStorage` con la clave `quiz-<slug>-v1`. Si cambiás los ids de
-preguntas ya publicadas, las respuestas guardadas de esas preguntas se pierden.
+El progreso de cada parcial se guarda en `localStorage` con la clave `quiz-<slug>-<parcial>-v1`. Los 1er
+parcial de ASI, Redes y GIS le pasan además `legacyKey: "quiz-<slug>-v1"` al motor, para leer el progreso
+guardado antes de que las materias se dividieran por parcial. Si cambiás los ids de preguntas ya publicadas,
+las respuestas guardadas de esas preguntas se pierden.
 
 ## Esquema de `questions.json`
 
 ```jsonc
 {
-  "subject": "Redes de Datos",          // nombre visible
+  "subject": "Redes de Datos",          // nombre de la materia (igual a "name" en subject.json)
+  "exam": "1er parcial",                // nombre del parcial (igual al de "exams" en subject.json)
   "description": "Banco de preguntas…",        // opcional, subtítulo
   "accent": "#2F6FD6",                         // color de acento (#RRGGBB)
   "accentDark": "#5B8FE6",                     // opcional, acento en modo oscuro
   "emptyFeedback": "La cátedra no incluyó…",   // texto si falta "fb"; null oculta la sección
   "topicFilter": "multi",                      // opcional: "multi" (chips independientes) o
-                                               // "single" (uno a la vez + "Todas")
+                                               // "pick" ("Todas" + chips que se combinan)
   "labels": {                                  // opcional, textos del filtro
-    "topics": "Temas", "allTopics": "Todos los temas", "noTopics": "Ninguno", "section": "Sección"
+    "topics": "Temas", "allTopics": "Todos los temas", "noTopics": "Ninguno", "section": "Sección",
+    "feedback": "Explicación de la cátedra"    // título de la explicación ("fb")
   },
   "imageCaption": "Imagen de referencia",      // opcional, título de las imágenes en la revisión
   "about": ["<p>…</p>"],                       // opcional, HTML: bloque "Sobre este banco de preguntas"
@@ -117,8 +178,8 @@ aclaración sobre el tema, visible en los filtros y en cada pregunta.
 | `fb` | opcional | Explicación de la cátedra. |
 | `note` | opcional | Aviso que se muestra al responder (por ejemplo, una respuesta dudosa). |
 | `section` | opcional | Sub-agrupación (por ejemplo, "1er parcial 2024"). Se muestra como badge y habilita el filtro por sección. |
-| `img` | opcional | Ruta relativa a la carpeta de la materia (`img/x.jpg`). |
-| `source` | opcional | `{ "file": "sources/x.pdf", "page": 12, "confidence": "high" \| "medium" \| "low", "img": "sources/pages/x-p12.webp" }`. Muestra "Ver en la teoría", que abre `x.pdf#page=12`. `page` es la página física del PDF (empieza en 1). Si está `img`, la corrección muestra además la imagen de esa página, para ver el respaldo sin abrir el PDF. |
+| `img` | opcional | Ruta relativa a la carpeta del parcial (`img/x.jpg`). |
+| `source` | opcional | `{ "file": "sources/x.pdf", "page": 12, "confidence": "high" \| "medium" \| "low", "img": "sources/pages/x-p12.webp" }`. Muestra "Ver en la teoría", que abre `x.pdf#page=12`. `page` es la página física del PDF (empieza en 1). Si está `img`, la corrección muestra además la imagen de esa página, para ver el respaldo sin abrir el PDF. Sin `file` (cuando el PDF no está en el repo) muestra solo la imagen, con `label` como rótulo: `{ "label": "Unidad 3, diap. 52", "page": 52, "confidence": "high", "img": "slides/u3-52.webp" }`. |
 
 ### Puntaje
 
@@ -134,15 +195,18 @@ Cada pregunta vale 1:
 node scripts/validate.mjs
 ```
 
-Recorre `subjects/*/questions.json` y verifica, entre otras cosas:
+Recorre `subjects/*/subject.json` y el `questions.json` de cada parcial, y verifica, entre otras cosas:
 
 - ids únicos y con el prefijo correcto
 - `topic` existente
 - índices de `correct` dentro de rango
 - `match` con tantos `correct` como `stems`
 - campos obligatorios por tipo
-- que existan los archivos de `img` y `source`
-- que `subjects.json` esté sincronizado con las carpetas
+- que existan los archivos de `img` y `source` (y que un `source` sin `file` tenga `img` y `label`)
+- que `subjects.json` y los `exams` de cada `subject.json` estén sincronizados con las carpetas
+- que `subject` y `exam` de cada `questions.json` coincidan con `subject.json`
+
+Un parcial con `questions` vacío no es un error: se informa como «Próximamente».
 
 Si encuentra errores, sale con código 1.
 
@@ -152,20 +216,20 @@ Si encuentra errores, sale con código 1.
 con más términos del enunciado y de la respuesta correcta:
 
 ```sh
-node scripts/rank-sources.mjs redes                 # todas las preguntas
-node scripts/rank-sources.mjs redes redes-c8 --top 5
+node scripts/rank-sources.mjs redes/1er-parcial                 # todas las preguntas
+node scripts/rank-sources.mjs redes/1er-parcial redes-c8 --top 5
 ```
 
 Son solo candidatos: la página y la confianza de cada `source` las decide una persona. El detalle de
 las asignaciones actuales de Redes, con el fragmento que justifica cada una, está en
-[`subjects/redes/sources/mapping-report.md`](subjects/redes/sources/mapping-report.md).
+[`subjects/redes/1er-parcial/sources/mapping-report.md`](subjects/redes/1er-parcial/sources/mapping-report.md).
 
 Para las preguntas con `confidence: "high"` (la respuesta figura seguro en esa página), la corrección muestra
 la página como imagen. Las genera `scripts/render-source-pages.py`, que necesita PyMuPDF y Pillow
 (`pip install pymupdf pillow`):
 
 ```sh
-python scripts/render-source-pages.py redes
+python scripts/render-source-pages.py redes/1er-parcial
 ```
 
 Escribe `sources/pages/<pdf>-p<N>.webp`, completa `source.img` en `questions.json` y borra las imágenes que ya

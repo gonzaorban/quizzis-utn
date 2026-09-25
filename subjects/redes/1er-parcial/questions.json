@@ -1,12 +1,17 @@
 {
   "subject": "Redes de Datos",
-  "description": "Banco de preguntas del 1er parcial (ISI, UTN FRRe), armado desde las revisiones del cuestionario de estudio.",
+  "exam": "1er parcial",
+  "description": "Banco de preguntas (ISI, UTN FRRe) armado desde las revisiones del cuestionario de estudio.",
   "about": [
     "<p><b>Aclaración:</b> a algunas preguntas les faltan opciones que sí estaban en el cuestionario original, porque en el PDF de las revisiones solo figuraban las opciones correctas.</p>"
   ],
   "accent": "#2F6FD6",
   "accentDark": "#5B8FE6",
   "emptyFeedback": "La cátedra no incluyó explicación para esta pregunta.",
+  "topicFilter": "pick",
+  "labels": {
+    "allTopics": "Todas"
+  },
   "topics": {
     "1": {
       "name": "Modelo de capas",

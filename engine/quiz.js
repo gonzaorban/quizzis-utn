@@ -1,7 +1,7 @@
-// Shared quiz engine. Each subject page calls initQuiz({ slug }) and the engine
-// fetches ./questions.json (relative to the page), renders the UI into #app and
-// keeps progress in localStorage under "quiz-<slug>-v1". Questions are shown one
-// at a time or all on one page (so the browser's Ctrl+F can find any of them).
+// Shared quiz engine. Each exam page (subjects/<slug>/<exam>/) calls initQuiz({ slug, exam }) and the
+// engine fetches ./questions.json (relative to the page), renders the UI into #app and keeps progress in
+// localStorage under "quiz-<slug>-<exam>-v1". Questions are shown one at a time or all on one page (so the
+// browser's Ctrl+F can find any of them).
 
 const kindLabel = {
   single: "Seleccioná una opción",
@@ -40,6 +40,11 @@ export function repoLink() {
   return `<a class="repo" href="${REPO_URL}" target="_blank" rel="noopener noreferrer" title="Código fuente en GitHub (se abre en una pestaña nueva)">${GITHUB_ICON}<span>gonzaorban/quizzis-utn</span></a>`;
 }
 
+// breadcrumb from an exam page (subjects/<slug>/<exam>/) back to its subject and to the landing
+function crumbs(subject) {
+  return `<nav class="crumbs" aria-label="Ubicación"><a href="../../../">Materias</a><span aria-hidden="true">›</span><a href="../">${esc(subject)}</a></nav>`;
+}
+
 export const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 // Sets the subject accent as CSS variables; the stylesheet picks light or dark.
@@ -60,7 +65,8 @@ function shuffle(arr) {
 }
 const fmt = (n) => n.toFixed(2).replace(".", ",");
 
-export async function initQuiz({ slug, root = document.getElementById("app") }) {
+// legacyKey: storage key used before the subject was split by exam; read once if the new key is empty
+export async function initQuiz({ slug, exam, legacyKey, root = document.getElementById("app") }) {
   const dataUrl = new URL("questions.json", document.baseURI);
   let DATA;
   try {
@@ -73,13 +79,24 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     return;
   }
   applyAccent(DATA);
+  const heading = `<div class="topbar">${crumbs(DATA.subject)}${repoLink()}</div>
+    ${DATA.exam ? `<p class="kicker">${esc(DATA.exam)}</p>` : ""}
+    <h1>${esc(DATA.subject)}</h1>
+    ${DATA.description ? `<p class="sub">${esc(DATA.description)}</p>` : ""}`;
+  if (!DATA.questions.length) {
+    root.innerHTML = `<div class="wrap">${heading}
+      <div class="card empty-state">Todavía no hay preguntas cargadas para ${esc(DATA.exam ? `el ${DATA.exam}` : "este cuestionario")}.
+        <p><a href="../">Elegir otro parcial</a></p></div></div>`;
+    return;
+  }
   const asset = (path) => new URL(path, dataUrl).href;
-  const STORE_KEY = `quiz-${slug}-v1`;
+  const STORE_KEY = `quiz-${slug}-${exam}-v1`;
   const topicIds = Object.keys(DATA.topics);
   const topicOf = (q) => DATA.topics[String(q.topic)];
-  // "multi": chips toggle independently (Redes). "single": one chip at a time plus "Todas" (ASI).
-  const single = DATA.topicFilter === "single";
-  const L = Object.assign({ topics: "Temas", allTopics: "Todos los temas", noTopics: "Ninguno", section: "Sección" }, DATA.labels);
+  // "multi": chips toggle independently, all on by default (Redes).
+  // "pick": a "Todas" chip plus chips that combine: the first tap narrows to that one, later taps add or remove (ASI).
+  const pick = DATA.topicFilter === "pick";
+  const L = Object.assign({ topics: "Temas", allTopics: "Todos los temas", noTopics: "Ninguno", section: "Sección", feedback: "Explicación de la cátedra" }, DATA.labels);
   const sections = [...new Set(DATA.questions.map((q) => q.section).filter(Boolean))];
 
   // ---------- state ----------
@@ -95,10 +112,11 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   function loadState() {
     const base = { answers: {}, topics: topicIds.slice(), section: "all", status: "all", shuffleQ: false, shuffleO: true, mode: "one" };
     try {
-      const raw = localStorage.getItem(STORE_KEY);
+      const raw = localStorage.getItem(STORE_KEY) || (legacyKey && localStorage.getItem(legacyKey));
       if (!raw) return base;
       const s = Object.assign(base, JSON.parse(raw));
       s.topics = s.topics.map(String).filter((t) => topicIds.includes(t));
+      if (pick && !s.topics.length) s.topics = topicIds.slice();
       if (s.section !== "all" && !sections.includes(s.section)) s.section = "all";
       if (s.mode !== "all") s.mode = "one";
       return s;
@@ -127,15 +145,13 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   const intro = DATA.about && DATA.about.length
     ? `<details class="intro" id="intro" open><summary>Sobre este banco de preguntas</summary>${DATA.about.join("")}</details>` : "";
   root.innerHTML = `<div class="wrap">
-    <div class="topbar"><a class="home" href="../../">← Todas las materias</a>${repoLink()}</div>
-    <h1>${esc(DATA.subject)}</h1>
-    ${DATA.description ? `<p class="sub">${esc(DATA.description)}</p>` : ""}
+    ${heading}
     ${intro}
     <details class="filters" id="filters" open>
       <summary><span>${esc(L.topics)} y opciones</span><span class="hint" id="filterHint"></span></summary>
       <div class="chips" id="chips" role="group" aria-label="Filtrar por ${esc(L.topics.toLowerCase())}"></div>
       <ul class="topic-notes" id="topicNotes"></ul>
-      ${single ? "" : `<div class="row">
+      ${pick ? "" : `<div class="row">
         <button class="linkbtn" id="allTopics" type="button">${esc(L.allTopics)}</button>
         <button class="linkbtn" id="noTopics" type="button">${esc(L.noTopics)}</button>
       </div>`}
@@ -182,17 +198,21 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     const counts = {};
     DATA.questions.forEach((q) => { counts[q.topic] = (counts[q.topic] || 0) + 1; });
     const all = state.topics.length === topicIds.length;
-    const allChip = single
+    const allChip = pick
       ? `<button type="button" class="chip" data-topic="*" aria-pressed="${all}">${esc(L.allTopics)} <span class="n">${DATA.questions.length}</span></button>`
       : "";
     $("chips").innerHTML = allChip + topicIds.map((k) =>
-      `<button type="button" class="chip" data-topic="${esc(k)}" aria-pressed="${single ? !all && state.topics.includes(k) : state.topics.includes(k)}">
+      `<button type="button" class="chip" data-topic="${esc(k)}" aria-pressed="${pick ? !all && state.topics.includes(k) : state.topics.includes(k)}">
          ${swatch(DATA.topics[k])}${esc(DATA.topics[k].name)} <span class="n">${counts[k] || 0}</span>
        </button>`).join("");
     $("chips").querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => {
       const t = b.dataset.topic;
-      if (single) {
-        state.topics = t === "*" ? topicIds.slice() : [t];
+      if (pick) {
+        if (t === "*" || all) state.topics = t === "*" ? topicIds.slice() : [t];
+        else {
+          state.topics = state.topics.includes(t) ? state.topics.filter((x) => x !== t) : [...state.topics, t];
+          if (!state.topics.length) state.topics = topicIds.slice();
+        }
         buildChips();
       } else {
         state.topics = state.topics.includes(t) ? state.topics.filter((x) => x !== t) : [...state.topics, t];
@@ -303,7 +323,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     const main = $("main");
     main.dataset.mode = state.mode;
     if (!view.length) {
-      main.innerHTML = `<div class="card empty-state">No hay preguntas con estos filtros. ${single ? `Elegí otra opción en “${esc(L.topics)}”` : "Activá algún tema"} o cambiá “Mostrar”.</div>`;
+      main.innerHTML = `<div class="card empty-state">No hay preguntas con estos filtros. ${pick ? `Cambiá la selección en “${esc(L.topics)}”` : "Activá algún tema"} o cambiá “Mostrar”.</div>`;
       return;
     }
     if (state.mode === "all") {
@@ -392,10 +412,12 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   }
 
   // theory PDF page backing the question (source.page is the physical PDF page): a picture of the page when
-  // source.img exists, plus the link to the PDF
+  // source.img exists, plus the link to the PDF. Without file, only the picture, captioned with source.label
   function renderSource(q) {
     if (!q.source) return "";
-    const { file, page, confidence, img } = q.source;
+    const { file, page, confidence, img, label } = q.source;
+    if (!file) return `<figure class="figure source-page"><figcaption>En la teoría: ${esc(label)}</figcaption>
+      <a href="${esc(asset(img))}" target="_blank" rel="noopener" title="Ver la imagen en tamaño completo"><img src="${esc(asset(img))}" alt="${esc(label)}" loading="lazy"></a></figure>`;
     const name = file.split("/").pop();
     const low = confidence === "low" ? " · referencia aproximada (confianza baja)" : "";
     const shot = img ? `<figure class="figure source-page"><figcaption>En la teoría: ${esc(name)}, pág. ${page}</figcaption>
@@ -425,8 +447,8 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
       key = `<p>${esc(q.opts[q.correct[0]])}</p>`;
     }
     let fb = "";
-    if (q.fb) fb = `<h3>Explicación de la cátedra</h3><div class="fb">${esc(q.fb)}</div>`;
-    else if (DATA.emptyFeedback) fb = `<h3>Explicación de la cátedra</h3><div class="fb empty">${esc(DATA.emptyFeedback)}</div>`;
+    if (q.fb) fb = `<h3>${esc(L.feedback)}</h3><div class="fb">${esc(q.fb)}</div>`;
+    else if (DATA.emptyFeedback) fb = `<h3>${esc(L.feedback)}</h3><div class="fb empty">${esc(DATA.emptyFeedback)}</div>`;
     return `<section class="review" aria-live="polite" tabindex="-1">
       <span class="verdict ${cls}">${label}: ${fmt(s)} / 1</span>
       <h3>${q.correct.length > 1 || q.type === "match" ? "Respuestas correctas" : "Respuesta correcta"}</h3>${key}
@@ -547,7 +569,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     if (state.mode === "all") { const c = cardAt(cur); if (c) c.scrollIntoView({ block: "start" }); }
     else scrollToCard();
   }));
-  if (!single) {
+  if (!pick) {
     $("allTopics").addEventListener("click", () => { state.topics = topicIds.slice(); buildChips(); applyFilters(); });
     $("noTopics").addEventListener("click", () => { state.topics = []; buildChips(); applyFilters(); });
   }

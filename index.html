@@ -17,7 +17,7 @@
 <div class="wrap">
   <div class="topbar end" id="topbar"></div>
   <h1 class="brand"><span class="utn-mark" aria-hidden="true"></span>Quizzes UTN</h1>
-  <p class="sub">Bancos de preguntas de repaso con corrección inmediata. Elegí una materia; tu progreso queda guardado en este navegador.</p>
+  <p class="sub">Bancos de preguntas de repaso con corrección inmediata. Elegí una materia y después el parcial; tu progreso queda guardado en este navegador.</p>
   <ul class="subjects" id="subjects" aria-live="polite"><li class="card empty-state">Cargando materias…</li></ul>
   <footer class="foot">
     <p>Desarrollado por <a href="https://github.com/gonzaorban" target="_blank" rel="noopener noreferrer">gonzaorban</a>.</p>
@@ -25,17 +25,11 @@
 </div>
 <script type="module">
 import { esc, repoLink } from "./engine/quiz.js";
+import { loadSubject, isReady, plural } from "./engine/subject.js";
 
 document.getElementById("topbar").innerHTML = repoLink();
 
 const list = document.getElementById("subjects");
-const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
-
-async function load(slug) {
-  const res = await fetch(`subjects/${slug}/questions.json`);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
 
 try {
   const res = await fetch("subjects/subjects.json");
@@ -43,13 +37,14 @@ try {
   const slugs = await res.json();
   const cards = await Promise.all(slugs.map(async (slug) => {
     try {
-      const d = await load(slug);
-      const topicsLabel = (d.labels && d.labels.topics ? d.labels.topics : "Temas").toLowerCase();
-      const nTopics = Object.keys(d.topics).length;
-      return `<li><a class="subject" href="subjects/${esc(slug)}/" style="--sa:${esc(d.accent)}">
-        <h2>${esc(d.subject)}</h2>
-        ${d.description ? `<p>${esc(d.description)}</p>` : ""}
-        <p class="counts">${plural(d.questions.length, "pregunta", "preguntas")} · ${nTopics} ${esc(topicsLabel)}</p>
+      const s = await loadSubject(new URL(`subjects/${slug}/`, document.baseURI));
+      const exams = s.exams.map((e) => isReady(e)
+        ? `${esc(e.name)} (${plural(e.data.questions.length, "pregunta", "preguntas")})`
+        : `${esc(e.name)} (próximamente)`);
+      return `<li><a class="subject" href="subjects/${esc(slug)}/" style="--sa:${esc(s.accent)}">
+        <h2>${esc(s.name)}</h2>
+        ${s.description ? `<p>${esc(s.description)}</p>` : ""}
+        <p class="counts">${exams.join(" · ")}</p>
       </a></li>`;
     } catch (e) {
       return `<li class="card empty-state">No se pudo cargar «${esc(slug)}» (${esc(e.message)}).</li>`;
