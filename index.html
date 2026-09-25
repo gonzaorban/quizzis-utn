@@ -24,10 +24,11 @@
   </footer>
 </div>
 <script type="module">
-import { esc, repoLink } from "./engine/quiz.js";
+import { esc, repoLink, backToTop } from "./engine/quiz.js";
 import { loadSubject, isReady, plural } from "./engine/subject.js";
 
 document.getElementById("topbar").innerHTML = repoLink();
+backToTop();
 
 const list = document.getElementById("subjects");
 

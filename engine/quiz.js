@@ -40,6 +40,38 @@ export function repoLink() {
   return `<a class="repo" href="${REPO_URL}" target="_blank" rel="noopener noreferrer" title="Código fuente en GitHub (se abre en una pestaña nueva)">${GITHUB_ICON}<span>gonzaorban/quizzis-utn</span></a>`;
 }
 
+// Floating "Volver arriba" button, added once per page by the landing, initSubject and initQuiz.
+// Shows after scrolling past the first screen. Where it would sit over the question column (narrow
+// screens), it only shows while scrolling up, so it doesn't cover options while reading downward.
+export function backToTop() {
+  if (document.getElementById("toTop")) return;
+  const btn = document.createElement("button");
+  btn.id = "toTop";
+  btn.type = "button";
+  btn.className = "to-top";
+  btn.setAttribute("aria-label", "Volver arriba");
+  btn.title = "Volver arriba";
+  btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l-7 7m7-7l7 7M12 5v14"/></svg>';
+  document.body.append(btn);
+
+  const inGutter = matchMedia("(min-width: 912px)"); // room beside the 760px column (see .to-top)
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  let lastY = scrollY;
+  const update = () => {
+    const y = scrollY;
+    const show = y > 400 && (inGutter.matches || y < lastY);
+    if (y !== lastY) btn.classList.toggle("show", show);
+    lastY = y;
+  };
+  addEventListener("scroll", update, { passive: true });
+  btn.addEventListener("click", () => {
+    scrollTo({ top: 0, behavior: reduceMotion.matches ? "auto" : "smooth" });
+    // the button hides at the top: hand keyboard focus to the page title instead of losing it
+    const h1 = document.querySelector("h1");
+    if (h1) { h1.tabIndex = -1; h1.focus({ preventScroll: true }); }
+  });
+}
+
 // breadcrumb from an exam page (subjects/<slug>/<exam>/) back to its subject and to the landing
 function crumbs(subject) {
   return `<nav class="crumbs" aria-label="Ubicación"><a href="../../../">Materias</a><span aria-hidden="true">›</span><a href="../">${esc(subject)}</a></nav>`;
@@ -67,6 +99,7 @@ const fmt = (n) => n.toFixed(2).replace(".", ",");
 
 // legacyKey: storage key used before the subject was split by exam; read once if the new key is empty
 export async function initQuiz({ slug, exam, legacyKey, root = document.getElementById("app") }) {
+  backToTop();
   const dataUrl = new URL("questions.json", document.baseURI);
   let DATA;
   try {

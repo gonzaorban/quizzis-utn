@@ -162,6 +162,14 @@ select{background:var(--surface);border:1px solid var(--line);border-radius:8px;
 .submit-all .sent:focus{outline:none}
 .submit-all .c-ok{color:var(--ok)} .submit-all .c-bad{color:var(--bad)} .submit-all .c-part{color:var(--part)}
 
+/* "Volver arriba": beside the 760px column when there's room (≥912px wide), else in the corner */
+.to-top{position:fixed;z-index:10;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:max(calc(16px + env(safe-area-inset-right,0px)),calc((100vw - 760px) / 2 - 60px));width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--accent);box-shadow:0 2px 10px rgba(0,0,0,.18);cursor:pointer;padding:0;display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s,border-color .15s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{border-color:var(--accent)}
+.to-top:focus-visible{outline:3px solid color-mix(in srgb,var(--accent) 55%,transparent);outline-offset:2px}
+.to-top svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+h1[tabindex="-1"]:focus{outline:none}
+
 /* placeholder shown by the subject pages until questions.json arrives */
 .sk{background:var(--line);border-radius:8px;animation:sk-pulse 1s ease-in-out infinite alternate}
 @keyframes sk-pulse{from{opacity:.5}to{opacity:1}}
