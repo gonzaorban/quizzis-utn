@@ -862,7 +862,9 @@
       ],
       "choices": [
         "es del 18%",
-        "es del 36%"
+        "es del 36%",
+        "es del 40%",
+        "es del 50%"
       ],
       "correct": [
         0,
@@ -1225,7 +1227,9 @@
       ],
       "choices": [
         "TYPE",
-        "LEN"
+        "LEN",
+        "DATA",
+        "FCS"
       ],
       "correct": [
         0,
@@ -1497,7 +1501,9 @@
       "choices": [
         "métodos de transmisión (FHSS, DSSS, OFDM), y en particular las frecuencias y sus velocidades asociadas",
         "LLC",
-        "MAC: con CSMA/CA, basado en MACAW"
+        "MAC: con CSMA/CA, basado en MACAW",
+        "MAC: con CSMA/CS basado en MACA",
+        "direccionamiento basado en IP"
       ],
       "correct": [
         0,
@@ -1523,7 +1529,9 @@
       ],
       "choices": [
         "En modo Infraestructura",
-        "En modo Ad-Hoc"
+        "En modo Ad-Hoc",
+        "En modo Mixto",
+        "En modo Solapado"
       ],
       "correct": [
         0,
