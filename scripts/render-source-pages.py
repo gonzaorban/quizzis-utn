@@ -2,7 +2,7 @@
 # show it without opening the PDF. Writes sources/pages/<pdf>-p<N>.webp and sets "source.img" on the question;
 # questions whose source is not high confidence lose "source.img". Safe to run again after changing sources.
 # Requires PyMuPDF and Pillow (pip install pymupdf pillow). Usage:
-#   python scripts/render-source-pages.py <slug>
+#   python scripts/render-source-pages.py <materia>/<parcial>   (ej.: redes/1er-parcial)
 import io
 import json
 import sys
@@ -16,7 +16,7 @@ QUALITY = 80
 
 root = Path(__file__).resolve().parent.parent
 if len(sys.argv) != 2:
-    sys.exit("uso: python scripts/render-source-pages.py <slug>")
+    sys.exit("uso: python scripts/render-source-pages.py <materia>/<parcial>")
 subject = root / "subjects" / sys.argv[1]
 qpath = subject / "questions.json"
 data = json.loads(qpath.read_text(encoding="utf-8"))

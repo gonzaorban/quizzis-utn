@@ -1,6 +1,7 @@
 {
   "subject": "Redes de Datos",
-  "description": "Banco de preguntas del 1er parcial (ISI, UTN FRRe), armado desde las revisiones del cuestionario de estudio.",
+  "exam": "1er parcial",
+  "description": "Banco de preguntas (ISI, UTN FRRe) armado desde las revisiones del cuestionario de estudio.",
   "about": [
     "<p><b>Aclaración:</b> a algunas preguntas les faltan opciones que sí estaban en el cuestionario original, porque en el PDF de las revisiones solo figuraban las opciones correctas.</p>"
   ],

@@ -1,7 +1,7 @@
 // Dev helper: ranks PDF pages that could back each question, to help assign "source".
 // It only suggests candidates; the final page and confidence are decided by a person.
 // Requires pdftotext (poppler) on PATH. Usage:
-//   node scripts/rank-sources.mjs <slug> [id,id,...] [--top N] [--json]
+//   node scripts/rank-sources.mjs <materia>/<parcial> [id,id,...] [--top N] [--json]   (ej.: redes/1er-parcial)
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
@@ -9,13 +9,13 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const args = process.argv.slice(2);
-const slug = args[0];
-if (!slug) { console.error("uso: node scripts/rank-sources.mjs <slug> [ids] [--top N] [--json]"); process.exit(1); }
+const bank = args[0]; // subjects/<materia>/<parcial>
+if (!bank) { console.error("uso: node scripts/rank-sources.mjs <materia>/<parcial> [ids] [--top N] [--json]"); process.exit(1); }
 const top = args.includes("--top") ? +args[args.indexOf("--top") + 1] : 3;
 const asJson = args.includes("--json");
 const onlyIds = args[1] && !args[1].startsWith("--") ? new Set(args[1].split(",")) : null;
 
-const dir = path.join(root, "subjects", slug);
+const dir = path.join(root, "subjects", bank);
 const data = JSON.parse(fs.readFileSync(path.join(dir, "questions.json"), "utf8"));
 const srcDir = path.join(dir, "sources");
 

@@ -1,0 +1,9 @@
+{
+  "name": "Sistemas de Información Geográfica",
+  "description": "Preguntas importantes de clase y de parciales anteriores, con la página del apunte.",
+  "accent": "#CE1B1B",
+  "accentDark": "#F26B6B",
+  "exams": [
+    { "slug": "1er-parcial", "name": "1er parcial" }
+  ]
+}

@@ -1,6 +1,7 @@
 {
-  "subject": "1er parcial GIS",
-  "description": "Sistemas de Información Geográfica (ISI, UTN FRRe): las preguntas importantes y las del 1er parcial 2025, con la página del apunte de donde sale cada una.",
+  "subject": "Sistemas de Información Geográfica",
+  "exam": "1er parcial",
+  "description": "Las preguntas importantes y las del 1er parcial 2025, con la página del apunte de donde sale cada una.",
   "accent": "#CE1B1B",
   "accentDark": "#F26B6B",
   "emptyFeedback": null,
