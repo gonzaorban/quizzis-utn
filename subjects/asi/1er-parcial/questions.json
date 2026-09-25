@@ -5,7 +5,7 @@
   "accent": "#2F4BC0",
   "accentDark": "#8A9CF0",
   "emptyFeedback": null,
-  "topicFilter": "single",
+  "topicFilter": "pick",
   "labels": {
     "topics": "Fuentes",
     "allTopics": "Todas",
