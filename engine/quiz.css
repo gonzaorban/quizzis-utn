@@ -34,6 +34,9 @@ h1{font:700 2.1rem/1 "Barlow Condensed","Arial Narrow",sans-serif;letter-spacing
 .topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-bottom:10px}
 .topbar.end{justify-content:flex-end}
 .home{display:inline-block;font-size:.9rem;text-underline-offset:3px}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;font-size:.9rem;color:var(--muted)}
+.crumbs a{text-underline-offset:3px}
+.kicker{margin:4px 0 0;font:600 1rem/1.2 "Barlow Condensed","Arial Narrow",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 .repo{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:5px 12px;min-height:32px;font-size:.82rem;font-weight:700;color:var(--muted);text-decoration:none;transition:border-color .15s,color .15s}
 .repo:hover{border-color:var(--accent);color:var(--accent)}
 .repo svg{width:16px;height:16px;fill:currentColor;flex:none}
@@ -190,6 +193,10 @@ select{background:var(--surface);border:1px solid var(--line);border-radius:8px;
 .subject h2{font:700 1.5rem/1.1 "Barlow Condensed","Arial Narrow",sans-serif;margin:0 0 4px}
 .subject p{margin:0;color:var(--muted);font-size:.93rem}
 .subject .counts{margin-top:8px;color:var(--ink);font-weight:700;font-size:.9rem}
+.subject.soon{border-left-color:var(--line);color:var(--muted)}
+.subject.soon:hover{border-color:var(--line)}
+.subject.soon .badge{vertical-align:middle;font-family:"Atkinson Hyperlegible",system-ui,sans-serif}
+.empty-state p{margin:12px 0 0}
 
 @media (prefers-reduced-motion: reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}

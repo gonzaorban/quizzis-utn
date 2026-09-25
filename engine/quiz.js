@@ -1,7 +1,7 @@
-// Shared quiz engine. Each subject page calls initQuiz({ slug }) and the engine
-// fetches ./questions.json (relative to the page), renders the UI into #app and
-// keeps progress in localStorage under "quiz-<slug>-v1". Questions are shown one
-// at a time or all on one page (so the browser's Ctrl+F can find any of them).
+// Shared quiz engine. Each exam page (subjects/<slug>/<exam>/) calls initQuiz({ slug, exam }) and the
+// engine fetches ./questions.json (relative to the page), renders the UI into #app and keeps progress in
+// localStorage under "quiz-<slug>-<exam>-v1". Questions are shown one at a time or all on one page (so the
+// browser's Ctrl+F can find any of them).
 
 const kindLabel = {
   single: "Seleccioná una opción",
@@ -40,6 +40,11 @@ export function repoLink() {
   return `<a class="repo" href="${REPO_URL}" target="_blank" rel="noopener noreferrer" title="Código fuente en GitHub (se abre en una pestaña nueva)">${GITHUB_ICON}<span>gonzaorban/quizzis-utn</span></a>`;
 }
 
+// breadcrumb from an exam page (subjects/<slug>/<exam>/) back to its subject and to the landing
+function crumbs(subject) {
+  return `<nav class="crumbs" aria-label="Ubicación"><a href="../../../">Materias</a><span aria-hidden="true">›</span><a href="../">${esc(subject)}</a></nav>`;
+}
+
 export const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 // Sets the subject accent as CSS variables; the stylesheet picks light or dark.
@@ -60,7 +65,8 @@ function shuffle(arr) {
 }
 const fmt = (n) => n.toFixed(2).replace(".", ",");
 
-export async function initQuiz({ slug, root = document.getElementById("app") }) {
+// legacyKey: storage key used before the subject was split by exam; read once if the new key is empty
+export async function initQuiz({ slug, exam, legacyKey, root = document.getElementById("app") }) {
   const dataUrl = new URL("questions.json", document.baseURI);
   let DATA;
   try {
@@ -73,8 +79,18 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
     return;
   }
   applyAccent(DATA);
+  const heading = `<div class="topbar">${crumbs(DATA.subject)}${repoLink()}</div>
+    ${DATA.exam ? `<p class="kicker">${esc(DATA.exam)}</p>` : ""}
+    <h1>${esc(DATA.subject)}</h1>
+    ${DATA.description ? `<p class="sub">${esc(DATA.description)}</p>` : ""}`;
+  if (!DATA.questions.length) {
+    root.innerHTML = `<div class="wrap">${heading}
+      <div class="card empty-state">Todavía no hay preguntas cargadas para ${esc(DATA.exam ? `el ${DATA.exam}` : "este cuestionario")}.
+        <p><a href="../">Elegir otro parcial</a></p></div></div>`;
+    return;
+  }
   const asset = (path) => new URL(path, dataUrl).href;
-  const STORE_KEY = `quiz-${slug}-v1`;
+  const STORE_KEY = `quiz-${slug}-${exam}-v1`;
   const topicIds = Object.keys(DATA.topics);
   const topicOf = (q) => DATA.topics[String(q.topic)];
   // "multi": chips toggle independently (Redes). "single": one chip at a time plus "Todas" (ASI).
@@ -95,7 +111,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   function loadState() {
     const base = { answers: {}, topics: topicIds.slice(), section: "all", status: "all", shuffleQ: false, shuffleO: true, mode: "one" };
     try {
-      const raw = localStorage.getItem(STORE_KEY);
+      const raw = localStorage.getItem(STORE_KEY) || (legacyKey && localStorage.getItem(legacyKey));
       if (!raw) return base;
       const s = Object.assign(base, JSON.parse(raw));
       s.topics = s.topics.map(String).filter((t) => topicIds.includes(t));
@@ -127,9 +143,7 @@ export async function initQuiz({ slug, root = document.getElementById("app") }) 
   const intro = DATA.about && DATA.about.length
     ? `<details class="intro" id="intro" open><summary>Sobre este banco de preguntas</summary>${DATA.about.join("")}</details>` : "";
   root.innerHTML = `<div class="wrap">
-    <div class="topbar"><a class="home" href="../../">← Todas las materias</a>${repoLink()}</div>
-    <h1>${esc(DATA.subject)}</h1>
-    ${DATA.description ? `<p class="sub">${esc(DATA.description)}</p>` : ""}
+    ${heading}
     ${intro}
     <details class="filters" id="filters" open>
       <summary><span>${esc(L.topics)} y opciones</span><span class="hint" id="filterHint"></span></summary>

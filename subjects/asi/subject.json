@@ -1,0 +1,10 @@
+{
+  "name": "Administración de Sistemas de Información",
+  "description": "Cuestionarios de teoría y preguntas de parciales anteriores.",
+  "accent": "#2F4BC0",
+  "accentDark": "#8A9CF0",
+  "exams": [
+    { "slug": "1er-parcial", "name": "1er parcial" },
+    { "slug": "2do-parcial", "name": "2do parcial" }
+  ]
+}
