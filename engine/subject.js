@@ -1,7 +1,7 @@
 // Subject level: subjects/<slug>/subject.json lists the subject's exams, and each exam lives in
 // subjects/<slug>/<exam>/ with its own questions.json. The landing uses loadSubject for its cards and every
 // subject page calls initSubject({ slug }) to let the user pick the exam.
-import { esc, repoLink, applyAccent } from "./quiz.js";
+import { esc, repoLink, applyAccent, backToTop } from "./quiz.js";
 
 export const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 
@@ -26,6 +26,7 @@ export async function loadSubject(base) {
 export const isReady = (e) => e.data && e.data.questions.length > 0;
 
 export async function initSubject({ slug, root = document.getElementById("app") }) {
+  backToTop();
   let S;
   try {
     S = await loadSubject(new URL("./", document.baseURI));
