@@ -93,8 +93,9 @@ export async function initQuiz({ slug, exam, legacyKey, root = document.getEleme
   const STORE_KEY = `quiz-${slug}-${exam}-v1`;
   const topicIds = Object.keys(DATA.topics);
   const topicOf = (q) => DATA.topics[String(q.topic)];
-  // "multi": chips toggle independently (Redes). "single": one chip at a time plus "Todas" (ASI).
-  const single = DATA.topicFilter === "single";
+  // "multi": chips toggle independently, all on by default (Redes).
+  // "pick": a "Todas" chip plus chips that combine: the first tap narrows to that one, later taps add or remove (ASI).
+  const pick = DATA.topicFilter === "pick";
   const L = Object.assign({ topics: "Temas", allTopics: "Todos los temas", noTopics: "Ninguno", section: "Sección", feedback: "Explicación de la cátedra" }, DATA.labels);
   const sections = [...new Set(DATA.questions.map((q) => q.section).filter(Boolean))];
 
@@ -115,6 +116,7 @@ export async function initQuiz({ slug, exam, legacyKey, root = document.getEleme
       if (!raw) return base;
       const s = Object.assign(base, JSON.parse(raw));
       s.topics = s.topics.map(String).filter((t) => topicIds.includes(t));
+      if (pick && !s.topics.length) s.topics = topicIds.slice();
       if (s.section !== "all" && !sections.includes(s.section)) s.section = "all";
       if (s.mode !== "all") s.mode = "one";
       return s;
@@ -149,7 +151,7 @@ export async function initQuiz({ slug, exam, legacyKey, root = document.getEleme
       <summary><span>${esc(L.topics)} y opciones</span><span class="hint" id="filterHint"></span></summary>
       <div class="chips" id="chips" role="group" aria-label="Filtrar por ${esc(L.topics.toLowerCase())}"></div>
       <ul class="topic-notes" id="topicNotes"></ul>
-      ${single ? "" : `<div class="row">
+      ${pick ? "" : `<div class="row">
         <button class="linkbtn" id="allTopics" type="button">${esc(L.allTopics)}</button>
         <button class="linkbtn" id="noTopics" type="button">${esc(L.noTopics)}</button>
       </div>`}
@@ -196,17 +198,21 @@ export async function initQuiz({ slug, exam, legacyKey, root = document.getEleme
     const counts = {};
     DATA.questions.forEach((q) => { counts[q.topic] = (counts[q.topic] || 0) + 1; });
     const all = state.topics.length === topicIds.length;
-    const allChip = single
+    const allChip = pick
       ? `<button type="button" class="chip" data-topic="*" aria-pressed="${all}">${esc(L.allTopics)} <span class="n">${DATA.questions.length}</span></button>`
       : "";
     $("chips").innerHTML = allChip + topicIds.map((k) =>
-      `<button type="button" class="chip" data-topic="${esc(k)}" aria-pressed="${single ? !all && state.topics.includes(k) : state.topics.includes(k)}">
+      `<button type="button" class="chip" data-topic="${esc(k)}" aria-pressed="${pick ? !all && state.topics.includes(k) : state.topics.includes(k)}">
          ${swatch(DATA.topics[k])}${esc(DATA.topics[k].name)} <span class="n">${counts[k] || 0}</span>
        </button>`).join("");
     $("chips").querySelectorAll(".chip").forEach((b) => b.addEventListener("click", () => {
       const t = b.dataset.topic;
-      if (single) {
-        state.topics = t === "*" ? topicIds.slice() : [t];
+      if (pick) {
+        if (t === "*" || all) state.topics = t === "*" ? topicIds.slice() : [t];
+        else {
+          state.topics = state.topics.includes(t) ? state.topics.filter((x) => x !== t) : [...state.topics, t];
+          if (!state.topics.length) state.topics = topicIds.slice();
+        }
         buildChips();
       } else {
         state.topics = state.topics.includes(t) ? state.topics.filter((x) => x !== t) : [...state.topics, t];
@@ -317,7 +323,7 @@ export async function initQuiz({ slug, exam, legacyKey, root = document.getEleme
     const main = $("main");
     main.dataset.mode = state.mode;
     if (!view.length) {
-      main.innerHTML = `<div class="card empty-state">No hay preguntas con estos filtros. ${single ? `Elegí otra opción en “${esc(L.topics)}”` : "Activá algún tema"} o cambiá “Mostrar”.</div>`;
+      main.innerHTML = `<div class="card empty-state">No hay preguntas con estos filtros. ${pick ? `Cambiá la selección en “${esc(L.topics)}”` : "Activá algún tema"} o cambiá “Mostrar”.</div>`;
       return;
     }
     if (state.mode === "all") {
@@ -563,7 +569,7 @@ export async function initQuiz({ slug, exam, legacyKey, root = document.getEleme
     if (state.mode === "all") { const c = cardAt(cur); if (c) c.scrollIntoView({ block: "start" }); }
     else scrollToCard();
   }));
-  if (!single) {
+  if (!pick) {
     $("allTopics").addEventListener("click", () => { state.topics = topicIds.slice(); buildChips(); applyFilters(); });
     $("noTopics").addEventListener("click", () => { state.topics = []; buildChips(); applyFilters(); });
   }

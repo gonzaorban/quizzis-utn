@@ -56,7 +56,7 @@ function checkExam(slug, exam, meta) {
   if (data.exam !== exam.name) err("", `'exam' debe ser el nombre del parcial en subject.json («${exam.name}»)`);
   if (!HEX.test(data.accent || "")) err("", `'accent' debe ser un color #RRGGBB (vino ${JSON.stringify(data.accent)})`);
   if (data.accentDark !== undefined && !HEX.test(data.accentDark)) err("", "'accentDark' debe ser un color #RRGGBB");
-  if (data.topicFilter !== undefined && !["single", "multi"].includes(data.topicFilter)) err("", "'topicFilter' debe ser single|multi");
+  if (data.topicFilter !== undefined && !["pick", "multi"].includes(data.topicFilter)) err("", "'topicFilter' debe ser pick|multi");
   if (!data.topics || typeof data.topics !== "object") { err("", "falta 'topics'"); return; }
   for (const [k, t] of Object.entries(data.topics)) {
     if (!t || typeof t.name !== "string") err(`topic ${k}`, "falta 'name'");

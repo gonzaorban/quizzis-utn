@@ -144,7 +144,7 @@ las respuestas guardadas de esas preguntas se pierden.
   "accentDark": "#5B8FE6",                     // opcional, acento en modo oscuro
   "emptyFeedback": "La cátedra no incluyó…",   // texto si falta "fb"; null oculta la sección
   "topicFilter": "multi",                      // opcional: "multi" (chips independientes) o
-                                               // "single" (uno a la vez + "Todas")
+                                               // "pick" ("Todas" + chips que se combinan)
   "labels": {                                  // opcional, textos del filtro
     "topics": "Temas", "allTopics": "Todos los temas", "noTopics": "Ninguno", "section": "Sección",
     "feedback": "Explicación de la cátedra"    // título de la explicación ("fb")
